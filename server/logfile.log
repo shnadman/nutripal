@@ -1,0 +1,272 @@
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:01:34.620Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:01:36.644Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:01:53.205Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:01:55.223Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:02:45.642Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:02:47.662Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:03:30.520Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:03:32.538Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:03:48.610Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:03:50.629Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:04:30.822Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:04:32.842Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:05:02.409Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:05:04.429Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:15:07.724Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:15:09.743Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:15:27.816Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:15:29.838Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:44:32.897Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:44:34.915Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:44:55.843Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:44:57.862Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:47:58.093Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:48:00.116Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:48:51.774Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:48:53.793Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-03T19:58:56.965Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-03T19:58:58.985Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-04T11:40:48.018Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-04T11:40:50.038Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-04T11:48:05.187Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-04T11:48:07.206Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-04T11:48:51.325Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-04T11:48:53.343Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-04T11:58:56.399Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-04T11:58:58.419Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-04T12:22:03.958Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-04T12:22:05.983Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-04T12:27:35.595Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-04T12:27:37.615Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-06T18:37:22.109Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-06T18:37:24.127Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-06T18:37:37.738Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-06T18:37:39.762Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-06T19:43:58.621Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-06T19:44:00.636Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-07T11:32:31.212Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-07T11:32:33.229Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-07T13:38:14.346Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-07T13:38:16.366Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-07T14:38:05.492Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-07T14:38:07.520Z"}
+{"message":"User validation failed: name: Path `name` (`dada`) is shorter than the minimum allowed length (5).","errors":{"name":{"message":"Path `name` (`dada`) is shorter than the minimum allowed length (5).","name":"ValidatorError","properties":{"message":"Path `{PATH}` (`{VALUE}`) is shorter than the minimum allowed length (5).","type":"minlength","minlength":5,"path":"name","value":"dada"},"kind":"minlength","path":"name","value":"dada","$isValidatorError":true}},"_message":"User validation failed","stack":"ValidationError: User validation failed: name: Path `name` (`dada`) is shorter than the minimum allowed length (5).\n    at new ValidationError (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\error\\validation.js:27:11)\n    at model.Document.invalidate (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\document.js:1656:32)\n    at C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\document.js:1528:17\n    at Immediate.<anonymous> (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\schematype.js:785:9)\n    at processImmediate (timers.js:638:19)","name":"ValidationError","level":"error","timestamp":"2020-10-08T06:41:10.190Z"}
+{"message":"User validation failed: name: Path `name` (`dada`) is shorter than the minimum allowed length (5).","errors":{"name":{"message":"Path `name` (`dada`) is shorter than the minimum allowed length (5).","name":"ValidatorError","properties":{"message":"Path `{PATH}` (`{VALUE}`) is shorter than the minimum allowed length (5).","type":"minlength","minlength":5,"path":"name","value":"dada"},"kind":"minlength","path":"name","value":"dada","$isValidatorError":true}},"_message":"User validation failed","stack":"ValidationError: User validation failed: name: Path `name` (`dada`) is shorter than the minimum allowed length (5).\n    at new ValidationError (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\error\\validation.js:27:11)\n    at model.Document.invalidate (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\document.js:1656:32)\n    at C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\document.js:1528:17\n    at Immediate.<anonymous> (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\schematype.js:785:9)\n    at processImmediate (timers.js:638:19)","name":"ValidationError","level":"error","timestamp":"2020-10-08T06:41:14.583Z"}
+{"message":"User validation failed: name: Path `name` (`duda`) is shorter than the minimum allowed length (5).","errors":{"name":{"message":"Path `name` (`duda`) is shorter than the minimum allowed length (5).","name":"ValidatorError","properties":{"message":"Path `{PATH}` (`{VALUE}`) is shorter than the minimum allowed length (5).","type":"minlength","minlength":5,"path":"name","value":"duda"},"kind":"minlength","path":"name","value":"duda","$isValidatorError":true}},"_message":"User validation failed","stack":"ValidationError: User validation failed: name: Path `name` (`duda`) is shorter than the minimum allowed length (5).\n    at new ValidationError (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\error\\validation.js:27:11)\n    at model.Document.invalidate (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\document.js:1656:32)\n    at C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\document.js:1528:17\n    at Immediate.<anonymous> (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\schematype.js:785:9)\n    at processImmediate (timers.js:638:19)","name":"ValidationError","level":"error","timestamp":"2020-10-08T07:11:15.079Z"}
+{"message":"User validation failed: name: Path `name` (`duda`) is shorter than the minimum allowed length (5).","errors":{"name":{"message":"Path `name` (`duda`) is shorter than the minimum allowed length (5).","name":"ValidatorError","properties":{"message":"Path `{PATH}` (`{VALUE}`) is shorter than the minimum allowed length (5).","type":"minlength","minlength":5,"path":"name","value":"duda"},"kind":"minlength","path":"name","value":"duda","$isValidatorError":true}},"_message":"User validation failed","stack":"ValidationError: User validation failed: name: Path `name` (`duda`) is shorter than the minimum allowed length (5).\n    at new ValidationError (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\error\\validation.js:27:11)\n    at model.Document.invalidate (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\document.js:1656:32)\n    at C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\document.js:1528:17\n    at Immediate.<anonymous> (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\schematype.js:785:9)\n    at processImmediate (timers.js:638:19)","name":"ValidationError","level":"error","timestamp":"2020-10-08T07:11:20.589Z"}
+{"message":"User validation failed: name: Path `name` (`duda`) is shorter than the minimum allowed length (5).","errors":{"name":{"message":"Path `name` (`duda`) is shorter than the minimum allowed length (5).","name":"ValidatorError","properties":{"message":"Path `{PATH}` (`{VALUE}`) is shorter than the minimum allowed length (5).","type":"minlength","minlength":5,"path":"name","value":"duda"},"kind":"minlength","path":"name","value":"duda","$isValidatorError":true}},"_message":"User validation failed","stack":"ValidationError: User validation failed: name: Path `name` (`duda`) is shorter than the minimum allowed length (5).\n    at new ValidationError (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\error\\validation.js:27:11)\n    at model.Document.invalidate (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\document.js:1656:32)\n    at C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\document.js:1528:17\n    at Immediate.<anonymous> (C:\\Users\\Nadav Sherf\\React\\boilergreat\\server\\node_modules\\mongoose\\lib\\schematype.js:785:9)\n    at processImmediate (timers.js:638:19)","name":"ValidationError","level":"error","timestamp":"2020-10-08T07:11:23.167Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T08:43:36.540Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T08:43:38.557Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:03:43.931Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:03:43.954Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:10:56.435Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:10:56.457Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:24:06.950Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:24:06.973Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:24:16.421Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:24:16.444Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:25:17.458Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:25:17.479Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:26:03.331Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:26:03.355Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:27:10.729Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:27:10.752Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:27:20.496Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:27:20.520Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:27:46.040Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:27:46.075Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:28:20.373Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:28:20.396Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:28:40.051Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:28:40.075Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:29:08.376Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:29:08.406Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:32:14.880Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:32:14.904Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:32:49.101Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:32:49.132Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:36:20.158Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:36:20.181Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:37:11.107Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:37:11.136Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:37:25.247Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:37:25.281Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:38:35.760Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:38:35.782Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:40:21.400Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:40:21.421Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:41:50.011Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:41:50.032Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:44:06.163Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:44:06.185Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:44:25.571Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:44:25.591Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:44:55.856Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:44:55.876Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:53:49.094Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:53:49.115Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:54:17.796Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:54:17.817Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:54:27.071Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:54:27.094Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:55:11.266Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:55:11.287Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-08T10:55:33.175Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-08T10:55:33.195Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:39:47.938Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:39:47.958Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:40:41.801Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:40:41.822Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:41:15.350Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:41:15.373Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:47:50.938Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:47:50.958Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:48:17.142Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:48:17.164Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:50:06.968Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:50:06.989Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:50:24.484Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:50:24.507Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:50:44.929Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:50:44.950Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:50:54.544Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:50:54.563Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:50:59.122Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:50:59.143Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:51:29.008Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:51:29.030Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:52:44.571Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:52:44.594Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T09:53:33.565Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T09:53:33.591Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T10:04:51.084Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T10:04:51.115Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T10:11:08.616Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T10:11:08.648Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T10:11:36.825Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T10:11:36.851Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T10:13:48.059Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T10:13:48.079Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T10:27:25.700Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T10:27:25.724Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:17:04.621Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:17:04.657Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:18:23.136Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:18:23.157Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:19:01.412Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:19:01.437Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:20:08.207Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:20:08.232Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:23:40.054Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:23:40.076Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:25:15.738Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:25:15.764Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:26:58.768Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:26:58.791Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:27:05.129Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:27:07.023Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:29:52.590Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:29:52.612Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:31:46.715Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:31:46.736Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:32:11.223Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:32:11.243Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:32:52.741Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:32:52.762Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:33:46.431Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:33:46.454Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:34:37.981Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:34:38.001Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:34:46.777Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:34:46.804Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:35:25.248Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:35:25.271Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:35:44.518Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:35:44.540Z"}
+{"message":"result.isEmpty is not a function","stack":"TypeError: result.isEmpty is not a function\n    at exports.apiGetByCategoryRange (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\controllers\\macros.js:13:14)\n    at processTicksAndRejections (internal/process/next_tick.js:81:5)","level":"error","timestamp":"2020-10-09T15:35:46.615Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:36:02.441Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:36:02.463Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:36:29.925Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:36:29.971Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:37:34.659Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:37:34.678Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:38:05.064Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:38:05.092Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:38:28.098Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:38:28.118Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:38:40.282Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:38:40.306Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:39:31.299Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:39:31.320Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:40:13.066Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:40:13.096Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:40:57.370Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:40:57.392Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:41:42.068Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:41:42.089Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:42:54.544Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:42:54.569Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:43:23.101Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:43:23.125Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:43:36.995Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:43:37.020Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:44:21.956Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:44:21.977Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:44:28.237Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:44:28.280Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T15:56:44.795Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T15:56:44.819Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T16:12:02.792Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T16:12:02.822Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T16:14:50.677Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T16:14:50.698Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T16:15:36.193Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T16:15:36.214Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T16:15:38.267Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T16:15:38.300Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T16:17:04.826Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T16:17:04.851Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T16:17:42.558Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T16:17:42.578Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T16:23:45.550Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T16:23:45.571Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-09T17:07:06.816Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-09T17:07:06.837Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T09:47:46.646Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T09:47:46.671Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T09:48:32.274Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T09:48:32.297Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T09:48:57.718Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T09:48:57.738Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T09:51:04.962Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T09:51:04.989Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T09:52:12.537Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T09:52:12.560Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T09:53:00.238Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T09:53:00.259Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T09:54:09.532Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T09:54:09.554Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T09:55:44.004Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T09:55:44.030Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T09:56:19.305Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T09:56:19.332Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T10:45:08.841Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T10:45:08.863Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T10:49:38.997Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T10:49:39.026Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T10:49:42.130Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T10:49:42.158Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T11:59:36.627Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T11:59:36.652Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T12:01:56.167Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T12:01:56.191Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T12:23:51.750Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T12:23:51.771Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T16:48:40.276Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T16:48:40.299Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T16:53:32.961Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T16:53:32.989Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-10T20:24:17.774Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-10T20:24:17.795Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-11T09:13:15.373Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-11T09:13:15.394Z"}

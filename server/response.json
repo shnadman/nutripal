@@ -1,0 +1,23 @@
+[
+  {
+    "name":"Egg",
+    "calories":50,
+    "carbs": 1,
+    "fat": 2,
+    "protein":"12g"
+  },
+  {
+    "name":"Yogurt",
+    "calories":120,
+    "carbs": 2,
+    "fat": 1,
+    "protein":"19g"
+  },
+  {
+    "name":"Pizza",
+    "calories":450,
+    "carbs": 120,
+    "fat": 40,
+    "protein":"45g"
+  }
+]
