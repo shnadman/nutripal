@@ -6,7 +6,6 @@ const express = require("express");
 const advancedResults = require("../middleware/advancedResults");
 const router = express.Router();
 
-//router.route("/getByRange").get(apiGetByCategoryRange);
 router.route("/").get(advancedResults(Macros), getMacros);
 
 module.exports = router;

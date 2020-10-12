@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -6,7 +6,11 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import GradeRoundedIcon from "@material-ui/icons/GradeRounded";
 import Color from "color";
+import { useDispatch } from "react-redux";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import IconButton from "@material-ui/core/IconButton";
+import CardActions from "@material-ui/core/CardActions";
+import { modifyBasket } from "../features/basket";
 
 const useStyles = makeStyles(() => ({
   actionArea: {
@@ -53,10 +57,26 @@ const useStyles = makeStyles(() => ({
     color: "white",
     alignSelf: "center",
   },
+  starred: {
+    color: "yellow",
+  },
+  actions: {
+    background: "#0e1cb7",
+  },
 }));
 
-export default ({ image, title, calories, protein, carbs, fat }) => {
+export default ({ image, title, calories, protein, carbs, fat, id }) => {
   const classes = useStyles({ color: "#27C7E9" });
+  const [starred, setStarred] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleStar = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setStarred(!starred);
+    dispatch(modifyBasket(id, starred));
+  };
+
   return (
     <CardActionArea className={classes.actionArea}>
       <Card className={classes.card}>
@@ -73,8 +93,17 @@ export default ({ image, title, calories, protein, carbs, fat }) => {
           </Typography>
           <Typography className={classes.subtitle}>Carbs: {carbs}g</Typography>
           <Typography className={classes.subtitle}>Fat: {fat}g</Typography>
-          <GradeRoundedIcon className={classes.icon} />
         </CardContent>
+        <CardActions className={classes.actions}>
+          <IconButton
+            onMouseDown={(event) => event.stopPropagation()}
+            onClick={handleStar}
+          >
+            <GradeRoundedIcon
+              className={starred ? classes.starred : classes.icon}
+            />
+          </IconButton>
+        </CardActions>
       </Card>
     </CardActionArea>
   );

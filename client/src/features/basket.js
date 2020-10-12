@@ -1,0 +1,53 @@
+import { createSlice } from "@reduxjs/toolkit";
+import basket from "../api/basket";
+
+basket.interceptors.request.use(function (config) {
+  const token = localStorage.getItem("x-auth-token");
+  config.headers["x-auth-token"] = token ? token : "";
+  return config;
+});
+
+const initialState = {
+  basket: {},
+};
+
+// Slice
+const slice = createSlice({
+  name: "basket",
+  initialState,
+  reducers: {
+    basketSuccess: (state, action) => {
+      state.basket = action.payload.data.starredMeals;
+    },
+    basketError: (state, action) => {
+      console.log(action.payload);
+    },
+  },
+});
+export default slice.reducer;
+
+// Actions
+export const { basketSuccess, basketError } = slice.actions;
+
+export const modifyBasket = (mealId, remove) => async (dispatch) => {
+  try {
+    const res = await basket.put("/", { mealId, remove });
+  } catch (e) {
+    dispatch(basketError(e.response.data));
+  }
+};
+
+export const getHub = () => async (dispatch) => {
+  try {
+    const jwt = localStorage.getItem("x-auth-token");
+    const res = await basket.get("/", {
+      headers: {
+        "x-auth-token": jwt,
+      },
+    });
+    debugger;
+    dispatch(basketSuccess(res));
+  } catch (e) {
+    dispatch(basketError(e.response.data));
+  }
+};

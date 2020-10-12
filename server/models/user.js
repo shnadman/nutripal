@@ -23,6 +23,13 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 1024,
   },
+  starredMeals: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Macros",
+      unique: true,
+    },
+  ],
   isAdmin: Boolean,
 });
 
@@ -46,5 +53,16 @@ function validateUser(user) {
   return schema.validate(user);
 }
 
+function validateStarred(starred) {
+  console.log(starred);
+  const schema = Joi.object({
+    remove: Joi.boolean().required(),
+    mealId: Joi.required(),
+  });
+
+  return schema.validate(starred);
+}
+
 exports.User = User;
-exports.validate = validateUser;
+exports.validateUser = validateUser;
+exports.validateStarred = validateStarred;

@@ -29,7 +29,6 @@ export const searchMacros = (params) => async (dispatch) => {
     const res = await macrosApi.get("/", {
       params,
     });
-    debugger;
     dispatch(macrosSuccess(res));
   } catch (e) {
     dispatch(macrosError(e.response.data));

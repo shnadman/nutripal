@@ -29,6 +29,26 @@ export default ({ dispatch }) => (next) => (action) => {
           );
       next(action);
       break;
+    case "macros/macrosError":
+      dispatch(enqueueSnackbar(makeNotification(action.payload, "warning")));
+      next(action);
+      break;
+    case "basket/basketError":
+      dispatch(enqueueSnackbar(makeNotification(action.payload, "warning")));
+      next(action);
+      break;
+    case "basket/basketSuccess":
+      const { name, remove } = action.payload.data;
+      dispatch(
+        enqueueSnackbar(
+          makeNotification(
+            `${name} ${remove ? "removed from" : "added to"}  your basket!`,
+            "success"
+          )
+        )
+      );
+      next(action);
+      break;
     default:
       next(action);
   }

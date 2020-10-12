@@ -5,7 +5,7 @@ export default axios.create({
   timeout: 2000,
   params: {
     select: "",
-    limit: "5 ",
+    limit: "8 ",
     sort: "score",
   },
 });
