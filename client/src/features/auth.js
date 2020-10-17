@@ -41,6 +41,7 @@ export const signup = (formProps, callback) => async (dispatch) => {
     localStorage.setItem("x-auth-token", res.headers["x-auth-token"]);
     callback();
   } catch (e) {
+    debugger;
     dispatch(authError(e.response.data));
   }
 };

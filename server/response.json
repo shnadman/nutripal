@@ -7,6 +7,13 @@
     "protein":"12g"
   },
   {
+    "name":"Cottage",
+    "calories":163,
+    "carbs": 6.2,
+    "fat": 2.3,
+    "protein":"28g"
+  },
+  {
     "name":"Yogurt",
     "calories":120,
     "carbs": 2,

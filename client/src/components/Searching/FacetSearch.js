@@ -1,10 +1,12 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
-import { searchMacros } from "../features/macros";
+import { searchMacros } from "../../features/macros";
 import { useDispatch } from "react-redux";
 import { useForm, Controller } from "react-hook-form";
 import Button from "@material-ui/core/Button";
 import Slider from "@material-ui/core/Slider";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 
 export default () => {
   const dispatch = useDispatch();
@@ -38,17 +40,18 @@ export default () => {
           control={control}
           defaultValue={[0, 2500]}
           render={(props) => (
-            <Slider
-              {...props}
-              onChange={(_, value) => {
-                props.onChange(value);
-              }}
-              valueLabelDisplay="auto"
-              max={2500}
-              step={10}
-              orientation="vertical"
-              style={{ height: "150px" }}
-            />
+            <Box>
+              <Typography>Calories</Typography>
+              <Slider
+                {...props}
+                onChange={(_, value) => {
+                  props.onChange(value);
+                }}
+                valueLabelDisplay="auto"
+                max={2500}
+                step={10}
+              />
+            </Box>
           )}
         />
         <Controller
@@ -56,17 +59,18 @@ export default () => {
           control={control}
           defaultValue={[0, 200]}
           render={(props) => (
-            <Slider
-              {...props}
-              onChange={(_, value) => {
-                props.onChange(value);
-              }}
-              valueLabelDisplay="auto"
-              max={100}
-              step={1}
-              orientation="vertical"
-              style={{ height: "150px" }}
-            />
+            <Box>
+              <Typography>Protein</Typography>
+              <Slider
+                {...props}
+                onChange={(_, value) => {
+                  props.onChange(value);
+                }}
+                valueLabelDisplay="auto"
+                max={100}
+                step={1}
+              />
+            </Box>
           )}
         />
         <Controller
@@ -74,17 +78,18 @@ export default () => {
           control={control}
           defaultValue={[0, 200]}
           render={(props) => (
-            <Slider
-              {...props}
-              onChange={(_, value) => {
-                props.onChange(value);
-              }}
-              valueLabelDisplay="auto"
-              max={100}
-              step={1}
-              orientation="vertical"
-              style={{ height: "150px" }}
-            />
+            <Box>
+              <Typography>Carbs</Typography>
+              <Slider
+                {...props}
+                onChange={(_, value) => {
+                  props.onChange(value);
+                }}
+                valueLabelDisplay="auto"
+                max={100}
+                step={1}
+              />
+            </Box>
           )}
         />
         <Controller
@@ -92,17 +97,18 @@ export default () => {
           control={control}
           defaultValue={[0, 200]}
           render={(props) => (
-            <Slider
-              {...props}
-              onChange={(_, value) => {
-                props.onChange(value);
-              }}
-              valueLabelDisplay="auto"
-              max={100}
-              step={1}
-              orientation="vertical"
-              style={{ height: "150px" }}
-            />
+            <Box>
+              <Typography>Fat</Typography>
+              <Slider
+                {...props}
+                onChange={(_, value) => {
+                  props.onChange(value);
+                }}
+                valueLabelDisplay="auto"
+                max={100}
+                step={1}
+              />
+            </Box>
           )}
         />
         <Button style={{ marginTop: "30px" }} type="submit" variant="contained">

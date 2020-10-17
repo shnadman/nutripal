@@ -11,10 +11,12 @@ exports.getUserHub = async (req, res, next) => {
   res.send(starredMeals);
 };
 
-exports.createUser = async (req, res, next) => {
-  const { error } = validateUser(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+exports.getUsers = async (req, res, next) => {
+  const users = await User.find().populate("comments").select("-password");
+  res.send(users);
+};
 
+exports.createUser = async (req, res, next) => {
   let user = await User.findOne({ email: req.body.email });
   if (user) return res.status(400).send("User already registered.");
 

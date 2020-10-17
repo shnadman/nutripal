@@ -5,18 +5,11 @@ import Login from "../auth/Login";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { useSelector } from "react-redux";
+import { useModal } from "./hooks";
 
 export default () => {
-  const [open, setOpen] = React.useState(false);
+  const { open, handleClose, handleClickOpen } = useModal();
   const auth = useSelector((store) => store.auth.authenticated);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <Box>
@@ -32,9 +25,8 @@ export default () => {
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
-      >
-        <Login onClose={handleClose} />
-      </Dialog>
+        children={<Login onClose={handleClose} />}
+      />
     </Box>
   );
 };

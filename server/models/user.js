@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 2,
     maxlength: 50,
   },
   email: {
@@ -30,7 +30,17 @@ const userSchema = new mongoose.Schema({
       unique: true,
     },
   ],
-  isAdmin: Boolean,
+  weight: { type: Number },
+  height: { type: Number },
+  age: { type: Number },
+  goal: { type: String, enum: ["Shredding", "Mass", "Maintenance"] },
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment",
+    },
+  ],
+  isAdmin: { type: Boolean, default: false },
 });
 
 userSchema.methods.generateAuthToken = function () {
@@ -45,7 +55,7 @@ const User = mongoose.model("User", userSchema);
 
 function validateUser(user) {
   const schema = Joi.object({
-    name: Joi.string().min(3).max(50).required(),
+    name: Joi.string().min(2).max(50).required(),
     email: Joi.string().min(3).max(255).required().email(),
     password: Joi.string().min(3).max(255).required(),
   });
@@ -54,7 +64,6 @@ function validateUser(user) {
 }
 
 function validateStarred(starred) {
-  console.log(starred);
   const schema = Joi.object({
     remove: Joi.boolean().required(),
     mealId: Joi.required(),

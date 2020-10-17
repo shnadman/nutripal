@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import basket from "../api/basket";
+import _ from "lodash";
 
 basket.interceptors.request.use(function (config) {
   const token = localStorage.getItem("x-auth-token");
@@ -9,6 +10,7 @@ basket.interceptors.request.use(function (config) {
 
 const initialState = {
   basket: {},
+  discardList: [],
 };
 
 // Slice
@@ -16,6 +18,13 @@ const slice = createSlice({
   name: "basket",
   initialState,
   reducers: {
+    clearDiscardList: (state) => {
+      state.discardList = [];
+    },
+    modifyDiscardList: (state, action) => {
+      const { id, on } = action.payload;
+      on ? _.pull(state.discardList, id) : state.discardList.push(id);
+    },
     basketSuccess: (state, action) => {
       state.basket = action.payload.data.starredMeals;
     },
@@ -27,9 +36,15 @@ const slice = createSlice({
 export default slice.reducer;
 
 // Actions
-export const { basketSuccess, basketError } = slice.actions;
+export const {
+  basketSuccess,
+  basketError,
+  modifyDiscardList,
+  clearDiscardList,
+} = slice.actions;
 
 export const modifyBasket = (mealId, remove) => async (dispatch) => {
+  debugger;
   try {
     const res = await basket.put("/", { mealId, remove });
   } catch (e) {
@@ -45,7 +60,6 @@ export const getHub = () => async (dispatch) => {
         "x-auth-token": jwt,
       },
     });
-    debugger;
     dispatch(basketSuccess(res));
   } catch (e) {
     dispatch(basketError(e.response.data));

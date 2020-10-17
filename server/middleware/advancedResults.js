@@ -1,5 +1,6 @@
 const advancedResults = (model, populate) => async (req, res, next) => {
   let query;
+  let regexFlag = false;
 
   // Copy req.query
   const reqQuery = { ...req.query };
@@ -13,14 +14,33 @@ const advancedResults = (model, populate) => async (req, res, next) => {
   // Create query string
   let queryStr = JSON.stringify(reqQuery);
 
-  // Create operators ($gt, $gte, etc)
-  queryStr = queryStr.replace(
-    /\b(gt|gte|lt|lte|in)\b/g,
-    (match) => `$${match}`
-  );
+  if (queryStr.includes("regex")) {
+    const { regex } = reqQuery.name;
+    query = model
+      .find({
+        name: { $regex: new RegExp(".*" + regex + ".*", "i") },
+      })
+      .populate("starred")
+      .populate({
+        path: "comments",
+        populate: { path: "writer", model: "User", select: "name -_id" },
+      });
+  } else {
+    // Create operators ($gt, $gte, etc)
+    queryStr = queryStr.replace(
+      /\b(gt|gte|lt|lte|in)\b/g,
+      (match) => `$${match}`
+    );
 
-  // Finding resource
-  query = model.find(JSON.parse(queryStr));
+    // Finding resource
+    query = model
+      .find(JSON.parse(queryStr))
+      .populate("starred")
+      .populate({
+        path: "comments",
+        populate: { path: "writer", model: "User", select: "name -_id" },
+      });
+  }
 
   // Select Fields
   if (req.query.select) {
@@ -33,7 +53,7 @@ const advancedResults = (model, populate) => async (req, res, next) => {
     const sortBy = req.query.sort.split(",").join(" ");
     query = query.sort(sortBy);
   } else {
-    query = query.sort("-createdAt");
+    query = query.sort({ starred: -1 });
   }
 
   // Pagination
