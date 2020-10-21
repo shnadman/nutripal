@@ -16,13 +16,14 @@ export default ({ ratio }) => {
     if (hovered === i) {
       return {
         ...entry,
-        color: "grey",
+        color: "#987070",
       };
     }
     return entry;
   });
 
   const lineWidth = 60;
+  debugger;
 
   return (
     <PieChart

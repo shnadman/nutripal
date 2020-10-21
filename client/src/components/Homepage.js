@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Box from "@material-ui/core/Box";
-import SearchBar from "./Searching/SearchBar";
 import FacetSearch from "./Searching/FacetSearch";
 import CardGrid from "./CardGrid";
 import Container from "@material-ui/core/Container";
-import useInfiniteScroll from "react-infinite-scroll-hook";
 import { useSelector, useDispatch } from "react-redux";
 import { clearResults } from "../features/macros";
 import Button from "@material-ui/core/Button";
 import { StarAction } from "./CardComponents/CardActions";
-import Accordion from "./Accordion";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelected } from "./utils/hooks";
 import MacrosAggTable from "./MacrosTableAggregate/FullTable";
 import { useSpring, animated, useTransition } from "react-spring";
+import CreateComposition from "./MacrosTableAggregate/CreateComposition";
 
 const useGridStyles = makeStyles((color) => ({
   sideMenu: {
@@ -23,6 +21,7 @@ const useGridStyles = makeStyles((color) => ({
   },
   searchGroup: {
     display: "flex",
+    flexDirection: "column",
   },
   container: {
     marginTop: "70px",
@@ -31,16 +30,21 @@ const useGridStyles = makeStyles((color) => ({
 
 export default (props) => {
   const { data, pagination, params } = useSelector(
-    (state) => state.macros.macros
+    (state) => state.macros.searchResults
   );
   const classes = useGridStyles("#fff");
   const dispatch = useDispatch();
   const dynamicSelecting = useSelected(data);
-  const { selected, anySelected } = dynamicSelecting;
+  const { selected, anySelected, clearSelected } = dynamicSelecting;
   const springProps = useSpring({
     opacity: anySelected ? 1 : 0,
     from: { opacity: 0 },
   });
+
+  const handleClearResults = () => {
+    dispatch(clearResults());
+    clearSelected();
+  };
 
   const transition = useTransition(anySelected, null, {
     from: { transform: "translate3d(-250px,0,0)" },
@@ -51,10 +55,7 @@ export default (props) => {
   return (
     <Box>
       <Box className={classes.searchGroup}>
-        <Box className={classes.sideMenu}>
-          <Accordion component={<FacetSearch />} description="Discover" />
-        </Box>
-
+        <FacetSearch />
         <Box display="flex">
           <Container className={classes.container} maxWidth="md">
             <CardGrid
@@ -77,14 +78,18 @@ export default (props) => {
               )}
             />
           </Container>
-          <MacrosAggTable rows={selected} dynamicSelecting={dynamicSelecting} />
+          <MacrosAggTable
+            rows={selected}
+            dynamicSelecting={dynamicSelecting}
+            compositionAction={<CreateComposition selected={selected} />}
+          />
         </Box>
       </Box>
       {!data ? null : (
         <Button
           color="secondary"
           variant="contained"
-          onClick={() => dispatch(clearResults())}
+          onClick={handleClearResults}
         >
           Clear Results
         </Button>

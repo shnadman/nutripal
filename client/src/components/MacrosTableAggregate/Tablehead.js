@@ -11,7 +11,7 @@ const headCells = [
     id: "name",
     numeric: false,
     disablePadding: true,
-    label: "Meal (100g serving)",
+    label: "Meal",
   },
   { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
   { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },

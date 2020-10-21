@@ -11,8 +11,6 @@ const Signout = () => {
   return (
     <Button
       onClick={() => dispatch(logout())}
-      variant="contained"
-      color="secondary"
       startIcon={<ExitToAppIcon />}
       disabled={!auth}
     >

@@ -10,6 +10,9 @@ import SearchBar from "./Searching/SearchBar";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
+import ProfilePopupMenu from "./utils/ProfilePopupMenu";
+import { clearResults } from "../features/macros";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -90,27 +93,14 @@ export default function PrimarySearchAppBar({ history }) {
           </Link>
           <SearchBar placeholder={"Search..."} />
           <div className={classes.grow} />
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            className={classes.sectionDesktop}
-          >
+          <Box className={classes.sectionDesktop}>
             <Modal />
             <Link to="/signup">
-              <Button variant="contained" color="secondary">
-                Signup
+              <Button variant="contained" color="primary">
+                Sign up
               </Button>
             </Link>
-            <Signout />
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-haspopup="true"
-              color="inherit"
-              onClick={() => history.push("/api/users/me")}
-            >
-              <AccountCircle />
-            </IconButton>
+            <ProfilePopupMenu history={history} />
           </Box>
         </Toolbar>
       </AppBar>

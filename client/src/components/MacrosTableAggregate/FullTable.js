@@ -20,6 +20,8 @@ import {
   getComparator,
 } from "./SortAndCompareUtils";
 import _ from "lodash";
+import CreateComposition from "./CreateComposition";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +52,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable({ rows, dynamicSelecting }) {
+export default function EnhancedTable({
+  rows,
+  dynamicSelecting,
+  compositionAction,
+}) {
   const {
     handleClick,
     handleSelectAllClick,
@@ -175,6 +181,7 @@ export default function EnhancedTable({ rows, dynamicSelecting }) {
         aggTotals={aggTotals}
         totals={totals}
       />
+      {compositionAction}
       <FormControlLabel
         control={<Switch checked={dense} onChange={handleChangeDense} />}
         label="Dense padding"

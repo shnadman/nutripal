@@ -19,7 +19,7 @@ exports.postComment = async (req, res, next) => {
 
   comment.save();
 
-  const user = await User.findByIdAndUpdate(req.body.writer, {
+  const user = await User.findByIdAndUpdate(req.user._id, {
     $addToSet: { comments: comment._id },
   });
 
@@ -86,4 +86,11 @@ exports.getComments = async (req, res, next) => {
   const comments = await Comment.find().populate("likedBy", "name");
   if (!comments) return res.status(404).send("No comments found!");
   res.status(200).send(comments);
+};
+
+exports.getLikes = async (req, res, next) => {
+  let comment = await Comment.findById(req.params.id);
+  if (!comment) return res.status(404).send("Comment not found");
+
+  res.status(200).send(comment.likedBy);
 };

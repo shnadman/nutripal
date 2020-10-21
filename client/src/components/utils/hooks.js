@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { modifyBasket, modifyDiscardList } from "../../features/basket";
 import _ from "lodash";
 
-export const useToggleOnSearch = (initialOn = false, id) => {
-  const [on, setOn] = useState(initialOn);
+export const useToggleOnSearch = (starred, id) => {
+  const userId = useSelector((state) => state.auth.userId);
+  const starredIds = starred.map((e) => e._id);
+
+  const [on, setOn] = useState(_.includes(starredIds, userId));
+  debugger;
   const dispatch = useDispatch();
 
   const toggle = (event) => {
@@ -80,6 +84,7 @@ export const useSelected = (rows) => {
     setSelected(newSelected);
   };
 
+  const clearSelected = () => setSelected([]);
   const isSelected = (row) => selected.indexOf(row) !== -1;
   const anySelected = _.isEmpty(selected) ? false : true;
 
@@ -91,6 +96,7 @@ export const useSelected = (rows) => {
     selected,
     isSelected,
     anySelected,
+    clearSelected,
   };
 };
 
@@ -108,11 +114,12 @@ export const useModal = () => {
   return { open, handleClose, handleClickOpen };
 };
 
-export const useCommentExpander = () => {
+export const useCommentExpander = (comments) => {
   const [expanded, setExpanded] = React.useState(false);
+  const dispatch = useDispatch();
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
   return { expanded, handleExpandClick };
 };

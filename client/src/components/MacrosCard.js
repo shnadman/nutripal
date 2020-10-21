@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -10,16 +10,14 @@ import CardActions from "@material-ui/core/CardActions";
 import PieChart from "./CardComponents/PieChart";
 import Box from "@material-ui/core/Box";
 import Collapse from "@material-ui/core/Collapse";
-import { useCommentExpander } from "./utils/hooks";
 import _ from "lodash";
 import Comment from "./CardComponents/Comment";
 import Divider from "@material-ui/core/Divider";
 import TextFieldWithButton from "./utils/TextFieldWithButton";
-import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import AddCommentIcon from "@material-ui/icons/AddComment";
-import macrosApi from "../api/macros";
 import { postComment } from "../features/macros";
 import { useDispatch, useSelector } from "react-redux";
+import getCategoryImg from "./CardComponents/staticImgs";
 
 const useStyles = makeStyles(() => ({
   actionArea: {
@@ -61,9 +59,8 @@ const useStyles = makeStyles(() => ({
   },
   title: {
     fontFamily: " sofia-pro, Helvetica,",
-    fontSize: "2rem",
+    fontSize: "1.5rem",
     color: "#ffffff",
-    textTransform: "uppercase",
   },
   subtitle: {
     fontFamily: " sofia-pro, Helvetica,",
@@ -73,6 +70,14 @@ const useStyles = makeStyles(() => ({
     fontWeight: 250,
     fontSize: 17,
   },
+  servingSize: {
+    fontWeight: 250,
+    fontSize: 12,
+    fontFamily: " sofia-pro, Helvetica,",
+    color: "#8a8888",
+    opacity: 0.87,
+  },
+
   actions: {
     display: "flex",
     justifyContent: "space-around",
@@ -91,17 +96,30 @@ const useStyles = makeStyles(() => ({
 export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
   const classes = useStyles({ color: "#023b45" });
   const dispatch = useDispatch();
+  const [expanded, setExpanded] = React.useState(false);
   const { handleClick, isSelected } = dynamicSelecting;
-  const { name, calories, protein, carbs, fat, ratio, _id } = data;
-  //const comments = useSelector((state) => _.find(state.macros.macros.data,_id));
+  const {
+    name,
+    calories,
+    protein,
+    carbs,
+    fat,
+    ratio,
+    _id,
+    comments,
+    brand,
+    category,
+    servingSize,
+    servingSizeUnit,
+  } = data;
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
 
   const onSubmit = ({ comment }) => {
     dispatch(postComment(comment, _id));
   };
-
-  let comments = data.comments;
-  const { expanded, handleExpandClick } = useCommentExpander();
-  //"writer", "responseTo", "content"]
 
   const renderComments = (comments) =>
     _.map(comments, (comment) => (
@@ -116,15 +134,20 @@ export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
         <CardMedia
           onClick={(event) => handleClick(event, data)}
           style={{ height: 0, paddingTop: "56%" }}
-          image={image}
-        />
+          image={getCategoryImg(category)}
+        >
+          {brand}
+        </CardMedia>
         <CardContent
           onClick={(event) => handleClick(event, data)}
           className={classes.content}
         >
-          <Typography className={classes.title} variant={"h2"}>
-            {name}
-          </Typography>
+          <Box>
+            <Typography className={classes.title}>{name}</Typography>
+            <Typography
+              className={classes.servingSize}
+            >{`serving size: ${servingSize} ${servingSizeUnit}`}</Typography>
+          </Box>
           <Box display="flex" justifyContent="space-between">
             <Box>
               <Typography className={classes.subtitle}>

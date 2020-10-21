@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@material-ui/core/Box";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import macrosApi from "../../api/macros";
 import LikeBadge from "./LikeBadge";
+import { likeComment } from "../../features/macros";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { useDispatch, useSelector } from "react-redux";
+import IconButton from "@material-ui/core/IconButton";
 
 macrosApi.interceptors.request.use(function (config) {
   const token = localStorage.getItem("x-auth-token");
@@ -38,34 +42,38 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default ({ comment }) => {
-  const { content, likedBy, writer, _id } = comment;
+  const { content, writer, _id } = comment;
   const classes = useStyles();
-  const [liked, setLiked] = useState("false");
+  const userId = useSelector((state) => state.auth.userId);
+  const [showDelete, setShowDelete] = useState(comment.writer._id === userId);
 
-  const handleClickLike = async (event) => {
-    event.preventDefault();
-    const res = await macrosApi.put(`/comments/${_id}/like`);
-    setLiked(res.data.currLike);
+  const onClickDelte = async () => {};
+
+  const renderDelete = () => {
+    return (
+      <IconButton>
+        <DeleteIcon />
+      </IconButton>
+    );
   };
 
   return (
     <Box>
       <Box display="flex">
-        <Avatar
-          alt="Remy Sharp"
-          src="url(https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2045&q=80)"
-        />
+        <Box display="flex" flexDirection="column">
+          <Avatar
+            alt="Remy Sharp"
+            src="url(https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2045&q=80)"
+          />
+          {showDelete ? renderDelete() : null}
+        </Box>
         <Box className={classes.comment}>
           <Typography className={classes.writer}>{writer.name} </Typography>
           <Typography>{content}</Typography>
         </Box>
       </Box>
       <Box display="flex" justifyContent="flex-end">
-        <LikeBadge
-          liked={liked}
-          likedBy={likedBy}
-          handleClickLike={handleClickLike}
-        />
+        <LikeBadge id={_id} />
       </Box>
     </Box>
   );

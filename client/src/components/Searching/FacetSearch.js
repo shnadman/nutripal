@@ -7,8 +7,49 @@ import Button from "@material-ui/core/Button";
 import Slider from "@material-ui/core/Slider";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import withStyles from "@material-ui/core/styles/withStyles";
+
+const StyledSlider = withStyles({
+  root: {
+    color: "#1ed1ea",
+    height: 8,
+  },
+  thumb: {
+    height: 24,
+    width: 24,
+    backgroundColor: "#fff",
+    border: "2px solid currentColor",
+    marginTop: -8,
+    marginLeft: -12,
+    "&:focus, &:hover, &$active": {
+      boxShadow: "inherit",
+    },
+  },
+  active: {},
+  valueLabel: {
+    left: "calc(-50% + 4px)",
+  },
+  track: {
+    height: 8,
+    borderRadius: 4,
+  },
+  rail: {
+    height: 8,
+    borderRadius: 4,
+  },
+})(Slider);
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: "30px",
+  },
+}));
 
 export default () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const { handleSubmit, register, control } = useForm();
 
@@ -33,16 +74,16 @@ export default () => {
   };
 
   return (
-    <Container>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className={classes.root}>
         <Controller
           name="calories"
           control={control}
           defaultValue={[0, 2500]}
           render={(props) => (
-            <Box>
+            <Box marginLeft="20px" flexGrow="0.1">
               <Typography>Calories</Typography>
-              <Slider
+              <StyledSlider
                 {...props}
                 onChange={(_, value) => {
                   props.onChange(value);
@@ -59,9 +100,10 @@ export default () => {
           control={control}
           defaultValue={[0, 200]}
           render={(props) => (
-            <Box>
+            <Box flexGrow="0.1">
               <Typography>Protein</Typography>
-              <Slider
+              <StyledSlider
+                style={{ color: "#2b3fcf" }}
                 {...props}
                 onChange={(_, value) => {
                   props.onChange(value);
@@ -78,9 +120,10 @@ export default () => {
           control={control}
           defaultValue={[0, 200]}
           render={(props) => (
-            <Box>
+            <Box flexGrow="0.1">
               <Typography>Carbs</Typography>
-              <Slider
+              <StyledSlider
+                style={{ color: "#ec3333" }}
                 {...props}
                 onChange={(_, value) => {
                   props.onChange(value);
@@ -97,9 +140,10 @@ export default () => {
           control={control}
           defaultValue={[0, 200]}
           render={(props) => (
-            <Box>
+            <Box flexGrow="0.1">
               <Typography>Fat</Typography>
-              <Slider
+              <StyledSlider
+                style={{ color: "#59ec1b" }}
                 {...props}
                 onChange={(_, value) => {
                   props.onChange(value);
@@ -111,10 +155,15 @@ export default () => {
             </Box>
           )}
         />
-        <Button style={{ marginTop: "30px" }} type="submit" variant="contained">
+        <Button
+          tooltip="Search for specified macros"
+          style={{ marginTop: "30px" }}
+          type="submit"
+          variant="contained"
+        >
           Search
         </Button>
-      </form>
-    </Container>
+      </div>
+    </form>
   );
 };

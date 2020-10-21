@@ -942,3 +942,305 @@
 {"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-16T15:50:02.170Z"}
 {"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-16T18:51:06.842Z"}
 {"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-16T18:51:06.865Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T07:56:18.328Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T07:56:18.356Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T08:14:03.488Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T08:14:03.511Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T08:18:08.468Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T08:18:08.487Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T08:27:18.274Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T08:27:18.298Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T10:17:11.508Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T10:17:11.531Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T10:17:39.694Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T10:17:39.716Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T10:18:18.715Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T10:18:18.737Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T10:48:12.031Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T10:48:12.051Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T10:52:40.977Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T10:52:41.000Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T11:09:10.740Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T11:09:10.765Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T11:24:36.156Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T11:24:36.177Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T11:40:11.072Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T11:40:11.094Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T11:40:41.703Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T11:40:41.725Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T12:04:53.381Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T12:04:53.402Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T12:33:10.824Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T12:33:10.845Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T12:34:16.432Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T12:34:16.453Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T12:51:19.988Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T12:51:20.016Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T12:53:02.800Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T12:53:02.827Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T12:54:22.629Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T12:54:22.649Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T12:56:57.367Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T12:56:57.389Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T12:59:28.053Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T12:59:28.073Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:00:03.021Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:00:03.043Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:00:48.218Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:00:48.239Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:33:42.984Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:33:43.004Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:35:33.790Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:35:33.811Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:37:37.263Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:37:37.284Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:37:57.937Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:37:57.965Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:38:58.253Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:38:58.274Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:39:29.302Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:39:29.322Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:41:33.462Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:41:33.483Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:41:43.810Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:41:43.831Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:42:15.069Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:42:15.090Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:42:31.570Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:42:31.590Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:44:22.217Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:44:22.236Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:48:15.733Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:48:15.754Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:51:21.139Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:51:21.166Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:51:39.684Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:51:39.705Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:52:12.060Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:52:12.081Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:56:04.709Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:56:04.732Z"}
+{"message":"Parameter \"filter\" to find() must be an object, got 5f7cb04191d51803fcb548c3","stack":"ObjectParameterError: Parameter \"filter\" to find() must be an object, got 5f7cb04191d51803fcb548c3\n    at model.Query.Query.find (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongoose\\lib\\query.js:1995:16)\n    at Function.find (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongoose\\lib\\model.js:2051:13)\n    at exports.getCompositions (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\controllers\\users.js:84:35)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at exports.authenticate (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\middleware\\auth.js:11:5)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:131:14)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:131:14)\n    at Route.dispatch (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:281:22","level":"error","timestamp":"2020-10-17T13:56:16.033Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:58:19.303Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:58:19.322Z"}
+{"message":"mongoose is not defined","stack":"ReferenceError: mongoose is not defined\n    at exports.getCompositions (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\controllers\\users.js:85:5)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at exports.authenticate (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\middleware\\auth.js:11:5)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:131:14)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:131:14)\n    at Route.dispatch (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:275:10)","level":"error","timestamp":"2020-10-17T13:58:35.868Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T13:58:53.876Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T13:58:53.896Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T14:04:02.376Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T14:04:02.410Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T14:05:17.190Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T14:05:17.211Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T14:55:23.974Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T14:55:23.997Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T14:56:16.004Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T14:56:16.033Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T15:02:07.253Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T15:02:07.273Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T15:03:26.953Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T15:03:26.975Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:22:30.552Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:22:30.574Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:23:56.058Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:23:56.080Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:24:34.029Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:24:34.051Z"}
+{"message":"user is not defined","stack":"ReferenceError: user is not defined\n    at exports.modifyCompositions (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\controllers\\users.js:119:31)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at exports.authenticate (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\middleware\\auth.js:11:5)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:281:22\n    at param (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:275:10)","level":"error","timestamp":"2020-10-17T16:24:48.318Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:25:24.695Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:25:24.717Z"}
+{"message":"user is not defined","stack":"ReferenceError: user is not defined\n    at exports.modifyCompositions (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\controllers\\users.js:119:31)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at exports.authenticate (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\middleware\\auth.js:11:5)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:281:22\n    at param (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\express\\lib\\router\\index.js:275:10)","level":"error","timestamp":"2020-10-17T16:25:29.813Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:26:49.753Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:26:49.775Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:27:10.721Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:27:10.743Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:29:13.285Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:29:13.306Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:29:27.248Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:29:27.268Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:35:52.508Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:35:52.532Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:37:36.457Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:37:36.477Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:43:51.861Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:43:51.882Z"}
+{"message":"Cannot use the part (_id) of (compositions._id) to traverse the element ({compositions: [ { mealIds: [ ObjectId('5f85a38784d5b2540cec7a5b'), ObjectId('5f85a38784d5b2540cec7a5d') ], _id: ObjectId('5f8af55287cc612bf8820d6b'), name: \"compo\" }, { mealIds: [ ObjectId('5f85a38784d5b2540cec7a5b'), ObjectId('5f85a38784d5b2540cec7a5d') ], _id: ObjectId('5f8af6246217122d3816a8e4'), name: \"compo\" } ]})","stack":"MongoError: Cannot use the part (_id) of (compositions._id) to traverse the element ({compositions: [ { mealIds: [ ObjectId('5f85a38784d5b2540cec7a5b'), ObjectId('5f85a38784d5b2540cec7a5d') ], _id: ObjectId('5f8af55287cc612bf8820d6b'), name: \"compo\" }, { mealIds: [ ObjectId('5f85a38784d5b2540cec7a5b'), ObjectId('5f85a38784d5b2540cec7a5d') ], _id: ObjectId('5f8af6246217122d3816a8e4'), name: \"compo\" } ]})\n    at Connection.<anonymous> (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongodb\\lib\\core\\connection\\pool.js:451:61)\n    at Connection.emit (events.js:197:13)\n    at processMessage (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:452:10)\n    at Socket.<anonymous> (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:621:15)\n    at Socket.emit (events.js:197:13)\n    at addChunk (_stream_readable.js:288:12)\n    at readableAddChunk (_stream_readable.js:269:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:150:17)","ok":0,"code":28,"codeName":"PathNotViable","name":"MongoError","level":"error","timestamp":"2020-10-17T16:43:55.509Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:48:57.982Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:48:58.002Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:50:53.103Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:50:53.122Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:51:56.336Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:51:56.355Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:53:50.031Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:53:50.052Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:55:01.580Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:55:01.598Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:55:07.251Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:55:07.270Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:55:24.430Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:55:24.454Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:55:44.646Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:55:44.665Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:56:05.073Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:56:05.092Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:56:09.510Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:56:09.530Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:56:14.084Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:56:14.104Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T16:56:34.130Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T16:56:34.149Z"}
+{"message":"Cannot apply $pull to a non-array value","stack":"MongoError: Cannot apply $pull to a non-array value\n    at Connection.<anonymous> (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongodb\\lib\\core\\connection\\pool.js:451:61)\n    at Connection.emit (events.js:197:13)\n    at processMessage (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:452:10)\n    at Socket.<anonymous> (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongodb\\lib\\core\\connection\\connection.js:621:15)\n    at Socket.emit (events.js:197:13)\n    at addChunk (_stream_readable.js:288:12)\n    at readableAddChunk (_stream_readable.js:269:11)\n    at Socket.Readable.push (_stream_readable.js:224:10)\n    at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:150:17)","ok":0,"code":2,"codeName":"BadValue","name":"MongoError","level":"error","timestamp":"2020-10-17T16:56:46.531Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:00:05.159Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:00:05.185Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:00:21.180Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:00:21.199Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:00:45.328Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:00:45.348Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:00:56.448Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:00:56.477Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:04:46.929Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:04:46.951Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:14:42.948Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:14:42.970Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:19:35.752Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:19:35.773Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:20:57.090Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:20:57.112Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:21:56.971Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:21:56.992Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:22:12.552Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:22:12.573Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:23:55.017Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:23:55.037Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:24:29.535Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:24:29.555Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:25:05.124Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:25:05.144Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T17:25:47.798Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T17:25:47.820Z"}
+{"message":"Cast to embedded failed for value \"{ mealIds: 'fuck yeah', name: undefined }\" at path \"compositions\"","stack":"CastError: Cast to embedded failed for value \"{ mealIds: 'fuck yeah', name: undefined }\" at path \"compositions\"\n    at model.Query.exec (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongoose\\lib\\query.js:4371:21)\n    at model.Query.Query.then (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongoose\\lib\\query.js:4463:15)\n    at processTicksAndRejections (internal/process/next_tick.js:81:5)","stringValue":"\"{ mealIds: 'fuck yeah', name: undefined }\"","kind":"embedded","value":"{ mealIds: 'fuck yeah', name: undefined }","path":"compositions","reason":{"stringValue":"\"[\"fuck yeah\"]\"","kind":"[ObjectId]","value":"[\"fuck yeah\"]","path":"mealIds","reason":{"stringValue":"\"fuck yeah\"","kind":"ObjectId","value":"fuck yeah","path":"mealIds","reason":{}}},"level":"error","timestamp":"2020-10-17T18:15:01.045Z"}
+{"message":"Cast to embedded failed for value \"{ mealIds: 'fcuk yeah',\\n  name:\\n   [ { amount: 'NA',\\n       price: 0,\\n       ratio: [Array],\\n       score: 0,\\n       comments: [Array],\\n       _id: '5f85a38784d5b2540cec7a5e',\\n       name: 'Pizza',\\n       calories: 450,\\n       carbs: 120,\\n       fat: 40,\\n       protein: 45,\\n       createdAt: '2020-10-13T12:54:31.488Z',\\n       __v: 0,\\n       starred: 0,\\n       id: '5f85a38784d5b2540cec7a5e' },\\n     { amount: 'NA',\\n       price: 0,\\n       ratio: [Array],\\n       score: 0,\\n       comments: [Array],\\n       _id: '5f85a38784d5b2540cec7a5d',\\n       name: 'Yogurt',\\n       calories: 120,\\n       carbs: 2,\\n       fat: 1,\\n       protein: 19,\\n       createdAt: '2020-10-13T12:54:31.488Z',\\n       __v: 0,\\n       starred: 1,\\n       id: '5f85a38784d5b2540cec7a5d' } ] }\" at path \"compositions\"","stack":"CastError: Cast to embedded failed for value \"{ mealIds: 'fcuk yeah',\\n  name:\\n   [ { amount: 'NA',\\n       price: 0,\\n       ratio: [Array],\\n       score: 0,\\n       comments: [Array],\\n       _id: '5f85a38784d5b2540cec7a5e',\\n       name: 'Pizza',\\n       calories: 450,\\n       carbs: 120,\\n       fat: 40,\\n       protein: 45,\\n       createdAt: '2020-10-13T12:54:31.488Z',\\n       __v: 0,\\n       starred: 0,\\n       id: '5f85a38784d5b2540cec7a5e' },\\n     { amount: 'NA',\\n       price: 0,\\n       ratio: [Array],\\n       score: 0,\\n       comments: [Array],\\n       _id: '5f85a38784d5b2540cec7a5d',\\n       name: 'Yogurt',\\n       calories: 120,\\n       carbs: 2,\\n       fat: 1,\\n       protein: 19,\\n       createdAt: '2020-10-13T12:54:31.488Z',\\n       __v: 0,\\n       starred: 1,\\n       id: '5f85a38784d5b2540cec7a5d' } ] }\" at path \"compositions\"\n    at model.Query.exec (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongoose\\lib\\query.js:4371:21)\n    at model.Query.Query.then (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongoose\\lib\\query.js:4463:15)\n    at processTicksAndRejections (internal/process/next_tick.js:81:5)","stringValue":"\"{ mealIds: 'fcuk yeah',\\n  name:\\n   [ { amount: 'NA',\\n       price: 0,\\n       ratio: [Array],\\n       score: 0,\\n       comments: [Array],\\n       _id: '5f85a38784d5b2540cec7a5e',\\n       name: 'Pizza',\\n       calories: 450,\\n       carbs: 120,\\n       fat: 40,\\n       protein: 45,\\n       createdAt: '2020-10-13T12:54:31.488Z',\\n       __v: 0,\\n       starred: 0,\\n       id: '5f85a38784d5b2540cec7a5e' },\\n     { amount: 'NA',\\n       price: 0,\\n       ratio: [Array],\\n       score: 0,\\n       comments: [Array],\\n       _id: '5f85a38784d5b2540cec7a5d',\\n       name: 'Yogurt',\\n       calories: 120,\\n       carbs: 2,\\n       fat: 1,\\n       protein: 19,\\n       createdAt: '2020-10-13T12:54:31.488Z',\\n       __v: 0,\\n       starred: 1,\\n       id: '5f85a38784d5b2540cec7a5d' } ] }\"","kind":"embedded","value":"{ mealIds: 'fcuk yeah',\n  name:\n   [ { amount: 'NA',\n       price: 0,\n       ratio: [Array],\n       score: 0,\n       comments: [Array],\n       _id: '5f85a38784d5b2540cec7a5e',\n       name: 'Pizza',\n       calories: 450,\n       carbs: 120,\n       fat: 40,\n       protein: 45,\n       createdAt: '2020-10-13T12:54:31.488Z',\n       __v: 0,\n       starred: 0,\n       id: '5f85a38784d5b2540cec7a5e' },\n     { amount: 'NA',\n       price: 0,\n       ratio: [Array],\n       score: 0,\n       comments: [Array],\n       _id: '5f85a38784d5b2540cec7a5d',\n       name: 'Yogurt',\n       calories: 120,\n       carbs: 2,\n       fat: 1,\n       protein: 19,\n       createdAt: '2020-10-13T12:54:31.488Z',\n       __v: 0,\n       starred: 1,\n       id: '5f85a38784d5b2540cec7a5d' } ] }","path":"compositions","reason":{"stringValue":"\"[\"fcuk yeah\"]\"","kind":"[ObjectId]","value":"[\"fcuk yeah\"]","path":"mealIds","reason":{"stringValue":"\"fcuk yeah\"","kind":"ObjectId","value":"fcuk yeah","path":"mealIds","reason":{}}},"level":"error","timestamp":"2020-10-17T18:16:25.052Z"}
+{"message":"Cast to embedded failed for value \"{ mealIds: 'fad',\\n  name: [ '5f85a38784d5b2540cec7a5e', '5f85a38784d5b2540cec7a5d' ] }\" at path \"compositions\"","stack":"CastError: Cast to embedded failed for value \"{ mealIds: 'fad',\\n  name: [ '5f85a38784d5b2540cec7a5e', '5f85a38784d5b2540cec7a5d' ] }\" at path \"compositions\"\n    at model.Query.exec (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongoose\\lib\\query.js:4371:21)\n    at model.Query.Query.then (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongoose\\lib\\query.js:4463:15)\n    at processTicksAndRejections (internal/process/next_tick.js:81:5)","stringValue":"\"{ mealIds: 'fad',\\n  name: [ '5f85a38784d5b2540cec7a5e', '5f85a38784d5b2540cec7a5d' ] }\"","kind":"embedded","value":"{ mealIds: 'fad',\n  name: [ '5f85a38784d5b2540cec7a5e', '5f85a38784d5b2540cec7a5d' ] }","path":"compositions","reason":{"stringValue":"\"[\"fad\"]\"","kind":"[ObjectId]","value":"[\"fad\"]","path":"mealIds","reason":{"stringValue":"\"fad\"","kind":"ObjectId","value":"fad","path":"mealIds","reason":{}}},"level":"error","timestamp":"2020-10-17T18:18:58.993Z"}
+{"message":"Cast to embedded failed for value \"{ mealIds: 'fad',\\n  name: [ '5f85a38784d5b2540cec7a5e', '5f85a38784d5b2540cec7a5d' ] }\" at path \"compositions\"","stack":"CastError: Cast to embedded failed for value \"{ mealIds: 'fad',\\n  name: [ '5f85a38784d5b2540cec7a5e', '5f85a38784d5b2540cec7a5d' ] }\" at path \"compositions\"\n    at model.Query.exec (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongoose\\lib\\query.js:4371:21)\n    at model.Query.Query.then (C:\\Users\\Nadav Sherf\\React\\nutripal\\nutrilpal\\server\\node_modules\\mongoose\\lib\\query.js:4463:15)\n    at processTicksAndRejections (internal/process/next_tick.js:81:5)","stringValue":"\"{ mealIds: 'fad',\\n  name: [ '5f85a38784d5b2540cec7a5e', '5f85a38784d5b2540cec7a5d' ] }\"","kind":"embedded","value":"{ mealIds: 'fad',\n  name: [ '5f85a38784d5b2540cec7a5e', '5f85a38784d5b2540cec7a5d' ] }","path":"compositions","reason":{"stringValue":"\"[\"fad\"]\"","kind":"[ObjectId]","value":"[\"fad\"]","path":"mealIds","reason":{"stringValue":"\"fad\"","kind":"ObjectId","value":"fad","path":"mealIds","reason":{}}},"level":"error","timestamp":"2020-10-17T18:19:01.752Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T18:34:44.478Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T18:34:44.502Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T18:36:07.189Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T18:36:07.209Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-17T18:36:38.646Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-17T18:36:38.665Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T07:48:13.445Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T07:48:13.466Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T08:47:16.476Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T08:47:16.496Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T08:48:17.915Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T08:48:17.936Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T08:54:24.749Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T08:54:24.770Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T08:57:11.868Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T08:57:11.888Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:22:34.375Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:22:34.397Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:23:29.487Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:23:29.508Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:24:46.292Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:24:46.312Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:26:28.301Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:26:28.324Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:26:37.926Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:26:37.946Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:27:21.588Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:27:21.609Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:28:29.380Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:28:29.401Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:28:42.414Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:28:42.435Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:29:10.247Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:29:10.267Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:31:29.827Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:31:29.858Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T09:31:34.837Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T09:31:34.860Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T11:53:19.953Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T11:53:19.972Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T11:54:18.480Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T11:54:18.500Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T11:54:59.564Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T11:54:59.584Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T11:55:23.190Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T11:55:23.212Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T12:02:50.454Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T12:02:50.473Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T12:04:35.968Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T12:04:35.988Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T12:05:46.030Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T12:05:46.051Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T12:05:52.564Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T12:05:52.584Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T12:07:03.104Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T12:07:03.125Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T12:09:50.090Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T12:09:50.113Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T12:10:20.379Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T12:10:20.399Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T15:26:01.571Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T15:26:01.598Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T15:26:09.539Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T15:26:09.559Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T15:27:41.649Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T15:27:41.673Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T15:28:29.941Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T15:28:29.961Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T15:28:40.874Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T15:28:40.894Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-18T19:56:54.592Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-18T19:56:54.611Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T09:32:45.091Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T09:32:45.114Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T09:46:14.779Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T09:46:14.807Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T09:46:28.057Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T09:46:28.080Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T09:46:54.045Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T09:46:54.065Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T09:47:24.845Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T09:47:24.867Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T12:44:24.514Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T12:44:24.534Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T12:58:59.525Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T12:58:59.545Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T13:07:29.761Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T13:07:29.783Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T13:07:54.529Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T13:07:54.548Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T13:15:35.466Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T13:15:35.486Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T13:16:33.875Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T13:16:33.894Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T14:14:37.780Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T14:14:37.801Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-19T14:27:33.824Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-19T14:27:33.843Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T12:03:24.313Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T12:03:24.335Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T15:14:19.358Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T15:14:19.380Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T15:32:35.977Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T15:32:35.998Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T15:33:15.168Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T15:33:15.188Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T17:35:11.343Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T17:35:11.362Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T18:18:38.309Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T18:18:38.336Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T18:19:07.553Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T18:19:07.572Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T18:20:27.807Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T18:20:27.827Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T18:30:19.297Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T18:30:19.319Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T18:35:03.917Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T18:35:03.937Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T18:35:56.553Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T18:35:56.573Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T18:36:21.618Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T18:36:21.638Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2020-10-20T18:49:30.131Z"}
+{"level":"info","message":"Connected to mongodb://localhost/playground...","timestamp":"2020-10-20T18:49:30.152Z"}

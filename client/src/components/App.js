@@ -3,7 +3,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import Homepage from "./Homepage";
 import history from "../history";
 import Signup from "./auth/Signup";
-import Feature from "./UserHub";
+import UserHub from "./UserHub";
 import Notifier from "./utils/Notifier";
 import Modal from "./utils/Modal";
 import { ThemeProvider } from "@material-ui/styles";
@@ -11,6 +11,8 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppbarTest from "./Appbar";
 import LandingPage from "./LandingPage";
+import StarredMeals from "./UserHub/StarredMeals";
+import Compositions from "./UserHub/Compositions";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -36,7 +38,18 @@ const App = () => {
               <Route path="/" exact component={LandingPage} />
               <Route path="/home" exact component={Homepage} />
               <Route path="/signup" exact component={Signup} />
-              <Route path="/api/users/me" exact component={Feature} />
+              <Route
+                path="/api/users/me/meals"
+                exact
+                component={StarredMeals}
+              />
+              <Route
+                path="/api/users/me/compositions"
+                exact
+                component={Compositions}
+              />
+              <Route path="/api/users/me" exact component={UserHub} />
+
               <Route path="/login" exact component={Modal} />
             </Switch>
           </div>

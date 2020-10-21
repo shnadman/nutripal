@@ -16,7 +16,7 @@ export default () => {
       <Button
         disabled={auth ? true : false}
         variant="contained"
-        color="secondary"
+        color="primary"
         onClick={handleClickOpen}
       >
         <Typography>Login</Typography>

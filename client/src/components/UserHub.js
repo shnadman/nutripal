@@ -1,74 +1,74 @@
 import React, { useEffect } from "react";
 import requireAuth from "./auth/requireAuth";
-import { getHub, modifyBasket, clearDiscardList } from "../features/basket";
-import { useSelector, useDispatch } from "react-redux";
-import Container from "@material-ui/core/Container";
-import CardGrid from "./CardGrid";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import Typography from "@material-ui/core/Typography";
-import { RemoveAction, StarAction } from "./CardComponents/CardActions";
 import Button from "@material-ui/core/Button";
-import { useSelected, useToggleOnDiscard } from "./utils/hooks";
-import MacrosAggTable from "./MacrosTableAggregate/FullTable";
-import _ from "lodash";
+import Link from "@material-ui/core/Link";
+import { Link as RouterLink } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((color) => ({
+  appBarParent: {
+    flexGrow: 1,
+    marginTop: 30,
+    height: 5000,
+  },
   root: {
-    marginBottom: "40px",
+    height: "92vh",
+    width: "50%",
+
+    backgroundImage:
+      "linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))," +
+      "url(https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80)",
+    backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
+    backgroundSize: "1000px 1200px",
+    display: "flex",
+    justifyContent: "center",
+    backgroundColor: "transparent",
+  },
+
+  second: {
+    height: "92vh",
+    width: "50%",
+    backgroundImage:
+      "linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))," +
+      "url(https://images.unsplash.com/photo-1550728193-be87c574be86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)",
+    backgroundRepeat: "no-repeat",
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover",
+    display: "flex",
+    justifyContent: "center",
+    backgroundColor: "transparent",
+  },
+  text: {
+    color: "#fff",
   },
 }));
 
 const Feature = () => {
   const classes = useStyles();
-  const { basket, discardList } = useSelector((state) => state.basket);
-  const dynamicSelecting = useSelected(basket);
-  const { selected } = dynamicSelecting;
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getHub());
-  }, []);
-
-  const discard = () => {
-    _.forEach(discardList, (mealId) => {
-      dispatch(modifyBasket(mealId, true));
-    });
-    dispatch(clearDiscardList());
-    dispatch(getHub());
-  };
-
   return (
-    <div>
-      <Typography variant="h4" color="primary">
-        Your starred meals
-      </Typography>
-      <Box display="flex">
-        <Container maxWidth="md">
-          <CardGrid
-            data={basket}
-            dynamicSelecting={dynamicSelecting}
-            curriedCardAction={(id, starred) => (
-              expanded,
-              handleExpandClick,
-              commentsCount
-            ) => (
-              <RemoveAction
-                id={id}
-                starred={starred}
-                expanded={expanded}
-                handleExpandClick={handleExpandClick}
-                commentsCount={commentsCount}
-              />
-            )}
-          />
-        </Container>
-        <MacrosAggTable rows={selected} dynamicSelecting={dynamicSelecting} />
-      </Box>
-      <Button onClick={discard} variant="contained" color="secondary">
-        Discard selected
-      </Button>
-    </div>
+    <Box width="100%" display="inline-flex" flexDirection="row">
+      <div className={classes.root}>
+        <Box alignSelf="center">
+          <Link component={RouterLink} to="me/meals">
+            <Typography variant="h3" className={classes.text}>
+              To Meals
+            </Typography>
+          </Link>
+        </Box>
+      </div>
+      <div className={classes.second}>
+        <Box alignSelf="center">
+          <Link component={RouterLink} to="me/compositions">
+            <Typography variant="h3" className={classes.text}>
+              To Compositions
+            </Typography>
+          </Link>
+        </Box>
+      </div>
+    </Box>
   );
 };
 

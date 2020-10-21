@@ -39,14 +39,28 @@ export default ({ dispatch }) => (next) => (action) => {
       break;
     case "basket/basketSuccess":
       const { name, remove } = action.payload.data;
+      if (name) {
+        dispatch(
+          enqueueSnackbar(
+            makeNotification(
+              `${name} ${remove ? "removed from" : "added to"}  your basket!`,
+              `${remove ? "info" : "success"}`
+            )
+          )
+        );
+      }
+      next(action);
+      break;
+    case "basket/addCompositionSuccess":
       dispatch(
         enqueueSnackbar(
-          makeNotification(
-            `${name} ${remove ? "removed from" : "added to"}  your basket!`,
-            "success"
-          )
+          makeNotification(`Composition added to your basket!`, "success")
         )
       );
+      next(action);
+      break;
+    case "basket/addCompositionError":
+      dispatch(enqueueSnackbar(makeNotification(action.payload, "warning")));
       next(action);
       break;
     default:

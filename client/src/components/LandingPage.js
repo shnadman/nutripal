@@ -3,9 +3,6 @@ import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import CardGrid from "./CardGrid";
-import Container from "@material-ui/core/Container";
-import { StarAction } from "./CardComponents/CardActions";
 
 const useStyles = makeStyles((color) => ({
   appBarParent: {

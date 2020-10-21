@@ -10,7 +10,7 @@ basket.interceptors.request.use(function (config) {
 
 const initialState = {
   basket: {},
-  discardList: [],
+  compositions: [],
 };
 
 // Slice
@@ -18,12 +18,20 @@ const slice = createSlice({
   name: "basket",
   initialState,
   reducers: {
-    clearDiscardList: (state) => {
-      state.discardList = [];
+    modifyCompositionSuccess: (state, action) => {
+      state.compositions = action.payload.data.compositions;
     },
-    modifyDiscardList: (state, action) => {
-      const { id, on } = action.payload;
-      on ? _.pull(state.discardList, id) : state.discardList.push(id);
+    deleteCompositionSuccess: (state, action) => {
+      state.compositions = action.payload.data.compositions;
+    },
+    getCompositionSuccess: (state, action) => {
+      state.compositions = action.payload.data[0].compositions;
+    },
+    addCompositionSuccess: (state, action) => {
+      state.compositions = action.payload.data.compositions;
+    },
+    addCompositionError: (state, action) => {
+      console.error(action.payload);
     },
     basketSuccess: (state, action) => {
       state.basket = action.payload.data.starredMeals;
@@ -40,13 +48,18 @@ export const {
   basketSuccess,
   basketError,
   modifyDiscardList,
-  clearDiscardList,
+  addCompositionSuccess,
+  addCompositionError,
+  getCompositionSuccess,
+  deleteCompositionSuccess,
+  modifyCompositionSuccess,
 } = slice.actions;
 
 export const modifyBasket = (mealId, remove) => async (dispatch) => {
-  debugger;
   try {
     const res = await basket.put("/", { mealId, remove });
+    debugger;
+    dispatch(basketSuccess(res));
   } catch (e) {
     dispatch(basketError(e.response.data));
   }
@@ -63,5 +76,41 @@ export const getHub = () => async (dispatch) => {
     dispatch(basketSuccess(res));
   } catch (e) {
     dispatch(basketError(e.response.data));
+  }
+};
+
+export const addComposition = (name, mealIds) => async (dispatch) => {
+  try {
+    const res = await basket.post("/compositions", { name, mealIds });
+    dispatch(addCompositionSuccess(res));
+  } catch (e) {
+    dispatch(addCompositionError(e.response.data));
+  }
+};
+
+export const getCompositions = () => async (dispatch) => {
+  try {
+    const res = await basket.get("/compositions");
+    dispatch(getCompositionSuccess(res));
+  } catch (e) {
+    dispatch(addCompositionError(e.response.data));
+  }
+};
+
+export const modifyComposition = (name, mealIds, id) => async (dispatch) => {
+  try {
+    const res = await basket.put(`/compositions/${id}`);
+    dispatch(modifyCompositionSuccess(res));
+  } catch (e) {
+    dispatch(addCompositionError(e.response.data));
+  }
+};
+
+export const deleteComposition = (id) => async (dispatch) => {
+  try {
+    const res = await basket.put(`/compositions/${id}`);
+    dispatch(deleteCompositionSuccess(res));
+  } catch (e) {
+    dispatch(addCompositionError(e.response.data));
   }
 };

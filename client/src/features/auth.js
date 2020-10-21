@@ -4,6 +4,7 @@ import app from "../api/auth";
 const initialState = {
   authenticated: "",
   errorMessage: "",
+  userId: "",
 };
 
 // Slice
@@ -12,7 +13,8 @@ const slice = createSlice({
   initialState,
   reducers: {
     authSuccess: (state, action) => {
-      state.authenticated = action.payload;
+      state.authenticated = action.payload.token;
+      state.userId = action.payload.userId;
     },
     authError: (state, action) => {
       state.errorMessage = action.payload;
@@ -28,7 +30,8 @@ export const login = (formProps, callback) => async (dispatch) => {
   try {
     const res = await app.post("/api/auth/", formProps);
     localStorage.setItem("x-auth-token", res.data.token);
-    dispatch(authSuccess(res.data.token));
+    localStorage.setItem("x-user-id", res.data.userId);
+    dispatch(authSuccess(res.data));
     callback();
   } catch (e) {
     dispatch(authError(e.response.data));
@@ -37,8 +40,11 @@ export const login = (formProps, callback) => async (dispatch) => {
 export const signup = (formProps, callback) => async (dispatch) => {
   try {
     const res = await app.post("/api/users", formProps);
-    dispatch(authSuccess(res.headers["x-auth-token"]));
+    const token = res.headers["x-auth-token"];
+    const userId = res.headers["x-user-id"];
+    dispatch(authSuccess({ token, userId }));
     localStorage.setItem("x-auth-token", res.headers["x-auth-token"]);
+    localStorage.setItem("x-user-id", res.headers["x-user-id"]);
     callback();
   } catch (e) {
     debugger;
@@ -47,5 +53,6 @@ export const signup = (formProps, callback) => async (dispatch) => {
 };
 export const logout = () => {
   localStorage.removeItem("x-auth-token");
+  localStorage.removeItem("x-user-id");
   return authSuccess("");
 };

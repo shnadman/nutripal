@@ -3,6 +3,17 @@ const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const mongoose = require("mongoose");
 
+const compositionSchema = new mongoose.Schema({
+  name: String,
+  mealIds: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Macros",
+      unique: true,
+    },
+  ],
+});
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -30,6 +41,8 @@ const userSchema = new mongoose.Schema({
       unique: true,
     },
   ],
+  compositions: { type: [compositionSchema], unique: true },
+
   weight: { type: Number },
   height: { type: Number },
   age: { type: Number },
@@ -50,6 +63,10 @@ userSchema.methods.generateAuthToken = function () {
   );
   return token;
 };
+
+// userSchema.pre("find", function (next) {
+//   this.populate("starredMeals").select("starredMeals");
+// });
 
 const User = mongoose.model("User", userSchema);
 
@@ -72,6 +89,15 @@ function validateStarred(starred) {
   return schema.validate(starred);
 }
 
+function validateComposition(starred) {
+  const schema = Joi.object({
+    name: Joi.string().min(1).required(),
+  }).unknown();
+
+  return schema.validate(starred);
+}
+
 exports.User = User;
 exports.validateUser = validateUser;
 exports.validateStarred = validateStarred;
+exports.validateComposition = validateComposition;

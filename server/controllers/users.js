@@ -2,11 +2,12 @@ const bcrypt = require("bcrypt");
 const _ = require("lodash");
 const { User, validateUser, validateStarred } = require("../models/user");
 const { Macros } = require("../models/macros");
+const mongoose = require("mongoose");
 
 exports.getUserHub = async (req, res, next) => {
   const starredMeals = await User.findById(req.user._id)
     .populate("starredMeals")
-    .select("starredMeals -_id");
+    .select("starredMeals");
 
   res.send(starredMeals);
 };
@@ -27,7 +28,7 @@ exports.createUser = async (req, res, next) => {
 
   const token = user.generateAuthToken();
   res
-    .header("x-auth-token", token)
+    .set({ "x-auth-token": token, "x-user-id": user._id })
     .send(_.pick(user, ["_id", "name", "email"]));
 };
 
@@ -47,8 +48,10 @@ exports.modifyBasket = async (req, res, next) => {
         new: true,
         runValidators: true,
       }
-    );
-    res.status(200).send(_.pick(user, ["starredMeals"]));
+    )
+      .populate("starredMeals")
+      .select("starredMeals");
+    res.status(200).send({ ..._.pick(user, ["starredMeals"]), name, remove });
   } else {
     const user = await User.findByIdAndUpdate(
       req.user._id,
@@ -59,7 +62,86 @@ exports.modifyBasket = async (req, res, next) => {
         new: true,
         runValidators: true,
       }
-    );
-    res.status(200).send({ ..._.pick(user, ["starredMeals"]), name });
+    )
+      .populate("starredMeals")
+      .select("starredMeals");
+    res.status(200).send({ ..._.pick(user, ["starredMeals"]), name, remove });
+  }
+};
+
+exports.createComposition = async (req, res, next) => {
+  const { mealIds, name } = req.body;
+  const compositions = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $addToSet: { compositions: { mealIds, name } },
+    },
+    {
+      new: true,
+      runValidators: true,
+    }
+  )
+    .populate({
+      path: "compositions",
+      populate: { path: "mealIds", model: "Macros" },
+    })
+    .select("compositions");
+
+  res.status(200).send(compositions);
+};
+
+exports.getCompositions = async (req, res, next) => {
+  const compositions = await User.find(mongoose.Types.ObjectId(req.user._id))
+    .populate({
+      path: "compositions",
+      populate: { path: "mealIds", model: "Macros" },
+    })
+    .select("compositions");
+
+  res.status(200).send(compositions);
+};
+
+exports.modifyCompositions = async (req, res, next) => {
+  const { id } = req.params;
+
+  const { mealIds, name } = req.body;
+
+  if (_.isEmpty(mealIds)) {
+    const compositions = await User.findOneAndUpdate(
+      { _id: req.user._id },
+      {
+        $pull: { compositions: { _id: id } },
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    )
+      .populate({
+        path: "compositions",
+        populate: { path: "mealIds", model: "Macros" },
+      })
+      .select("compositions");
+    res.status(200).send(compositions);
+  } else {
+    const compositions = await User.findOneAndUpdate(
+      { _id: req.user._id, "compositions._id": id },
+      {
+        $set: {
+          "compositions.$.mealIds": mealIds,
+          "compositions.$.name": name,
+        },
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    )
+      .populate({
+        path: "compositions",
+        populate: { path: "mealIds", model: "Macros" },
+      })
+      .select("compositions");
+    res.status(200).send(compositions);
   }
 };

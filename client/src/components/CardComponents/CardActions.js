@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import BackspaceRoundedIcon from "@material-ui/icons/BackspaceRounded";
@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import PeopleIcon from "@material-ui/icons/People";
 import CommentsToggler from "./CommentsToggler";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -46,7 +47,7 @@ export const StarAction = ({
   commentsCount,
 }) => {
   const classes = useStyles();
-  const { on, toggle } = useToggleOnSearch(false, id);
+  const { on, toggle } = useToggleOnSearch(starred, id);
 
   return (
     <>
@@ -57,7 +58,7 @@ export const StarAction = ({
         <FavoriteIcon className={on ? classes.starred : classes.icon} />
       </IconButton>
       <Box display="flex" direction="row">
-        <Typography className={classes.text}>{starred}</Typography>
+        <Typography className={classes.text}>{starred.length}</Typography>
         <PeopleIcon className={classes.icon} />
       </Box>
       <CommentsToggler

@@ -8,7 +8,10 @@ import store from "./store";
 require("dotenv").config();
 
 const preloadedState = {
-  auth: { authenticated: localStorage.getItem("x-auth-token") },
+  auth: {
+    authenticated: localStorage.getItem("x-auth-token"),
+    userId: localStorage.getItem("x-user-id"),
+  },
 };
 
 ReactDOM.render(

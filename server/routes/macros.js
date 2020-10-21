@@ -5,6 +5,7 @@ const {
   updateComment,
   getComments,
   likeComment,
+  getLikes,
 } = require("../controllers/comments");
 const { Macros } = require("../models/macros");
 const { validateComment } = require("../models/comment");
@@ -28,6 +29,9 @@ router
   .delete(authenticate, deleteComment)
   .put(authenticate, updateComment);
 
-router.route("/comments/:id/like").put(authenticate, likeComment);
+router
+  .route("/comments/:id/like")
+  .put(authenticate, likeComment)
+  .get(authenticate, getLikes);
 
 module.exports = router;

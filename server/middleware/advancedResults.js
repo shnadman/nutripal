@@ -16,15 +16,9 @@ const advancedResults = (model, populate) => async (req, res, next) => {
 
   if (queryStr.includes("regex")) {
     const { regex } = reqQuery.name;
-    query = model
-      .find({
-        name: { $regex: new RegExp(".*" + regex + ".*", "i") },
-      })
-      .populate("starred")
-      .populate({
-        path: "comments",
-        populate: { path: "writer", model: "User", select: "name -_id" },
-      });
+    query = model.find({
+      name: { $regex: new RegExp(".*" + regex + ".*", "i") },
+    });
   } else {
     // Create operators ($gt, $gte, etc)
     queryStr = queryStr.replace(
@@ -33,13 +27,7 @@ const advancedResults = (model, populate) => async (req, res, next) => {
     );
 
     // Finding resource
-    query = model
-      .find(JSON.parse(queryStr))
-      .populate("starred")
-      .populate({
-        path: "comments",
-        populate: { path: "writer", model: "User", select: "name -_id" },
-      });
+    query = model.find(JSON.parse(queryStr));
   }
 
   // Select Fields
