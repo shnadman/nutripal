@@ -13,6 +13,18 @@ const headCells = [
     disablePadding: true,
     label: "Meal",
   },
+  {
+    id: "qty",
+    numeric: true,
+    disablePadding: true,
+    label: "qty",
+  },
+  {
+    id: "servingSize",
+    numeric: true,
+    disablePadding: false,
+    label: "Serving size",
+  },
   { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
   { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },
   { id: "carbs", numeric: true, disablePadding: false, label: "Carbs (g)" },

@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { modifyBasket, modifyDiscardList } from "../../features/basket";
+import {
+  getCompositions,
+  modifyBasket,
+  modifyDiscardList,
+} from "../../features/basket";
 import _ from "lodash";
 
 export const useToggleOnSearch = (starred, id) => {
@@ -8,7 +12,6 @@ export const useToggleOnSearch = (starred, id) => {
   const starredIds = starred.map((e) => e._id);
 
   const [on, setOn] = useState(_.includes(starredIds, userId));
-  debugger;
   const dispatch = useDispatch();
 
   const toggle = (event) => {
@@ -36,8 +39,10 @@ export const useToggleOnDiscard = (initialOn = false, id) => {
   return { toggle, on };
 };
 
-export const useSelected = (rows) => {
-  const [selected, setSelected] = React.useState([]);
+export const useSelected = (rows, initializeWithData = false) => {
+  const initialState = initializeWithData ? rows : [];
+
+  const [selected, setSelected] = React.useState(initialState);
   const [totals, setTotals] = useState({
     protein: 0,
     fat: 0,
@@ -67,6 +72,7 @@ export const useSelected = (rows) => {
   const handleClick = (event, row) => {
     const selectedIndex = _.indexOf(selected, row);
     let newSelected = [];
+    //[{ ...row, qty: 1 }]
 
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, [row]);
@@ -122,4 +128,17 @@ export const useCommentExpander = (comments) => {
     setExpanded(!expanded);
   };
   return { expanded, handleExpandClick };
+};
+
+export const useCompositions = () => {
+  const dispatch = useDispatch();
+  const { compositions } = useSelector((state) => state.basket);
+  const [chosenComposition, setChosenComposition] = useState([]);
+  let isSelected = (id) => chosenComposition._id === id;
+
+  useEffect(() => {
+    dispatch(getCompositions());
+  }, []);
+
+  return { compositions, setChosenComposition, isSelected };
 };

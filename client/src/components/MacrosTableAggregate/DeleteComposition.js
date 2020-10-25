@@ -6,8 +6,9 @@ import TextFieldWithButton from "../utils/TextFieldWithButton";
 import { useDispatch } from "react-redux";
 import { deleteComposition } from "../../features/basket";
 import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
 
-export default ({ _id }) => {
+export default ({ _id, closePopper }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -16,9 +17,9 @@ export default ({ _id }) => {
 
   return (
     <Box>
-      <IconButton onClick={handleClick}>
-        <DeleteIcon />
-      </IconButton>
+      <Typography>Are you sure?</Typography>
+      <Button onClick={handleClick}>Delete</Button>
+      <Button onClick={closePopper}>Changed my mind</Button>
     </Box>
   );
 };

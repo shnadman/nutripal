@@ -63,6 +63,26 @@ export default ({ dispatch }) => (next) => (action) => {
       dispatch(enqueueSnackbar(makeNotification(action.payload, "warning")));
       next(action);
       break;
+    case "basket/modifyCompositionSuccess":
+      dispatch(
+        enqueueSnackbar(makeNotification("Composition updated", "success"))
+      );
+      next(action);
+      break;
+    case "basket/modifyCompositionError":
+      dispatch(enqueueSnackbar(makeNotification(action.payload, "success")));
+      next(action);
+      break;
+    case "basket/deleteCompositionSuccess":
+      dispatch(
+        enqueueSnackbar(makeNotification("Composition deleted", "info"))
+      );
+      next(action);
+      break;
+    case "macros/commentsSuccess":
+      dispatch(enqueueSnackbar(makeNotification("Comment posted", "info")));
+      next(action);
+      break;
     default:
       next(action);
   }

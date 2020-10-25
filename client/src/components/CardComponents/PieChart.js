@@ -23,17 +23,16 @@ export default ({ ratio }) => {
   });
 
   const lineWidth = 60;
-  debugger;
 
   return (
     <PieChart
       style={{
         fontFamily:
           '"Nunito Sans", -apple-system, Helvetica, Arial, sans-serif',
-        fontSize: "8px",
+        fontSize: "9px",
       }}
       data={data}
-      radius={PieChart.defaultProps.radius - 6}
+      radius={PieChart.defaultProps.radius - 4}
       lineWidth={50}
       segmentsStyle={{ transition: "stroke .3s", cursor: "pointer" }}
       segmentsShift={(index) => (index === selected ? 6 : 1)}

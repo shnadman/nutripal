@@ -20,18 +20,27 @@ import {
   getComparator,
 } from "./SortAndCompareUtils";
 import _ from "lodash";
-import CreateComposition from "./CreateComposition";
-import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    borderRadius: 30,
     width: "80%",
   },
   paper: {
+    borderRadius: "inherit",
     width: "100%",
     marginBottom: theme.spacing(2),
   },
   table: {
+    //  filter: "blur(8px)",
+    backgroundImage:
+      "linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))," +
+      "url(https://images.pexels.com/photos/1242348/pexels-photo-1242348.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)",
+    backgroundRepeat: "no-repeat",
+    zIndex: "-1",
+    backgroundSize: "cover",
+    justifyContent: "center",
+    backgroundColor: "transparent",
     minWidth: 200,
   },
   visuallyHidden: {
@@ -55,7 +64,8 @@ const useStyles = makeStyles((theme) => ({
 export default function EnhancedTable({
   rows,
   dynamicSelecting,
-  compositionAction,
+  compositionCreateAction,
+  compositionUpdateAction,
 }) {
   const {
     handleClick,
@@ -92,9 +102,9 @@ export default function EnhancedTable({
     setDense(event.target.checked);
   };
 
-  if (!rows || _.isEmpty(rows) || _.isUndefined(rows)) {
-    return null;
-  }
+  // if (!rows || _.isEmpty(rows) || _.isUndefined(rows)) {
+  //   return null;
+  // }
 
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -151,6 +161,10 @@ export default function EnhancedTable({
                       >
                         {row.name}
                       </TableCell>
+                      <TableCell align="right">{`x1`}</TableCell>
+                      <TableCell align="right">
+                        {`${row.servingSize} ${row.servingSizeUnit}`}
+                      </TableCell>
                       <TableCell align="right">{row.calories}</TableCell>
                       <TableCell align="right">{row.fat}</TableCell>
                       <TableCell align="right">{row.carbs}</TableCell>
@@ -166,7 +180,15 @@ export default function EnhancedTable({
             </TableBody>
           </Table>
         </TableContainer>
+
+        <TotalAggregate
+          className={classes.table}
+          selected={selected}
+          aggTotals={aggTotals}
+          totals={totals}
+        />
         <TablePagination
+          className={classes.table}
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
           count={rows.length}
@@ -176,16 +198,8 @@ export default function EnhancedTable({
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </Paper>
-      <TotalAggregate
-        selected={selected}
-        aggTotals={aggTotals}
-        totals={totals}
-      />
-      {compositionAction}
-      <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Dense padding"
-      />
+      {compositionCreateAction}
+      {compositionUpdateAction}
     </div>
   );
 }

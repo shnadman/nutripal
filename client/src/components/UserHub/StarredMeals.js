@@ -6,10 +6,17 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import _ from "lodash";
-import MacrosLayout from "./MacrosLayout";
+import MacrosLayout from "../MacrosLayout";
 
 import CreateComposition from "../MacrosTableAggregate/CreateComposition";
 import { useSelected } from "../utils/hooks";
+import ModifyComposition from "../MacrosTableAggregate/ModifyComposition";
+import MacrosAggTable from "../MacrosTableAggregate/FullTable";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import Link from "@material-ui/core/Link";
+import { Link as RouterLink } from "react-router-dom";
+import UserPanel from "./UserPanel";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -22,7 +29,7 @@ const useStyles = makeStyles(() => ({
 
 const Feature = () => {
   const classes = useStyles();
-  const { basket } = useSelector((state) => state.basket);
+  const { basket, userName } = useSelector((state) => state.basket);
   const dynamicSelecting = useSelected(basket);
   const { selected, clearSelected } = dynamicSelecting;
   const dispatch = useDispatch();
@@ -40,11 +47,10 @@ const Feature = () => {
   };
   return (
     <div>
-      <Typography variant="h5" className={classes.text}>
-        Your starred meals
-      </Typography>
+      <UserPanel />
       <MacrosLayout
-        compositionAction={<CreateComposition />}
+        compositionCreateAction={<CreateComposition selected={selected} />}
+        compositionUpdateAction={<ModifyComposition selected={selected} />}
         data={basket}
         dynamicSelecting={dynamicSelecting}
       />

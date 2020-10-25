@@ -10,22 +10,32 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import withStyles from "@material-ui/core/styles/withStyles";
 
+const iOSBoxShadow =
+  "0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)";
+
 const StyledSlider = withStyles({
   root: {
-    color: "#1ed1ea",
+    color: "#ADA3D4",
     height: 8,
   },
+
   thumb: {
-    height: 24,
-    width: 24,
+    height: 20,
+    width: 20,
     backgroundColor: "#fff",
-    border: "2px solid currentColor",
+    boxShadow: iOSBoxShadow,
     marginTop: -8,
-    marginLeft: -12,
+    marginLeft: -14,
     "&:focus, &:hover, &$active": {
-      boxShadow: "inherit",
+      boxShadow:
+        "0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.3),0 0 0 1px rgba(0,0,0,0.02)",
+      // Reset on touch devices, it doesn't add specificity
+      "@media (hover: none)": {
+        boxShadow: iOSBoxShadow,
+      },
     },
   },
+
   active: {},
   valueLabel: {
     left: "calc(-50% + 4px)",
@@ -61,6 +71,7 @@ export default () => {
     const [gtCarbs, ltCarbs] = carbs;
     const [gtFat, ltFat] = fat;
     const params = {
+      page: 0,
       "calories[lte]": ltCal,
       "calories[gte]": gtCal,
       "protein[lte]": ltProtein,

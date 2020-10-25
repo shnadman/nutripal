@@ -8,7 +8,7 @@ import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 
 const useStyles = makeStyles((theme) => ({
   text: {
-    color: "#fff",
+    color: "#ddcccc",
   },
 
   disabled: {
@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: "rotate(180deg)",
   },
+  icon: { color: "#ddcccc" },
 }));
 
 export default ({ expanded, handleExpandClick, commentsCount }) => {
@@ -42,7 +43,7 @@ export default ({ expanded, handleExpandClick, commentsCount }) => {
         aria-expanded={expanded}
         aria-label="show more"
       >
-        <QuestionAnswerIcon />
+        <QuestionAnswerIcon className={classes.icon} />
       </IconButton>
     </Box>
   );

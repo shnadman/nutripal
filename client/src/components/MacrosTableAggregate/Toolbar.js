@@ -10,6 +10,8 @@ import React from "react";
 
 const useToolbarStyles = makeStyles((theme) => ({
   root: {
+    borderTopLeftRadius: "inherit",
+    borderTopRightRadius: "inherit",
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1),
   },
@@ -22,6 +24,7 @@ const useToolbarStyles = makeStyles((theme) => ({
       : {
           color: theme.palette.text.primary,
           backgroundColor: theme.palette.secondary.dark,
+          opacity: 0.7,
         },
   title: {
     flex: "1 1 100%",

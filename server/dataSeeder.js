@@ -11,7 +11,7 @@ mongoose.connect(config.get("db"), {
   useCreateIndex: true,
 });
 
-const csvFile = "./data/simple.csv";
+const csvFile = "./data/sample.csv";
 const dbURL = config.get("db");
 const collection = "macros";
 
@@ -37,7 +37,7 @@ const importData = async () => {
       entry.fat = normalize(entry.fat);
       entry.calories = normalize(entry.calories);
       entry.servingSize === ""
-        ? (entry.servingSize = -1)
+        ? (entry.servingSize = 1)
         : (entry.servingSize = _.parseInt(entry.servingSize));
     });
     console.log(macros);
@@ -46,19 +46,10 @@ const importData = async () => {
     console.log("Data Imported...");
     process.exit();
   } catch (err) {
-    console.log("error");
     console.log(err);
   }
 };
 
 importData();
-
-// csv()
-//   .fromFile(csvFile)
-//   .then((jsonObj) => {
-//     console.log(jsonObj);
-//   });
-
-//console.log(test);
 
 //.pipe(streamToMongoDB(outputDBConfig));

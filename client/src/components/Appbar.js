@@ -91,7 +91,7 @@ export default function PrimarySearchAppBar({ history }) {
           <Link to="/home" className={classes.title}>
             <Button size="large">NutriPal</Button>
           </Link>
-          <SearchBar placeholder={"Search..."} />
+          <SearchBar placeholder={"Search by name..."} />
           <div className={classes.grow} />
           <Box className={classes.sectionDesktop}>
             <Modal />

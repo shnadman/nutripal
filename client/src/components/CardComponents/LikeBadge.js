@@ -33,7 +33,19 @@ export default ({ id }) => {
   };
 
   return (
-    <Paper>
+    <Paper
+      style={{
+        borderRadius: 12,
+        width: "25%",
+        height: "40%",
+        position: "relative",
+        zIndex: "2",
+        bottom: "-17px",
+        left: "130px",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <Button
         onMouseDown={(event) => event.stopPropagation()}
         onClick={handleClickLike}

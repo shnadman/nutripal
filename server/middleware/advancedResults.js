@@ -50,6 +50,7 @@ const advancedResults = (model, populate) => async (req, res, next) => {
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
   const total = await model.countDocuments();
+  const tempQueryResults = await query;
 
   query = query.skip(startIndex).limit(limit);
 
@@ -59,9 +60,10 @@ const advancedResults = (model, populate) => async (req, res, next) => {
 
   // Executing query
   const results = await query;
+  const totalPages = Math.ceil(tempQueryResults.length / limit);
 
   // Pagination result
-  const pagination = {};
+  const pagination = { totalPages };
 
   if (endIndex < total) {
     pagination.next = {

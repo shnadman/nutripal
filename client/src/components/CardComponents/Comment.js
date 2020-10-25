@@ -22,6 +22,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#807f7f",
     margin: "10px",
     flexGrow: "1",
+    position: "relative",
   },
   writer: {
     fontWeight: "bold",
@@ -67,13 +68,12 @@ export default ({ comment }) => {
           />
           {showDelete ? renderDelete() : null}
         </Box>
-        <Box className={classes.comment}>
+        <div className={classes.comment}>
           <Typography className={classes.writer}>{writer.name} </Typography>
           <Typography>{content}</Typography>
-        </Box>
-      </Box>
-      <Box display="flex" justifyContent="flex-end">
-        <LikeBadge id={_id} />
+
+          <LikeBadge id={_id} />
+        </div>
       </Box>
     </Box>
   );

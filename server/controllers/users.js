@@ -7,7 +7,11 @@ const mongoose = require("mongoose");
 exports.getUserHub = async (req, res, next) => {
   const starredMeals = await User.findById(req.user._id)
     .populate("starredMeals")
-    .select("starredMeals");
+    .populate({
+      path: "compositions",
+      populate: { path: "mealIds", model: "Macros" },
+    })
+    .select("starredMeals compositions name");
 
   res.send(starredMeals);
 };
@@ -71,6 +75,20 @@ exports.modifyBasket = async (req, res, next) => {
 
 exports.createComposition = async (req, res, next) => {
   const { mealIds, name } = req.body;
+  const currCompositions = await User.findOne({
+    _id: req.user._id,
+  }).select("compositions");
+
+  const currCompositionsNames = currCompositions.compositions.map(
+    (c) => c.name
+  );
+
+  if (currCompositionsNames.includes(name)) {
+    return res
+      .status(400)
+      .send("Name already in use, please use a different one");
+  }
+
   const compositions = await User.findByIdAndUpdate(
     req.user._id,
     {
@@ -124,12 +142,31 @@ exports.modifyCompositions = async (req, res, next) => {
       .select("compositions");
     res.status(200).send(compositions);
   } else {
+    // let currCompositions = await User.findOne({
+    //   _id: req.user._id,
+    //   "compositions._id": id,
+    // }).select("compositions");
+    //
+    // currCompositions = currCompositions.compositions[0].mealIds;
+    // const intersection = _.intersection(
+    //   currCompositions,
+    //   mealIds.map((id) => id.toString())
+    // );
+    // console.log(mealIds.map((id) => id.toString()));
+    // console.log(currCompositions);
+    // console.log(intersection);
+    // console.log(_.eq(intersection, mealIds));
+    // if (_.eq(intersection, mealIds)) {
+    //   return res
+    //     .status(400)
+    //     .send("All of the selected meals are already included in composition");
+    // }
     const compositions = await User.findOneAndUpdate(
       { _id: req.user._id, "compositions._id": id },
       {
-        $set: {
+        $addToSet: {
           "compositions.$.mealIds": mealIds,
-          "compositions.$.name": name,
+          //      "compositions.$.name": name,
         },
       },
       {

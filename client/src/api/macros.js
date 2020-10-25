@@ -4,7 +4,7 @@ export default axios.create({
   baseURL: "http://localhost:3000/api/macros",
   timeout: 2000,
   params: {
-    limit: "8",
-    sort: "-score",
+    limit: "18",
+    sort: "calories",
   },
 });

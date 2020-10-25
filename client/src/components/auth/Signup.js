@@ -38,11 +38,11 @@ const Signup = (props) => {
     <Container maxWidth="xs">
       <Paper className={classes.paper}>
         <Box alignSelf="center">
-          <Avatar className={classes.avatar}>
+          <Avatar style={{ marginLeft: "70px" }} className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Create a user
           </Typography>
         </Box>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -77,6 +77,19 @@ const Signup = (props) => {
               name="password"
               component={renderTextField}
               label="Password"
+              type="password"
+              variant="outlined"
+              fullWidth
+              required
+              margin="normal"
+              size="small"
+            />
+          </Box>
+          <Box>
+            <Field
+              name="passwordConfirm"
+              component={renderTextField}
+              label="Re-enter password"
               type="password"
               variant="outlined"
               fullWidth

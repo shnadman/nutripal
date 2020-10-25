@@ -2,10 +2,16 @@ import React, { useEffect } from "react";
 import requireAuth from "./auth/requireAuth";
 import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, Route, Switch } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import { useDispatch, useSelector } from "react-redux";
+import { getHub } from "../features/basket";
+import Grid from "@material-ui/core/Grid";
+import Compositions from "./UserHub/Compositions";
+import StarredMeals from "./UserHub/StarredMeals";
+import UserPanel from "./UserHub/UserPanel";
 
 const useStyles = makeStyles((color) => ({
   appBarParent: {
@@ -46,28 +52,30 @@ const useStyles = makeStyles((color) => ({
   },
 }));
 
-const Feature = () => {
+const Feature = ({ match }) => {
+  const dispatch = useDispatch();
+  const { basket, userName, compositions } = useSelector(
+    (state) => state.basket
+  );
+  debugger;
+
+  useEffect(() => {
+    setTimeout(() => dispatch(getHub()), 20);
+  }, []);
+
   const classes = useStyles();
   return (
-    <Box width="100%" display="inline-flex" flexDirection="row">
-      <div className={classes.root}>
-        <Box alignSelf="center">
-          <Link component={RouterLink} to="me/meals">
-            <Typography variant="h3" className={classes.text}>
-              To Meals
-            </Typography>
-          </Link>
-        </Box>
-      </div>
-      <div className={classes.second}>
-        <Box alignSelf="center">
-          <Link component={RouterLink} to="me/compositions">
-            <Typography variant="h3" className={classes.text}>
-              To Compositions
-            </Typography>
-          </Link>
-        </Box>
-      </div>
+    <Box>
+      <UserPanel />
+      <Switch>
+        <Route path={`${match.path}/meals`} exact component={StarredMeals} />
+        <Route
+          path={`${match.path}/compositions`}
+          exact
+          component={Compositions}
+        />
+      </Switch>
+      <Box width="100%" display="inline-flex" flexDirection="row"></Box>
     </Box>
   );
 };

@@ -7,35 +7,33 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Color from "color";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import CardActions from "@material-ui/core/CardActions";
-import PieChart from "./CardComponents/PieChart";
+import PieChart from "./PieChart";
 import Box from "@material-ui/core/Box";
 import Collapse from "@material-ui/core/Collapse";
 import _ from "lodash";
-import Comment from "./CardComponents/Comment";
+import Comment from "./Comment";
 import Divider from "@material-ui/core/Divider";
-import TextFieldWithButton from "./utils/TextFieldWithButton";
+import TextFieldWithButton from "../utils/TextFieldWithButton";
 import AddCommentIcon from "@material-ui/icons/AddComment";
-import { postComment } from "../features/macros";
+import { postComment } from "../../features/macros";
 import { useDispatch, useSelector } from "react-redux";
-import getCategoryImg from "./CardComponents/staticImgs";
+import getCategoryImg from "./staticImgs";
+import Tooltip from "@material-ui/core/Tooltip";
+import Paper from "@material-ui/core/Paper";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((color) => ({
   actionArea: {
-    borderRadius: 16,
-    transition: "0.2s",
-    "&:hover": {
-      transform: "scale(1.1)",
-    },
+    borderRadius: 20,
   },
   selected: ({ color }) => ({
-    borderRadius: 16,
+    borderRadius: 20,
     transition: "0.2s",
     transform: "matrix(0,-20px)",
     boxShadow: `2px 2px 10px 10px ${Color(color)
       .rotate(-12)
       .lighten(0.6)
       .fade(0.5)
-      .mix(Color("yellow"))}`,
+      .mix(Color("#ffffff"))}`,
   }),
 
   card: ({ color }) => ({
@@ -81,7 +79,7 @@ const useStyles = makeStyles(() => ({
   actions: {
     display: "flex",
     justifyContent: "space-around",
-    backgroundColor: "#034c5b",
+    backgroundColor: "#585252",
   },
   comments: {
     display: "flex",
@@ -91,10 +89,18 @@ const useStyles = makeStyles(() => ({
   addComment: {
     marginTop: "50px",
   },
+  logo: {
+    maxWidth: "10vh",
+    padding: "13%",
+    position: "absolute",
+    zIndex: 1,
+  },
+  pie: { height: "60%", width: "50%" },
+  divider: { marginTop: "20px" },
 }));
 
 export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
-  const classes = useStyles({ color: "#023b45" });
+  const classes = useStyles({ color: "#585252" });
   const dispatch = useDispatch();
   const [expanded, setExpanded] = React.useState(false);
   const { handleClick, isSelected } = dynamicSelecting;
@@ -108,6 +114,7 @@ export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
     _id,
     comments,
     brand,
+    brandLogo,
     category,
     servingSize,
     servingSizeUnit,
@@ -131,13 +138,18 @@ export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
       className={isSelected(data) ? classes.selected : classes.actionArea}
     >
       <Card className={classes.card}>
-        <CardMedia
-          onClick={(event) => handleClick(event, data)}
-          style={{ height: 0, paddingTop: "56%" }}
-          image={getCategoryImg(category)}
-        >
-          {brand}
-        </CardMedia>
+        <Box position={"relative"}>
+          <Tooltip placement="top-start" title={brand}>
+            <CardMedia image={brandLogo} className={classes.logo} />
+          </Tooltip>
+          <Tooltip enterDelay={1000} title={category} placement="top-end">
+            <CardMedia
+              onClick={(event) => handleClick(event, data)}
+              style={{ height: 0, paddingTop: "56%", position: "relative" }}
+              image={getCategoryImg(category)}
+            />
+          </Tooltip>
+        </Box>
         <CardContent
           onClick={(event) => handleClick(event, data)}
           className={classes.content}
@@ -161,7 +173,7 @@ export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
               </Typography>
               <Typography className={classes.subtitle}>Fat: {fat}g</Typography>
             </Box>
-            <Box>
+            <Box className={classes.pie}>
               <PieChart ratio={ratio} />
             </Box>
           </Box>
@@ -177,7 +189,7 @@ export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent className={classes.comments}>
             {renderComments(comments)}
-            <Divider />
+            <Divider className={classes.divider} />
             <TextFieldWithButton
               className={classes.addComment}
               onSubmit={onSubmit}

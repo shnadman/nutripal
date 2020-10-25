@@ -47,6 +47,8 @@ export default (category) => {
       return categoryImgs.entrees;
     case "ToppingsIngredients":
       return categoryImgs.toppings;
+    case "Beverages":
+      return categoryImgs.beverages;
     default:
       return null;
   }

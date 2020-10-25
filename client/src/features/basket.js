@@ -11,6 +11,7 @@ basket.interceptors.request.use(function (config) {
 const initialState = {
   basket: {},
   compositions: [],
+  userName: "",
 };
 
 // Slice
@@ -33,6 +34,11 @@ const slice = createSlice({
     addCompositionError: (state, action) => {
       console.error(action.payload);
     },
+    getUserHubSuccess: (state, action) => {
+      state.basket = action.payload.data.starredMeals;
+      state.compositions = action.payload.data.compositions;
+      state.userName = action.payload.data.name;
+    },
     basketSuccess: (state, action) => {
       state.basket = action.payload.data.starredMeals;
     },
@@ -53,12 +59,12 @@ export const {
   getCompositionSuccess,
   deleteCompositionSuccess,
   modifyCompositionSuccess,
+  getUserHubSuccess,
 } = slice.actions;
 
 export const modifyBasket = (mealId, remove) => async (dispatch) => {
   try {
     const res = await basket.put("/", { mealId, remove });
-    debugger;
     dispatch(basketSuccess(res));
   } catch (e) {
     dispatch(basketError(e.response.data));
@@ -73,7 +79,7 @@ export const getHub = () => async (dispatch) => {
         "x-auth-token": jwt,
       },
     });
-    dispatch(basketSuccess(res));
+    dispatch(getUserHubSuccess(res));
   } catch (e) {
     dispatch(basketError(e.response.data));
   }
@@ -99,7 +105,10 @@ export const getCompositions = () => async (dispatch) => {
 
 export const modifyComposition = (name, mealIds, id) => async (dispatch) => {
   try {
-    const res = await basket.put(`/compositions/${id}`);
+    const res = await basket.put(`/compositions/${id}`, {
+      name,
+      mealIds,
+    });
     dispatch(modifyCompositionSuccess(res));
   } catch (e) {
     dispatch(addCompositionError(e.response.data));

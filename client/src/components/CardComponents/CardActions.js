@@ -6,18 +6,19 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import { useToggleOnSearch, useToggleOnDiscard } from "../utils/hooks";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import PeopleIcon from "@material-ui/icons/People";
+import ShareButton from "./ShareButton";
 import CommentsToggler from "./CommentsToggler";
 import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
-    color: "white",
+    color: "#ddcccc",
     alignSelf: "center",
-    marginLeft: "10px",
+    marginLeft: "12px",
   },
   starred: {
-    color: "red",
+    color: "#e53131",
+    marginLeft: "12px",
   },
   remove: {
     color: "red",
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     background: "#0e1cb7",
   },
   text: {
-    color: "#fff",
+    color: "#ddcccc",
   },
 
   textComments: {
@@ -55,12 +56,11 @@ export const StarAction = ({
         onMouseDown={(event) => event.stopPropagation()}
         onClick={toggle}
       >
+        <Typography className={classes.text}>{starred.length}</Typography>
         <FavoriteIcon className={on ? classes.starred : classes.icon} />
       </IconButton>
-      <Box display="flex" direction="row">
-        <Typography className={classes.text}>{starred.length}</Typography>
-        <PeopleIcon className={classes.icon} />
-      </Box>
+      <ShareButton style={{ marginRight: "15px" }} />
+
       <CommentsToggler
         expanded={expanded}
         handleExpandClick={handleExpandClick}

@@ -9,12 +9,16 @@ const macrosSchema = new mongoose.Schema(
   {
     name: { type: String, trim: true },
     brand: { type: String, trim: true, defaultValue: "" },
-    brandLogo: { type: String },
+    brandLogo: { type: String, default: "" },
     img: { type: mongoose.SchemaTypes.Url, default: "" },
     desc: { type: String, default: "" },
     category: { type: String, default: "" },
     servingSize: { type: Number, default: 0 },
-    servingSizeUnit: { type: String, enum: ["fl oz", "g", "ml", "oz", ""] },
+    servingSizeUnit: {
+      type: String,
+      enum: ["fl oz", "g", "ml", "oz"],
+      default: "unit",
+    },
     calories: { type: Number, default: 0 },
     protein: { type: Number, default: 0 },
     carbs: { type: Number, default: 0 },
@@ -56,7 +60,7 @@ macrosSchema.pre("save", function (next) {
     )
     .then((res) => {
       this.brandLogo = res.data[0].logo;
-      console.log(brandLogo);
+
       next();
     })
     .catch((err) => {

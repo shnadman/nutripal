@@ -12,14 +12,15 @@ import Typography from "@material-ui/core/Typography";
 import _ from "lodash";
 
 import CompGrid from "./CompGrid";
-import MacrosLayout from "./MacrosLayout";
+import MacrosLayout from "../MacrosLayout";
 import Container from "@material-ui/core/Container";
 import ModifyComposition from "../MacrosTableAggregate/ModifyComposition";
 import { useSelected } from "../utils/hooks";
+import UserPanel from "./UserPanel";
 
 const useStyles = makeStyles(() => ({
   root: {
-    marginBottom: "40px",
+    marginBottom: "100px",
   },
   text: {
     color: "#fff",
@@ -28,7 +29,7 @@ const useStyles = makeStyles(() => ({
 
 const Feature = () => {
   const classes = useStyles();
-  const { discardList, compositions } = useSelector((state) => state.basket);
+  const { compositions } = useSelector((state) => state.basket);
   const dispatch = useDispatch();
   const [chosenComposition, setChosenComposition] = useState([]);
   const dynamicSelecting = useSelected([]);
@@ -41,20 +42,17 @@ const Feature = () => {
 
   return (
     <div>
-      <Typography variant="h4" className={classes.text}>
-        Your compositions
-      </Typography>
-      <Container>
-        <CompGrid
-          renderSelectedComposition={setChosenComposition}
-          isSelected={isSelected}
-          data={compositions}
-        />
-      </Container>
+      <UserPanel />
+      <CompGrid
+        className={classes.root}
+        renderSelectedComposition={setChosenComposition}
+        isSelected={isSelected}
+        data={compositions}
+      />
       {_.isEmpty(chosenComposition) ? null : (
         <MacrosLayout
           data={chosenComposition.mealIds}
-          compositionAction={<ModifyComposition />}
+          compositionUpdateAction={<ModifyComposition />}
           dynamicSelecting={dynamicSelecting}
         />
       )}
