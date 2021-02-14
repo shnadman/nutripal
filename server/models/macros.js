@@ -1,7 +1,7 @@
 const config = require("config");
 const Joi = require("joi");
 const mongoose = require("mongoose");
-require("mongoose-type-url");
+//require("mongoose-type-url");
 const _ = require("lodash");
 const axios = require("axios");
 
