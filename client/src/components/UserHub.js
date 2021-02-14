@@ -1,83 +1,155 @@
-import React, { useEffect } from "react";
-import requireAuth from "./auth/requireAuth";
-import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
-import { Link as RouterLink, Route, Switch } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { useDispatch, useSelector } from "react-redux";
-import { getHub } from "../features/basket";
-import Grid from "@material-ui/core/Grid";
-import Compositions from "./UserHub/Compositions";
-import StarredMeals from "./UserHub/StarredMeals";
-import UserPanel from "./UserHub/UserPanel";
 
-const useStyles = makeStyles((color) => ({
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFriend, sendFriendRequest } from "../features/basket";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import Paper from "@material-ui/core/Paper";
+import _ from "lodash";
+import StarredMeals from "./UserHub/StarredMeals";
+import Compositions from "./UserHub/Compositions";
+import Friends from "./UserHub/Friends";
+import Button from "@material-ui/core/Button";
+import Avatar from "@material-ui/core/Avatar";
+import requireAuth from "./auth/requireAuth";
+
+const useStyles = makeStyles((theme) => ({
   appBarParent: {
     flexGrow: 1,
     marginTop: 30,
     height: 5000,
   },
-  root: {
-    height: "92vh",
-    width: "50%",
-
-    backgroundImage:
-      "linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))," +
-      "url(https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80)",
+  root: (props) => ({
+    borderRadius: 12,
+    backgroundImage: props.backgroundImage,
     backgroundRepeat: "no-repeat",
-    backgroundAttachment: "fixed",
-    backgroundSize: "1000px 1200px",
-    display: "flex",
-    justifyContent: "center",
     backgroundColor: "transparent",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    height: "25vh",
+  }),
+  avatar: {
+    width: theme.spacing(11),
+    height: theme.spacing(11),
+    alignSelf: "center",
+    position: "relative",
+    right: "330px",
+    top: "40px",
   },
 
-  second: {
-    height: "92vh",
-    width: "50%",
-    backgroundImage:
-      "linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))," +
-      "url(https://images.unsplash.com/photo-1550728193-be87c574be86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)",
-    backgroundRepeat: "no-repeat",
-    backgroundAttachment: "fixed",
-    backgroundSize: "cover",
+  menu: {
+    position: "relative",
+    bottom: "20%",
     display: "flex",
-    justifyContent: "center",
-    backgroundColor: "transparent",
+    marginLeft: "20px",
+    justifyContent: "flex-start",
   },
+
   text: {
     color: "#fff",
   },
 }));
 
-const Feature = ({ match }) => {
+const UserHub = ({ history, useData, friendFlag, styleProps, match }) => {
+  const { userId } = useSelector((state) => state.auth);
+  const { basket, userName, compositions, friends, avatar } = useData();
+  const friendId = match.params.id;
+  const isFriend = _.find(friends, ["_id", userId]);
+  const [rendered, setRendered] = useState("starred");
   const dispatch = useDispatch();
-  const { basket, userName, compositions } = useSelector(
-    (state) => state.basket
+  const classes = useStyles(styleProps);
+
+  const handleSendRequest = (isFriend) => {
+    isFriend
+      ? dispatch(removeFriend(friendId))
+      : dispatch(sendFriendRequest(friendId));
+  };
+
+  const renderButton = isFriend ? (
+    <Button
+      onClick={() => handleSendRequest(isFriend)}
+      variant="contained"
+      color="secondary"
+    >
+      Remove from friends
+    </Button>
+  ) : (
+    <Button
+      onClick={() => handleSendRequest(isFriend)}
+      variant="contained"
+      color="secondary"
+    >
+      Send friend request
+    </Button>
   );
-  debugger;
 
-  useEffect(() => {
-    setTimeout(() => dispatch(getHub()), 20);
-  }, []);
+  const friendRequestProps = { handleSendRequest, isFriend, renderButton };
 
-  const classes = useStyles();
+  const renderFeature = () => {
+    switch (rendered) {
+      case "starred":
+        return <StarredMeals basket={basket} />;
+      case "compositions":
+        return <Compositions compositions={compositions} />;
+      case "friends":
+        return (
+          <Friends
+            friends={friends}
+            history={history}
+            friendRequestProps={friendRequestProps}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <Box>
-      <UserPanel />
-      <Switch>
-        <Route path={`${match.path}/meals`} exact component={StarredMeals} />
-        <Route
-          path={`${match.path}/compositions`}
-          exact
-          component={Compositions}
+      <Paper className={classes.root}>
+        <Avatar
+          alt={userName}
+          style={{}}
+          src={avatar}
+          className={classes.avatar}
         />
-      </Switch>
-      <Box width="100%" display="inline-flex" flexDirection="row"></Box>
+        <Typography style={{ alignSelf: "center" }} variant="h2">
+          {`${userName}'s basket`}
+        </Typography>
+        <Box position="relative" left="60%" right="40%" bottom="5%">
+          <Button
+            onClick={() => history.push("/api/users/me/edit")}
+            variant="outlined"
+          >
+            Edit profile
+          </Button>
+        </Box>
+        <Box className={classes.menu}>
+            <Button
+              onClick={() => setRendered("starred")}
+              variant="text"
+            >{`Favorite meals (${basket.length})`}</Button>
+            <Button
+              onClick={() => setRendered("compositions")}
+              variant="text"
+            >
+              {`Compositions (${compositions.length})`}
+            </Button>
+            <Button
+              onClick={() => setRendered("friends")}
+              variant="text"
+            >{`Friends (${friends.length})`}</Button>
+
+          <Box position="relative" left="1000px">
+            {friendFlag ? renderButton : null}
+          </Box>
+        </Box>
+      </Paper>
+      {renderFeature()}
     </Box>
   );
 };
 
-export default requireAuth(Feature);
+export default requireAuth(UserHub);

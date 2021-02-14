@@ -1,0 +1,29 @@
+
+.glass {
+    border-radius: inherit;
+    background-color: transparent;
+    margin-bottom: 30px;
+    padding-top:30px;
+    width:112%;
+
+}
+
+.paper::before {
+    z-index: -1;
+    position: absolute;
+    content: ' ';
+    -webkit-filter: url('#blur');
+    filter: url('#blur');
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    background-size: cover;
+    opacity: 0.5;
+}
+
+.glass::before {
+    /* background-image: url('path/to/image.jpg'); Actual image for this demo is a data-uri, see below */
+    /* Prefix free isn't picking up this one */
+
+}
+
+

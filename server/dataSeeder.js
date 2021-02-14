@@ -11,7 +11,7 @@ mongoose.connect(config.get("db"), {
   useCreateIndex: true,
 });
 
-const csvFile = "./data/sample.csv";
+const csvFile = "./data/branded-sub1.csv";
 const dbURL = config.get("db");
 const collection = "macros";
 

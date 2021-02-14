@@ -13,12 +13,7 @@ const headCells = [
     disablePadding: true,
     label: "Meal",
   },
-  {
-    id: "qty",
-    numeric: true,
-    disablePadding: true,
-    label: "qty",
-  },
+
   {
     id: "servingSize",
     numeric: true,

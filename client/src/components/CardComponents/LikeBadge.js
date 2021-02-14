@@ -36,12 +36,12 @@ export default ({ id }) => {
     <Paper
       style={{
         borderRadius: 12,
-        width: "25%",
-        height: "40%",
+        width: "40px",
+        height: "50px",
         position: "relative",
         zIndex: "2",
         bottom: "-17px",
-        left: "130px",
+        left: "120px",
         display: "flex",
         justifyContent: "center",
       }}

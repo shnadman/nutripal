@@ -7,9 +7,10 @@ import React, { cloneElement, useState } from "react";
 import { useSelected } from "./utils/hooks";
 import { animated, useSpring } from "react-spring";
 import { clearResults } from "../features/macros";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import "./UserHub/gridStyles.css";
-import VisibilitySensor from "react-visibility-sensor";
+import "./tableStyles.css";
+import RingLoader from "react-spinners/RingLoader";
 
 export default ({
   data,
@@ -21,6 +22,15 @@ export default ({
 }) => {
   const dispatch = useDispatch();
   const { selected, anySelected, clearSelected } = dynamicSelecting;
+  const { isLoading } = useSelector((state) => state.macros);
+
+
+const kaa = "#5eef97"
+  const renderLoadingSpinner = (
+      <div style={{position:"relative",left:"50vw"}}>
+        <RingLoader  color="#5eef97" size={120} loading={true} />
+      </div>)
+
 
   const springPropsGrid = useSpring({
     config: { mass: 12, tension: 600, friction: 350, clamp: true },
@@ -80,9 +90,9 @@ export default ({
 
   return (
     <Box display="flex">
-      {renderTable}
+      {isLoading ? renderLoadingSpinner : renderTable}
       <div>
-        <Container maxWidth="md">{renderGrid}</Container>
+        <Container maxWidth="lg">{renderGrid}</Container>
       </div>
     </Box>
   );

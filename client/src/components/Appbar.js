@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -11,8 +11,11 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import ProfilePopupMenu from "./utils/ProfilePopupMenu";
-import { clearResults } from "../features/macros";
-import { useDispatch } from "react-redux";
+import { getNotifications } from "../features/notifications";
+import { useDispatch, useSelector } from "react-redux";
+import Badge from "@material-ui/core/Badge";
+import NotificationsNoneRoundedIcon from "@material-ui/icons/NotificationsNoneRounded";
+import NotificationsPopper from "./utils/NotificationsPopper";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -66,8 +69,11 @@ const useStyles = makeStyles((theme) => ({
       width: "20ch",
     },
   },
+  btns: { textTransform: "none" },
   sectionDesktop: {
     display: "flex",
+    position: "relative",
+    top: "5px",
     justifyContent: "space-between",
     [theme.breakpoints.up("md")]: {
       display: "flex",
@@ -79,6 +85,7 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+  toolbar: { height: "5vh" },
 }));
 
 export default function PrimarySearchAppBar({ history }) {
@@ -87,7 +94,7 @@ export default function PrimarySearchAppBar({ history }) {
   return (
     <div className={classes.grow}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <Link to="/home" className={classes.title}>
             <Button size="large">NutriPal</Button>
           </Link>
@@ -96,10 +103,15 @@ export default function PrimarySearchAppBar({ history }) {
           <Box className={classes.sectionDesktop}>
             <Modal />
             <Link to="/signup">
-              <Button variant="contained" color="primary">
+              <Button
+                className={classes.btns}
+                variant="contained"
+                color="primary"
+              >
                 Sign up
               </Button>
             </Link>
+            <NotificationsPopper />
             <ProfilePopupMenu history={history} />
           </Box>
         </Toolbar>

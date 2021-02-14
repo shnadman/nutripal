@@ -3,6 +3,8 @@ import auth from "./features/auth";
 import macros from "./features/macros";
 import basket from "./features/basket";
 import app from "./reducers/snackReducer";
+import friendsBasket from "./features/friendsBasket";
+import notifications from "./features/notifications";
 import { reducer as formReducer } from "redux-form";
 import notify from "./middleware/notify";
 
@@ -12,6 +14,8 @@ const reducer = {
   app,
   macros,
   basket,
+  friendsBasket,
+  notifications,
 };
 
 export default function configureAppStore(preloadedState) {

@@ -13,6 +13,7 @@ import Switch from "@material-ui/core/Switch";
 import EnhancedTableHead from "./Tablehead";
 import EnhancedTableToolbar from "./Toolbar";
 import TotalAggregate from "./TotalAggregate";
+import "../tableStyles.css";
 
 import {
   stableSort,
@@ -24,24 +25,29 @@ import _ from "lodash";
 const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 30,
-    width: "80%",
+    width: "85%",
+    fontSize:"0.8rem",
   },
   paper: {
     borderRadius: "inherit",
     width: "100%",
+    backgroundColor: "rgba(255,255,255,0.03)",
+    border: "0.7px solid white",
     marginBottom: theme.spacing(2),
   },
   table: {
-    //  filter: "blur(8px)",
-    backgroundImage:
-      "linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))," +
-      "url(https://images.pexels.com/photos/1242348/pexels-photo-1242348.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)",
+    // filter: "blur(8px)",
+
+    // backgroundImage:
+    //   "linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7))," +
+    //   "url(https://images.pexels.com/photos/1242348/pexels-photo-1242348.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)",
     backgroundRepeat: "no-repeat",
     zIndex: "-1",
     backgroundSize: "cover",
     justifyContent: "center",
     backgroundColor: "transparent",
     minWidth: 200,
+
   },
   visuallyHidden: {
     border: 0,
@@ -55,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     width: 1,
   },
   tableRow: {
+
     "&.Mui-selected, &.Mui-selected:hover": {
       backgroundColor: theme,
     },
@@ -102,9 +109,6 @@ export default function EnhancedTable({
     setDense(event.target.checked);
   };
 
-  // if (!rows || _.isEmpty(rows) || _.isUndefined(rows)) {
-  //   return null;
-  // }
 
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -157,11 +161,13 @@ export default function EnhancedTable({
                         component="th"
                         id={labelId}
                         scope="row"
+                        size="small"
                         padding="none"
+                        style={{fontSize:"1rem", width:"480px"}}
                       >
                         {row.name}
                       </TableCell>
-                      <TableCell align="right">{`x1`}</TableCell>
+                      {/*<TableCell align="right">{`x1`}</TableCell>*/}
                       <TableCell align="right">
                         {`${row.servingSize} ${row.servingSizeUnit}`}
                       </TableCell>

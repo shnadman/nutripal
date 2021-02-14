@@ -2,6 +2,7 @@ const config = require("config");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const mongoose = require("mongoose");
+require("mongoose-type-url");
 
 const compositionSchema = new mongoose.Schema({
   name: String,
@@ -13,6 +14,14 @@ const compositionSchema = new mongoose.Schema({
     },
   ],
 });
+
+const notificationSchema = new mongoose.Schema(
+  {
+    msg: String,
+    userId: mongoose.Schema.Types.ObjectId,
+  },
+  { timestamps: true }
+);
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -31,9 +40,10 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 3,
     maxlength: 1024,
   },
+  avatar: { type: mongoose.SchemaTypes.Url, default: "" },
   starredMeals: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -42,7 +52,14 @@ const userSchema = new mongoose.Schema({
     },
   ],
   compositions: { type: [compositionSchema], unique: true },
-
+  friends: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      unique: true,
+    },
+  ],
+  notifications: [notificationSchema],
   weight: { type: Number },
   height: { type: Number },
   age: { type: Number },
@@ -76,6 +93,15 @@ function validateUser(user) {
   return schema.validate(user);
 }
 
+function validateEditUser(user) {
+  const schema = Joi.object({
+    name: Joi.string().allow("", null).min(2).max(50),
+    passwordNew: Joi.string().allow("", null),
+  }).unknown();
+
+  return schema.validate(user);
+}
+
 function validateStarred(starred) {
   const schema = Joi.object({
     remove: Joi.boolean().required(),
@@ -97,3 +123,4 @@ exports.User = User;
 exports.validateUser = validateUser;
 exports.validateStarred = validateStarred;
 exports.validateComposition = validateComposition;
+exports.validateEditUser = validateEditUser;

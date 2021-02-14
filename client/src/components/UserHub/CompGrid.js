@@ -18,6 +18,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import DeletePopper from "./DeletePopper";
 import DeleteIcon from "@material-ui/icons/Delete";
+import background from "../../static/back6.jpg";
 
 const useGridStyles = makeStyles(({ breakpoints }) => ({
   root: {
@@ -25,6 +26,12 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
       justifyContent: "center",
       alignContent: "space-between",
     },
+  },
+  bg: {
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.55)), url(${background})`,
+    backgroundPosition: "initial",
+    paddingTop: "80px",
+    minHeight: "1200px",
   },
   subtitle: {
     fontFamily: " sofia-pro, Helvetica,",
@@ -38,17 +45,23 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
     justifyContent: "center",
     alignContent: "space-between",
   },
-  card: {
-    minWidth: 50,
-
-    display: "flex",
-    flexDirection: "column",
-    borderRadius: 16,
+  card: ({ color }) => {
+    return {
+      // backgroundImage: `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${background})`,
+      // backgroundPosition: "center bottom",
+      // backgroundSize: "cover",
+      backDropFilter: "blur(2px)",
+      backgroundColor: "rgba(255,255,255,0.1)",
+      border: "0.7px solid white",
+      height: "400px",
+      display: "flex",
+      flexDirection: "column",
+      borderRadius: 16,
+    };
   },
   content: ({ color }) => {
     return {
-      backgroundColor: color,
-      padding: "0.5rem 1rem 1rem",
+      paddingTop: "10px",
       display: "flex",
       justifyContent: "space-between",
     };
@@ -56,7 +69,6 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
 
   header: ({ color }) => {
     return {
-      backgroundColor: color,
       padding: "0.5rem 1rem 1rem",
     };
   },
@@ -105,7 +117,7 @@ export default ({ data, renderSelectedComposition, isSelected }) => {
       </Box>
     );
   };
-  const classes = useGridStyles({ color: "#635591" });
+  const classes = useGridStyles({ color: "#50476b" });
   const dispatch = useDispatch();
 
   if (!data || _.isEmpty(data) || _.isUndefined(data)) {

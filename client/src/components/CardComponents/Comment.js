@@ -9,6 +9,7 @@ import { likeComment } from "../../features/macros";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useDispatch, useSelector } from "react-redux";
 import IconButton from "@material-ui/core/IconButton";
+import { formatDistance } from "date-fns";
 
 macrosApi.interceptors.request.use(function (config) {
   const token = localStorage.getItem("x-auth-token");
@@ -31,6 +32,11 @@ const useStyles = makeStyles(() => ({
   content: {
     color: "#fcc6c6",
   },
+  timestamp: {
+    fontWeight: "light",
+    fontSize: "13px",
+    color: "#d0cccc",
+  },
   title: {
     fontFamily: " sofia-pro, Helvetica,",
     fontSize: "2rem",
@@ -40,10 +46,16 @@ const useStyles = makeStyles(() => ({
   liked: {
     colorPrimary: "#3662e0",
   },
+  delete: {
+    left: "-25px",
+    position: "absolute",
+    zIndex: "2",
+    bottom: "-18px",
+  },
 }));
 
 export default ({ comment }) => {
-  const { content, writer, _id } = comment;
+  const { content, writer, _id, createdAt } = comment;
   const classes = useStyles();
   const userId = useSelector((state) => state.auth.userId);
   const [showDelete, setShowDelete] = useState(comment.writer._id === userId);
@@ -52,9 +64,11 @@ export default ({ comment }) => {
 
   const renderDelete = () => {
     return (
-      <IconButton>
-        <DeleteIcon />
-      </IconButton>
+      <div className={classes.delete}>
+        <IconButton>
+          <DeleteIcon />
+        </IconButton>
+      </div>
     );
   };
 
@@ -62,16 +76,17 @@ export default ({ comment }) => {
     <Box>
       <Box display="flex">
         <Box display="flex" flexDirection="column">
-          <Avatar
-            alt="Remy Sharp"
-            src="url(https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2045&q=80)"
-          />
-          {showDelete ? renderDelete() : null}
+          <Avatar alt={writer.name} src={writer.avatar} />
         </Box>
         <div className={classes.comment}>
-          <Typography className={classes.writer}>{writer.name} </Typography>
+          <Box display="flex" justifyContent="space-between">
+            <Typography className={classes.writer}>{writer.name} </Typography>
+            <Typography className={classes.timestamp}>
+              {formatDistance(new Date(createdAt), Date.now())}
+            </Typography>
+          </Box>
           <Typography>{content}</Typography>
-
+          {showDelete ? renderDelete() : null}
           <LikeBadge id={_id} />
         </div>
       </Box>

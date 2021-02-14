@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import basket from "../api/basket";
+
 import _ from "lodash";
 
 basket.interceptors.request.use(function (config) {
@@ -12,6 +13,8 @@ const initialState = {
   basket: {},
   compositions: [],
   userName: "",
+  avatar: "",
+  friends: [],
 };
 
 // Slice
@@ -19,6 +22,13 @@ const slice = createSlice({
   name: "basket",
   initialState,
   reducers: {
+    editProfileSuccess: (state, action) => {
+      state.userName = action.payload.data.name;
+      state.avatar = action.payload.data.avatar;
+    },
+    getFriendsSuccess: (state, action) => {
+      state.friends = action.payload.data[0].friends;
+    },
     modifyCompositionSuccess: (state, action) => {
       state.compositions = action.payload.data.compositions;
     },
@@ -38,11 +48,38 @@ const slice = createSlice({
       state.basket = action.payload.data.starredMeals;
       state.compositions = action.payload.data.compositions;
       state.userName = action.payload.data.name;
+      state.avatar = action.payload.data.avatar;
+      if (state.friends.length === 0)
+        state.friends = action.payload.data.friends;
     },
     basketSuccess: (state, action) => {
       state.basket = action.payload.data.starredMeals;
     },
     basketError: (state, action) => {
+      console.log(action.payload);
+    },
+    respondFriendRequestSuccess: (state, action) => {
+      state.friends = action.payload.data.friends;
+    },
+    getNotificationsError: (state, action) => {
+      console.log(action.payload);
+    },
+    sendFriendRequestSuccess: (state, action) => {
+      console.log(action.payload);
+    },
+    sendFriendRequestError: (state, action) => {
+      console.log(action.payload);
+    },
+    removeFriendSuccess: (state, action) => {
+      state.friends = action.payload.data.friends;
+    },
+    removeFriendError: (state, action) => {
+      console.log(action.payload);
+    },
+    respondFriendRequestError: (state, action) => {
+      console.log(action.payload);
+    },
+    editProfileError: (state, action) => {
       console.log(action.payload);
     },
   },
@@ -60,6 +97,15 @@ export const {
   deleteCompositionSuccess,
   modifyCompositionSuccess,
   getUserHubSuccess,
+  getFriendsSuccess,
+  sendFriendRequestSuccess,
+  sendFriendRequestError,
+  respondFriendRequestSuccess,
+  removeFriendSuccess,
+  removeFriendError,
+  respondFriendRequestError,
+  editProfileSuccess,
+  editProfileError,
 } = slice.actions;
 
 export const modifyBasket = (mealId, remove) => async (dispatch) => {
@@ -121,5 +167,49 @@ export const deleteComposition = (id) => async (dispatch) => {
     dispatch(deleteCompositionSuccess(res));
   } catch (e) {
     dispatch(addCompositionError(e.response.data));
+  }
+};
+
+export const getFriends = () => async (dispatch) => {
+  try {
+    const res = await basket.get(`/friends`);
+    dispatch(getFriendsSuccess(res));
+  } catch (e) {
+    dispatch(basketError(e.response.data));
+  }
+};
+export const removeFriend = (id) => async (dispatch) => {
+  try {
+    const res = await basket.put(`/friends/${id}/remove`);
+    dispatch(removeFriendSuccess(res));
+  } catch (e) {
+    dispatch(removeFriendError(e.response.data));
+  }
+};
+
+export const respondFriendRequest = (id, response) => async (dispatch) => {
+  try {
+    const res = await basket.put(`/notifications/${id}/${response}`);
+    dispatch(respondFriendRequestSuccess(res));
+  } catch (e) {
+    dispatch(respondFriendRequestError(e.response.data));
+  }
+};
+
+export const sendFriendRequest = (id) => async (dispatch) => {
+  try {
+    const res = await basket.put(`/friends/${id}`);
+    dispatch(sendFriendRequestSuccess(res));
+  } catch (e) {
+    dispatch(sendFriendRequestError(e.response.data));
+  }
+};
+export const editProfile = (form) => async (dispatch) => {
+  try {
+    debugger;
+    const res = await basket.put(`/profile`, form);
+    dispatch(editProfileSuccess(res));
+  } catch (e) {
+    dispatch(editProfileError(e.response.data));
   }
 };

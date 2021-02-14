@@ -1,12 +1,20 @@
 const advancedResults = (model, populate) => async (req, res, next) => {
   let query;
-  let regexFlag = false;
+
+  // Fields to exclude
+  let removeFields = ["select", "sort", "page", "limit","totalPages"];
+
+  //Start of specific app BL queries - every filed we push will not be used for filtering
+
+  if (req.query.brand === "true") {
+    removeFields.push("brand");
+  }
+  if (req.query.category === "") {
+    removeFields.push("category");
+  }
 
   // Copy req.query
   const reqQuery = { ...req.query };
-
-  // Fields to exclude
-  const removeFields = ["select", "sort", "page", "limit"];
 
   // Loop over removeFields and delete them from reqQuery
   removeFields.forEach((param) => delete reqQuery[param]);
@@ -27,9 +35,10 @@ const advancedResults = (model, populate) => async (req, res, next) => {
     );
 
     // Finding resource
-    query = model.find(JSON.parse(queryStr));
+    query = model.find(JSON.parse(queryStr)).lean();
   }
 
+  console.log(query)
   // Select Fields
   if (req.query.select) {
     const fields = req.query.select.split(",").join(" ");
@@ -49,8 +58,14 @@ const advancedResults = (model, populate) => async (req, res, next) => {
   const limit = parseInt(req.query.limit, 10) || 25;
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
-  const total = await model.countDocuments();
-  const tempQueryResults = await query;
+  let totalPages=null;
+  let total = null;
+
+  if(!req.query.totalPages) {
+    total = await model.countDocuments();
+    const tempQueryResults = await query;
+    totalPages = Math.ceil(tempQueryResults.length / limit);
+  }
 
   query = query.skip(startIndex).limit(limit);
 
@@ -60,10 +75,10 @@ const advancedResults = (model, populate) => async (req, res, next) => {
 
   // Executing query
   const results = await query;
-  const totalPages = Math.ceil(tempQueryResults.length / limit);
 
   // Pagination result
-  const pagination = { totalPages };
+
+  const pagination = totalPages ? { totalPages } :{totalPages: req.query.totalPages}
 
   if (endIndex < total) {
     pagination.next = {

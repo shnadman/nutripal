@@ -26,6 +26,7 @@ const useStyles = makeStyles((color) => ({
     borderRadius: 20,
   },
   selected: ({ color }) => ({
+    minWidth: 200,
     borderRadius: 20,
     transition: "0.2s",
     transform: "matrix(0,-20px)",
@@ -57,7 +58,7 @@ const useStyles = makeStyles((color) => ({
   },
   title: {
     fontFamily: " sofia-pro, Helvetica,",
-    fontSize: "1.5rem",
+    fontSize: "1.2rem",
     color: "#ffffff",
   },
   subtitle: {
@@ -66,7 +67,7 @@ const useStyles = makeStyles((color) => ({
     opacity: 0.87,
     marginTop: "0.5rem",
     fontWeight: 250,
-    fontSize: 17,
+    fontSize: "1rem",
   },
   servingSize: {
     fontWeight: 250,
@@ -95,7 +96,7 @@ const useStyles = makeStyles((color) => ({
     position: "absolute",
     zIndex: 1,
   },
-  pie: { height: "60%", width: "50%" },
+  pie: { height: "55%", width: "50%" },
   divider: { marginTop: "20px" },
 }));
 
@@ -174,7 +175,7 @@ export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
               <Typography className={classes.subtitle}>Fat: {fat}g</Typography>
             </Box>
             <Box className={classes.pie}>
-              <PieChart ratio={ratio} />
+              {calories!==0 && <PieChart ratio={ratio}/>}
             </Box>
           </Box>
         </CardContent>
@@ -194,7 +195,7 @@ export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
               className={classes.addComment}
               onSubmit={onSubmit}
               icon={<AddCommentIcon />}
-              placeholder={"Write a comment"}
+              placeholder={"Comment"}
               name={"comment"}
             />
           </CardContent>

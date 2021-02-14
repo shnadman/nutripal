@@ -27,9 +27,9 @@ export default ({ helperTitle, placeholder }) => {
     const params = {
       "name[regex]": term,
     };
-
     dispatch(searchMacros(params));
   };
+
   return (
     <Container className={classes.helperText} maxWidth="sm">
       <Paper>

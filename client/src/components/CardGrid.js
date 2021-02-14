@@ -4,7 +4,8 @@ import MacrosCard from "./CardComponents/MacrosCard";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
 import ThreeDCard from "./CardComponents/ThreeDCard";
-import NewCard from "./CardComponents/NewCard";
+import RingLoader from "react-spinners/RingLoader";
+import Grow from "@material-ui/core/Grow";
 
 import _ from "lodash";
 import { searchMacros } from "../features/macros";
@@ -27,14 +28,23 @@ export default ({
 }) => {
   const gridStyles = useGridStyles();
   const dispatch = useDispatch();
+    const { isLoading } = useSelector((state) => state.macros);
 
-  if (!data || _.isEmpty(data) || _.isUndefined(data)) {
-    return null;
-  }
 
-  const renderedGrid = _.map(data, (row) => {
+
+    const noResults = (!data || _.isEmpty(data) || _.isUndefined(data))
+
+
+
+    if (noResults || isLoading )   {
+        return null;
+    }
+
+
+
+    const renderedGrid = _.map(data, (row) => {
     return (
-      <Grid container key={row._id} xs="4" item>
+      <Grid container key={row._id} xs="12" md="6" lg="4" item>
         <ThreeDCard
           component={
             <MacrosCard

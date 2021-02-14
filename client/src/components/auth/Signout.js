@@ -8,9 +8,14 @@ const Signout = () => {
   const auth = useSelector((state) => state.auth.authenticated);
   const dispatch = useDispatch();
 
+  const handleLogout = () => {
+    dispatch(logout());
+    // history.push("/");
+  };
+
   return (
     <Button
-      onClick={() => dispatch(logout())}
+      onClick={handleLogout}
       startIcon={<ExitToAppIcon />}
       disabled={!auth}
     >

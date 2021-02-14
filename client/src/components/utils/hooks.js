@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getCompositions,
+  getHub,
   modifyBasket,
   modifyDiscardList,
 } from "../../features/basket";
 import _ from "lodash";
+import usersApi from "../../api/users";
+import { getFriendsHub } from "../../features/friendsBasket";
+import { getNotifications } from "../../features/notifications";
 
 export const useToggleOnSearch = (starred, id) => {
   const userId = useSelector((state) => state.auth.userId);
@@ -141,4 +145,114 @@ export const useCompositions = () => {
   }, []);
 
   return { compositions, setChosenComposition, isSelected };
+};
+
+export const useAdvancedSearch = () => {
+  const [sortBy, setSortBy] = React.useState("calories");
+  const [ascending, setAscending] = React.useState(true);
+  const [branded, setBranded] = React.useState(true);
+  const [category, setCategory] = React.useState("");
+
+  return {
+    sortBy,
+    setSortBy,
+    ascending,
+    setAscending,
+    branded,
+    setBranded,
+    category,
+    setCategory,
+  };
+};
+export const useUsersSearch = () => {
+  const [users, setUsers] = React.useState([]);
+
+  const searchForUsers = async (userName) => {
+    const res = await usersApi.get(`/${userName}`);
+
+    setUsers(res.data);
+  };
+
+  return { searchForUsers, users };
+};
+
+export const useStarredMeals = () => {
+  const { basket } = useSelector((state) => state.basket);
+  const dynamicSelecting = useSelected(basket);
+  const { selected, clearSelected } = dynamicSelecting;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setTimeout(() => dispatch(getHub()), 20);
+  }, []);
+
+  const discard = () => {
+    //const mealIds = selected.map(meal=>meal._id);
+    _.forEach(selected, (meal) => {
+      dispatch(modifyBasket(meal._id, true));
+    });
+    clearSelected();
+  };
+
+  return { discard, basket, dynamicSelecting, selected, clearSelected };
+};
+
+export const useFriendStarredMeals = () => {
+  const { friendsBasket } = useSelector((state) => state.friendsBasket);
+  const basket = friendsBasket;
+  const dynamicSelecting = useSelected(friendsBasket);
+  const { selected, clearSelected } = dynamicSelecting;
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   setTimeout(() => dispatch(getFriendsHub()), 20);
+  // }, []);
+
+  const discard = () => {
+    //const mealIds = selected.map(meal=>meal._id);
+    _.forEach(selected, (meal) => {
+      dispatch(modifyBasket(meal._id, true));
+    });
+    clearSelected();
+  };
+
+  return { discard, basket, dynamicSelecting, selected, clearSelected };
+};
+
+// export const useFriendData = () => {
+//   const { basket, userName, compositions, friends } = useSelector(
+//     (state) => state.friendsBasket
+//   );
+//
+//   useEffect(() => {
+//     dispatch(getHub());
+//     dispatch(getNotifications());
+//   }, []);
+//
+//   return { basket, userName, compositions, friends };
+// };
+
+export const useSelfData = () => {
+  const { basket, userName, compositions, friends, avatar } = useSelector(
+    (state) => state.basket
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getHub());
+    dispatch(getNotifications());
+  }, []);
+
+  return { basket, userName, compositions, friends, avatar };
+};
+
+export const useFriendsData = () => {
+  const { basket, userName, compositions, friends, avatar } = useSelector(
+    (state) => state.friendsBasket
+  );
+
+  useEffect(() => {}, []);
+
+  return { basket, userName, compositions, friends };
 };

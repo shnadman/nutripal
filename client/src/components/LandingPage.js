@@ -62,7 +62,7 @@ export default () => {
       <Paper className={classes.root}>
         <Box alignSelf="center">
           <Typography variant="h2" className={classes.typography}>
-            Discover amazing meals to suit your needs and wallet
+            Discover amazing meals to suit your needs
           </Typography>
         </Box>
       </Paper>
@@ -76,7 +76,7 @@ export default () => {
       <Paper className={classes.second}>
         <Box alignSelf="center">
           <Typography variant="h2" className={classes.typography}>
-            Bla bla bla bla
+           See what your're friends are into!
           </Typography>
         </Box>
       </Paper>

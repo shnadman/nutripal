@@ -13,7 +13,7 @@ const macrosSchema = new mongoose.Schema(
     img: { type: mongoose.SchemaTypes.Url, default: "" },
     desc: { type: String, default: "" },
     category: { type: String, default: "" },
-    servingSize: { type: Number, default: 0 },
+    servingSize: { type: Number, default: 1 },
     servingSizeUnit: {
       type: String,
       enum: ["fl oz", "g", "ml", "oz"],
@@ -54,27 +54,29 @@ macrosSchema.pre("save", function (next) {
   this.ratio = [protRatio, carbstRatio, fatRatio];
   const brand = this.brand;
 
-  axios
-    .get(
-      `https://autocomplete.clearbit.com/v1/companies/suggest?query=${this.brand}`
-    )
-    .then((res) => {
-      this.brandLogo = res.data[0].logo;
+  if (brand !== "") {
+    axios
+      .get(
+        `https://autocomplete.clearbit.com/v1/companies/suggest?query=${this.brand}`
+      )
+      .then((res) => {
+        this.brandLogo = res.data[0].logo;
 
-      next();
-    })
-    .catch((err) => {
-      console.error(err);
-      next();
-    });
-
-  //next();
+        next();
+      })
+      .catch((err) => {
+        console.error(err);
+        next();
+      });
+  } else {
+    next();
+  }
 });
 
 macrosSchema.pre("find", function (next) {
   this.populate("starred").populate({
     path: "comments",
-    populate: { path: "writer", model: "User", select: "name" },
+    populate: { path: "writer", model: "User", select: "name avatar" },
   });
   next();
 });

@@ -1,3 +1,4 @@
+import "./config/index";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
@@ -5,7 +6,7 @@ import App from "./components/App";
 import { SnackbarProvider } from "notistack";
 import store from "./store";
 
-require("dotenv").config();
+// require("dotenv").config();
 
 const preloadedState = {
   auth: {

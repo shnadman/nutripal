@@ -83,8 +83,11 @@ exports.likeComment = async (req, res, next) => {
 };
 
 exports.getComments = async (req, res, next) => {
-  const comments = await Comment.find().populate("likedBy", "name");
+  const comments = await Comment.find()
+    .populate("likedBy", "name")
+    .populate("writer", "name avatar");
   if (!comments) return res.status(404).send("No comments found!");
+  console.log(comments);
   res.status(200).send(comments);
 };
 

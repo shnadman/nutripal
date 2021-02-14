@@ -5,6 +5,7 @@ const express = require("express");
 const router = express.Router();
 
 exports.getMacros = async (req, res, next) => {
+
   res.status(200).json(res.advancedResults);
 };
 

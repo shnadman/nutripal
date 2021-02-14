@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
 import { searchMacros } from "../../features/macros";
 import { useDispatch } from "react-redux";
@@ -17,6 +17,7 @@ const StyledSlider = withStyles({
   root: {
     color: "#ADA3D4",
     height: 8,
+    width: "135%",
   },
 
   thumb: {
@@ -55,10 +56,30 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     marginTop: "30px",
+    padding: "5px 5vw",
   },
 }));
 
-export default () => {
+export default ({
+  sortBy = "calories",
+  ascending = true,
+  branded = true,
+  category,
+}) => {
+  const marks = [
+    {
+      value: 50,
+      label: "50",
+    },
+    {
+      value: 100,
+      label: "100",
+    },
+    {
+      value: 250,
+      label: "250",
+    },
+  ];
   const classes = useStyles();
   const dispatch = useDispatch();
   const { handleSubmit, register, control } = useForm();
@@ -71,7 +92,10 @@ export default () => {
     const [gtCarbs, ltCarbs] = carbs;
     const [gtFat, ltFat] = fat;
     const params = {
+      sort: ascending ? `${sortBy}` : `-${sortBy}`,
       page: 0,
+      brand: branded ? "true" : "",
+      category,
       "calories[lte]": ltCal,
       "calories[gte]": gtCal,
       "protein[lte]": ltProtein,
@@ -90,18 +114,18 @@ export default () => {
         <Controller
           name="calories"
           control={control}
-          defaultValue={[0, 2500]}
+          defaultValue={[0, 7000]}
           render={(props) => (
             <Box marginLeft="20px" flexGrow="0.1">
-              <Typography>Calories</Typography>
+              <Typography>Calories (kcal)</Typography>
               <StyledSlider
                 {...props}
                 onChange={(_, value) => {
                   props.onChange(value);
                 }}
                 valueLabelDisplay="auto"
-                max={2500}
-                step={10}
+                max={7000}
+                step={50}
               />
             </Box>
           )}
@@ -109,10 +133,10 @@ export default () => {
         <Controller
           name="protein"
           control={control}
-          defaultValue={[0, 200]}
+          defaultValue={[0, 500]}
           render={(props) => (
             <Box flexGrow="0.1">
-              <Typography>Protein</Typography>
+              <Typography>Protein (g)</Typography>
               <StyledSlider
                 style={{ color: "#2b3fcf" }}
                 {...props}
@@ -120,8 +144,9 @@ export default () => {
                   props.onChange(value);
                 }}
                 valueLabelDisplay="auto"
-                max={100}
+                max={500}
                 step={1}
+                marks={marks}
               />
             </Box>
           )}
@@ -129,10 +154,10 @@ export default () => {
         <Controller
           name="carbs"
           control={control}
-          defaultValue={[0, 200]}
+          defaultValue={[0, 500]}
           render={(props) => (
             <Box flexGrow="0.1">
-              <Typography>Carbs</Typography>
+              <Typography>Carbs (g)</Typography>
               <StyledSlider
                 style={{ color: "#ec3333" }}
                 {...props}
@@ -140,8 +165,9 @@ export default () => {
                   props.onChange(value);
                 }}
                 valueLabelDisplay="auto"
-                max={100}
+                max={500}
                 step={1}
+                marks={marks}
               />
             </Box>
           )}
@@ -149,10 +175,10 @@ export default () => {
         <Controller
           name="fat"
           control={control}
-          defaultValue={[0, 200]}
+          defaultValue={[0, 500]}
           render={(props) => (
             <Box flexGrow="0.1">
-              <Typography>Fat</Typography>
+              <Typography>Fat (g)</Typography>
               <StyledSlider
                 style={{ color: "#59ec1b" }}
                 {...props}
@@ -160,21 +186,23 @@ export default () => {
                   props.onChange(value);
                 }}
                 valueLabelDisplay="auto"
-                max={100}
+                max={500}
                 step={1}
+                marks={marks}
               />
             </Box>
           )}
         />
-        <Button
-          tooltip="Search for specified macros"
-          style={{ marginTop: "30px" }}
-          type="submit"
-          variant="contained"
-        >
-          Search
-        </Button>
       </div>
+      <Button
+        tooltip="Search for specified macros"
+        style={{ marginTop: "30px", left: "47vw" }}
+        type="submit"
+        color="secondary"
+        variant="outlined"
+      >
+        Search
+      </Button>
     </form>
   );
 };

@@ -5,19 +5,71 @@ const { Macros } = require("../models/macros");
 const mongoose = require("mongoose");
 
 exports.getUserHub = async (req, res, next) => {
-  const starredMeals = await User.findById(req.user._id)
+
+  const hub = await User.findById(req.user._id)
     .populate("starredMeals")
     .populate({
       path: "compositions",
       populate: { path: "mealIds", model: "Macros" },
     })
-    .select("starredMeals compositions name");
+    .populate({
+      path: "friends",
+      select: "starredMeals compositions name friends",
+    })
+    .select("starredMeals compositions friends name avatar");
 
-  res.send(starredMeals);
+  res.send(hub);
+};
+
+exports.editProfile = async (req, res, next) => {
+  const { name, passwordOld, passwordNew, avatar } = req.body;
+
+  let user;
+
+  user = await User.findById(req.user._id);
+  if (name) user.name = name;
+  if (passwordOld) {
+    const validPassword = await bcrypt.compare(passwordOld, user.password);
+    if (!validPassword) return res.status(400).send("Wrong password entered");
+    user.password = passwordNew;
+  }
+  if (avatar) user.avatar = avatar;
+
+  user.save();
+
+  res.send(user);
+};
+
+exports.getFriendHub = async (req, res, next) => {
+  const { id } = req.params;
+
+  const hub = await User.findById(id)
+    .populate("starredMeals")
+    .populate({
+      path: "compositions",
+      populate: { path: "mealIds", model: "Macros" },
+    })
+    .populate({
+      path: "friends",
+      select: "starredMeals compositions name friends",
+    })
+    .select("starredMeals compositions friends name avatar");
+
+  res.send(hub);
 };
 
 exports.getUsers = async (req, res, next) => {
-  const users = await User.find().populate("comments").select("-password");
+  const { userName } = req.params;
+  let users;
+  if (!userName) {
+    users = await User.find().populate("comments").select("-password");
+  } else {
+    users = await User.find({
+      name: { $regex: new RegExp(".*" + userName + ".*", "i") },
+    })
+      .populate("comments")
+      .select("-password");
+  }
   res.send(users);
 };
 
@@ -142,25 +194,6 @@ exports.modifyCompositions = async (req, res, next) => {
       .select("compositions");
     res.status(200).send(compositions);
   } else {
-    // let currCompositions = await User.findOne({
-    //   _id: req.user._id,
-    //   "compositions._id": id,
-    // }).select("compositions");
-    //
-    // currCompositions = currCompositions.compositions[0].mealIds;
-    // const intersection = _.intersection(
-    //   currCompositions,
-    //   mealIds.map((id) => id.toString())
-    // );
-    // console.log(mealIds.map((id) => id.toString()));
-    // console.log(currCompositions);
-    // console.log(intersection);
-    // console.log(_.eq(intersection, mealIds));
-    // if (_.eq(intersection, mealIds)) {
-    //   return res
-    //     .status(400)
-    //     .send("All of the selected meals are already included in composition");
-    // }
     const compositions = await User.findOneAndUpdate(
       { _id: req.user._id, "compositions._id": id },
       {
@@ -181,4 +214,104 @@ exports.modifyCompositions = async (req, res, next) => {
       .select("compositions");
     res.status(200).send(compositions);
   }
+};
+
+exports.addFriendRequest = async (req, res, next) => {
+  const { id } = req.params;
+
+  const user = await User.findById(req.user._id);
+  const friend = await User.findById(id);
+  if (!friend) return res.status(404).send("User not found!");
+
+  const notification = {
+    msg: `${user.name} has sent you a friend request`,
+    userId: mongoose.Types.ObjectId(req.user._id),
+  };
+
+  if (
+    _.findIndex(friend.notifications, ["userId", notification.userId]) === -1
+  ) {
+    friend.notifications.push(notification);
+    friend.save();
+  } else {
+    return res.status(403).send("Friend request already sent");
+  }
+
+  res.status(200).send(friend.notifications);
+};
+
+exports.getNotifications = async (req, res, next) => {
+  const notifications = await User.findById(req.user._id).select(
+    "notifications"
+  );
+  res.status(200).send(notifications);
+};
+
+exports.respondFriendRequest = async (req, res, next) => {
+  const { id, response } = req.params;
+
+  console.log(req.params);
+
+  const user = await User.findById(req.user._id).select(
+    "notifications friends"
+  );
+  const notification = _.find(user.notifications, [
+    "_id",
+    mongoose.Types.ObjectId(id),
+  ]);
+
+  if (!notification) return res.status(404).send("Notification not found");
+
+  if (response === "accept") {
+    //Setting both sides as friends
+    await User.findByIdAndUpdate(req.user._id, {
+      $addToSet: { friends: notification.userId },
+    });
+    await User.findByIdAndUpdate(notification.userId, {
+      $addToSet: { friends: req.user._id },
+    });
+  }
+  const userResponse = await User.findByIdAndUpdate(
+    req.user._id,
+    { $pull: { notifications: { _id: id } } },
+    {
+      new: true,
+      runValidators: true,
+    }
+  ).select("notifications friends");
+
+  res.status(200).send(userResponse);
+};
+
+exports.getFriends = async (req, res, next) => {
+  const friends = await User.find(mongoose.Types.ObjectId(req.user._id))
+    .populate({
+      path: "friends",
+      select: "starredMeals compositions name friends",
+    })
+    .select("friends");
+
+  res.status(200).send(friends);
+};
+
+exports.removeFriend = async (req, res, next) => {
+  const { id } = req.params;
+
+  const newFriendsList = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $pull: { friends: id },
+    },
+    { new: true, runValidators: true }
+  ).select("friends");
+
+  await User.findByIdAndUpdate(
+    id,
+    {
+      $pull: { friends: req.user._id },
+    },
+    { new: true, runValidators: true }
+  ).select("friends");
+
+  res.status(200).send(newFriendsList);
 };

@@ -1,90 +1,87 @@
-// import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import basket from "../api/basket";
+import _ from "lodash";
+
+basket.interceptors.request.use(function (config) {
+  const token = localStorage.getItem("x-auth-token");
+  config.headers["x-auth-token"] = token ? token : "";
+  return config;
+});
+
+const initialState = {};
+// Slice
+const slice = createSlice({
+  name: "notifications",
+  initialState,
+  reducers: {
+    getNotificationsSuccess: (state, action) => {
+      state.notifications = action.payload.data.notifications;
+    },
+    // respondFriendRequestSuccess: (state, action) => {
+    //   state.notifications = action.payload.data.notifications;
+    // },
+    getNotificationsError: (state, action) => {
+      console.log(action.payload);
+    },
+    // sendFriendRequestSuccess: (state, action) => {
+    //   console.log(action.payload);
+    // },
+    // sendFriendRequestError: (state, action) => {
+    //   console.log(action.payload);
+    // },
+    // removeFriendSuccess: (state, action) => {
+    //   console.log(action.payload);
+    // },
+    // removeFriendError: (state, action) => {
+    //   console.log(action.payload);
+    // },
+  },
+});
+export default slice.reducer;
+
+// Actions
+export const {
+  getNotificationsSuccess,
+  getNotificationsError,
+  // sendFriendRequestSuccess,
+  // sendFriendRequestError,
+  // respondFriendRequestSuccess,
+  // removeFriendSuccess,
+  // removeFriendError,
+} = slice.actions;
+
+export const getNotifications = () => async (dispatch) => {
+  try {
+    const res = await basket.get("/notifications");
+    dispatch(getNotificationsSuccess(res));
+  } catch (e) {
+    dispatch(getNotificationsError(e.response.data));
+  }
+};
 //
-// const initialState = {
-//   notifications: [],
+// export const respondFriendRequest = (id, response) => async (dispatch) => {
+//   try {
+//     const res = await basket.put(`/notifications/${id}/${response}`);
+//     dispatch(respondFriendRequestSuccess(res));
+//   } catch (e) {
+//     dispatch(getNotificationsError(e.response.data));
+//   }
 // };
 //
-// const slice = createSlice({
-//   name: "app",
-//   initialState,
-//   reducers: {
-//     enqueueSnackbar: (state, action) => {
-//       state.authenticated = action.payload;
-//     },
-//     closeSnackbar: (state, action) => {
-//       state.errorMessage = action.payload;
-//     },
-//     removeSnackbar: (state, action) => {},
-//   },
-// });
-// export default slice.reducer;
-//
-// export const ENQUEUE_SNACKBAR = "ENQUEUE_SNACKBAR";
-// export const CLOSE_SNACKBAR = "CLOSE_SNACKBAR";
-// export const REMOVE_SNACKBAR = "REMOVE_SNACKBAR";
-//
-// export const enqueueSnackbar = (notification) => {
-//   const key = notification.options && notification.options.key;
-//
-//   return {
-//     type: ENQUEUE_SNACKBAR,
-//     notification: {
-//       ...notification,
-//       key: key || `key_${Math.random}`,
-//     },
-//   };
+// export const sendFriendRequest = (id) => async (dispatch) => {
+//   try {
+//     const res = await basket.put(`/friends/${id}`);
+//     dispatch(sendFriendRequestSuccess(res));
+//   } catch (e) {
+//     dispatch(sendFriendRequestError(e.response.data));
+//   }
 // };
 //
-// export const closeSnackbar = (key) => ({
-//   type: CLOSE_SNACKBAR,
-//   dismissAll: !key, // dismiss all if no key has been defined
-//   key,
-// });
-//
-// export const removeSnackbar = (key) => ({
-//   type: REMOVE_SNACKBAR,
-//   key,
-// });
-//
-// import {
-//   ENQUEUE_SNACKBAR,
-//   CLOSE_SNACKBAR,
-//   REMOVE_SNACKBAR,
-// } from "../actions/snackbarActions";
-//
-// export default (state = defaultState, action) => {
-//   switch (action.type) {
-//     case ENQUEUE_SNACKBAR:
-//       return {
-//         ...state,
-//         notifications: [
-//           ...state.notifications,
-//           {
-//             key: action.key,
-//             ...action.notification,
-//           },
-//         ],
-//       };
-//
-//     case CLOSE_SNACKBAR:
-//       return {
-//         ...state,
-//         notifications: state.notifications.map((notification) =>
-//           action.dismissAll || notification.key === action.key
-//             ? { ...notification, dismissed: true }
-//             : { ...notification }
-//         ),
-//       };
-//
-//     case REMOVE_SNACKBAR:
-//       return {
-//         ...state,
-//         notifications: state.notifications.filter(
-//           (notification) => notification.key !== action.key
-//         ),
-//       };
-//
-//     default:
-//       return state;
+// export const removeFriend = (id) => async (dispatch) => {
+//   try {
+//     const res = await basket.put(`/friends/${id}/remove`);
+//     dispatch(removeFriendSuccess(res));
+//   } catch (e) {
+//     dispatch(removeFriendError(e.response.data));
 //   }
 // };

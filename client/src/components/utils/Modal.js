@@ -15,9 +15,10 @@ export default () => {
     <Box>
       <Button
         disabled={auth ? true : false}
-        variant="contained"
+        variant="text"
         color="primary"
         onClick={handleClickOpen}
+        style={{ textTransform: "none" }}
       >
         <Typography>Login</Typography>
       </Button>

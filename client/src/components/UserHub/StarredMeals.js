@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import requireAuth from "../auth/requireAuth";
-import { getHub, modifyBasket, clearDiscardList } from "../../features/basket";
-import { useSelector, useDispatch } from "react-redux";
+
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -9,14 +8,11 @@ import _ from "lodash";
 import MacrosLayout from "../MacrosLayout";
 
 import CreateComposition from "../MacrosTableAggregate/CreateComposition";
-import { useSelected } from "../utils/hooks";
+import { useSelected, useStarredMeals } from "../utils/hooks";
 import ModifyComposition from "../MacrosTableAggregate/ModifyComposition";
-import MacrosAggTable from "../MacrosTableAggregate/FullTable";
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import Link from "@material-ui/core/Link";
-import { Link as RouterLink } from "react-router-dom";
-import UserPanel from "./UserPanel";
+import { modifyBasket } from "../../features/basket";
+import { useDispatch } from "react-redux";
+import background from "../../static/back2.jpg";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -25,18 +21,19 @@ const useStyles = makeStyles(() => ({
   text: {
     color: "#fff",
   },
+  bg: {
+    backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.65),rgba(0,0,0,0.95)), url(${background})`,
+    backgroundPosition: "center bottom",
+    paddingTop: "80px",
+    minHeight: "70vh",
+  },
 }));
 
-const Feature = () => {
+export default ({ basket }) => {
   const classes = useStyles();
-  const { basket, userName } = useSelector((state) => state.basket);
   const dynamicSelecting = useSelected(basket);
-  const { selected, clearSelected } = dynamicSelecting;
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    setTimeout(() => dispatch(getHub()), 20);
-  }, []);
+  const { selected, clearSelected } = dynamicSelecting;
 
   const discard = () => {
     //const mealIds = selected.map(meal=>meal._id);
@@ -45,21 +42,18 @@ const Feature = () => {
     });
     clearSelected();
   };
+
   return (
-    <div>
-      <UserPanel />
+    <div className={classes.bg}>
       <MacrosLayout
         compositionCreateAction={<CreateComposition selected={selected} />}
         compositionUpdateAction={<ModifyComposition selected={selected} />}
         data={basket}
         dynamicSelecting={dynamicSelecting}
       />
-
       <Button onClick={discard} variant="contained" color="secondary">
         Discard selected
       </Button>
     </div>
   );
 };
-
-export default requireAuth(Feature);

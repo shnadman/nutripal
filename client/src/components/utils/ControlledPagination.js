@@ -11,7 +11,7 @@ export default function PaginationControlled({ count }) {
   const [page, setPage] = React.useState(1);
 
   const handleChange = (event, value) => {
-    const newParams = { ...params, page: value };
+    const newParams = { ...params, page: value,totalPages:count };
     dispatch(searchMacros(newParams));
     setPage(value);
   };

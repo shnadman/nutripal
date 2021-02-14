@@ -40,6 +40,7 @@ export const login = (formProps, callback) => async (dispatch) => {
 export const signup = (formProps, callback) => async (dispatch) => {
   try {
     const res = await app.post("/api/users", formProps);
+    debugger;
     const token = res.headers["x-auth-token"];
     const userId = res.headers["x-user-id"];
     dispatch(authSuccess({ token, userId }));
@@ -47,7 +48,6 @@ export const signup = (formProps, callback) => async (dispatch) => {
     localStorage.setItem("x-user-id", res.headers["x-user-id"]);
     callback();
   } catch (e) {
-    debugger;
     dispatch(authError(e.response.data));
   }
 };

@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import requireAuth from "../auth/requireAuth";
-import {
-  getHub,
-  modifyBasket,
-  getCompositions,
-  modifyComposition,
-} from "../../features/basket";
+import { getCompositions } from "../../features/basket";
 import { useSelector, useDispatch } from "react-redux";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
@@ -16,7 +11,8 @@ import MacrosLayout from "../MacrosLayout";
 import Container from "@material-ui/core/Container";
 import ModifyComposition from "../MacrosTableAggregate/ModifyComposition";
 import { useSelected } from "../utils/hooks";
-import UserPanel from "./UserPanel";
+import UserHub from "../Crapy";
+import background from "../../static/back3.jpg";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -25,14 +21,20 @@ const useStyles = makeStyles(() => ({
   text: {
     color: "#fff",
   },
+  bg: {
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.95),rgba(0,0,0,0.55)), url(${background})`,
+    backgroundPosition: "center bottom",
+    paddingTop: "80px",
+    minHeight: "70vh",
+  },
 }));
 
-const Feature = () => {
+const Feature = ({ compositions }) => {
   const classes = useStyles();
-  const { compositions } = useSelector((state) => state.basket);
+
   const dispatch = useDispatch();
   const [chosenComposition, setChosenComposition] = useState([]);
-  const dynamicSelecting = useSelected([]);
+  const dynamicSelecting = useSelected(compositions);
 
   let isSelected = (id) => chosenComposition._id === id;
 
@@ -41,8 +43,7 @@ const Feature = () => {
   }, []);
 
   return (
-    <div>
-      <UserPanel />
+    <div className={classes.bg}>
       <CompGrid
         className={classes.root}
         renderSelectedComposition={setChosenComposition}
@@ -50,11 +51,13 @@ const Feature = () => {
         data={compositions}
       />
       {_.isEmpty(chosenComposition) ? null : (
-        <MacrosLayout
-          data={chosenComposition.mealIds}
-          compositionUpdateAction={<ModifyComposition />}
-          dynamicSelecting={dynamicSelecting}
-        />
+        <div style={{ position: "relative", top: "100px" }}>
+          <MacrosLayout
+            data={chosenComposition.mealIds}
+            compositionUpdateAction={<ModifyComposition />}
+            dynamicSelecting={dynamicSelecting}
+          />
+        </div>
       )}
     </div>
   );

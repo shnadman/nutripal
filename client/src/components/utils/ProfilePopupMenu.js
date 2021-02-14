@@ -18,6 +18,11 @@ export default function MenuPopupState({ history }) {
     popupState.close();
   };
 
+  const handleClickEdit = (popupState) => {
+    history.push("/api/users/me/edit");
+    popupState.close();
+  };
+
   return (
     <PopupState variant="popover" popupId="demo-popup-menu">
       {(popupState) => (
@@ -25,6 +30,7 @@ export default function MenuPopupState({ history }) {
           <Button
             variant="contained"
             color="primary"
+            style={{ textTransform: "none" }}
             {...bindTrigger(popupState)}
           >
             Profile
@@ -34,7 +40,9 @@ export default function MenuPopupState({ history }) {
             <MenuItem onClick={() => handleClickProfile(popupState)}>
               Your basket
             </MenuItem>
-            <MenuItem onClick={popupState.close}>Settings</MenuItem>
+            <MenuItem onClick={() => handleClickEdit(popupState)}>
+              Edit profile
+            </MenuItem>
             <MenuItem onClick={popupState.close}>
               <Signout />
             </MenuItem>

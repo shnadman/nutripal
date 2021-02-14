@@ -30,6 +30,12 @@ const useStyles = makeStyles(({ breakpoints }) => ({
     wrap: "wrap",
   },
 
+  item: {
+    backgroundColor: "rgba(255,255,255,0.03)",
+    border: "0.7px solid white",
+    borderRadius: 14,
+  },
+
   selected: ({ color }) => ({
     borderRadius: 16,
     transition: "0.2s",
@@ -53,13 +59,15 @@ export default ({ selected }) => {
 
   const renderedMiniComps = _.map(compositions, (composition) => {
     return (
-      <div className={isSelected(composition._id) ? classes.selected : ""}>
+      <div
+        key={composition._id}
+        className={isSelected(composition._id) ? classes.selected : ""}
+      >
         <Grid
           direction="column"
           justify="flex-start"
           alignItems="baseline"
           container
-          key={composition._id}
           xs="3"
           item
         >
@@ -76,7 +84,7 @@ export default ({ selected }) => {
   });
 
   return (
-    <Accordion>
+    <Accordion className={classes.item}>
       <AccordionSummary>
         <Typography>Add to existing composition</Typography>
       </AccordionSummary>

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import macrosApi from "../api/macros";
 import _ from "lodash";
 
+
 macrosApi.interceptors.request.use(function (config) {
   const token = localStorage.getItem("x-auth-token");
   config.headers["x-auth-token"] = token ? token : "";
@@ -10,6 +11,7 @@ macrosApi.interceptors.request.use(function (config) {
 
 const initialState = {
   searchResults: {},
+  isLoading:false
 };
 
 // Slice
@@ -17,6 +19,9 @@ const slice = createSlice({
   name: "macros",
   initialState,
   reducers: {
+    changeLoadingState:(state,action)=>{
+      state.isLoading=action.payload
+    },
     deleteCommentSuccess: (state, action) => {
       state.searchResults.data
         .find((macros) => macros._id === action.payload.macroId)
@@ -50,16 +55,25 @@ export const {
   macrosError,
   clearResults,
   commentsSuccess,
+  changeLoadingState
 } = slice.actions;
 
 export const searchMacros = (params) => async (dispatch) => {
   try {
+    dispatch(changeLoadingState(true))
     const res = await macrosApi.get("/", {
       params,
     });
     dispatch(macrosSuccess(res));
+    dispatch(changeLoadingState(false));
   } catch (e) {
-    dispatch(macrosError(e.response.data));
+    if(!e.response){
+      dispatch(macrosError("Timed out"))
+      dispatch(changeLoadingState(false));
+    } else {
+      dispatch(macrosError(e.response.data))
+      dispatch(changeLoadingState(false));
+    }
   }
 };
 
