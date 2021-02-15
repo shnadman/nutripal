@@ -125,7 +125,6 @@ export const useModal = () => {
 export const useCompositions = () => {
   const dispatch = useDispatch();
   const { compositions } = useSelector((state) => state.basket);
-  const auth = useSelector((state) => state.auth);
   const [chosenComposition, setChosenComposition] = useState([]);
   let isSelected = (id) => chosenComposition._id === id;
 

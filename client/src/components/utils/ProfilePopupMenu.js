@@ -4,12 +4,11 @@ import MenuItem from "@material-ui/core/MenuItem";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Signout from "../auth/Signout";
 
 export default function MenuPopupState({ history }) {
   const auth = useSelector((state) => state.auth.authenticated);
-  const dispatch = useDispatch();
 
   const handleClickProfile = (popupState) => {
     history.push("/api/users/me");
