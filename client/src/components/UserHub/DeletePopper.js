@@ -1,8 +1,8 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Popper from "@material-ui/core/Popper";
-import Fade from "@material-ui/core/Fade";
 import Button from "@material-ui/core/Button";
+import Fade from "@material-ui/core/Fade";
+import Popper from "@material-ui/core/Popper";
+import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -20,7 +20,7 @@ export default function TransitionsPopper({ component }) {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
-  const closePopper = (event) => {
+  const closePopper = () => {
     setAnchorEl(null);
   };
 

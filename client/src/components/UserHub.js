@@ -1,18 +1,18 @@
+import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
+import _ from "lodash";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFriend, sendFriendRequest } from "../features/basket";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import Paper from "@material-ui/core/Paper";
-import _ from "lodash";
-import StarredMeals from "./UserHub/StarredMeals";
+import requireAuth from "./auth/requireAuth";
 import Compositions from "./UserHub/Compositions";
 import Friends from "./UserHub/Friends";
-import Button from "@material-ui/core/Button";
-import Avatar from "@material-ui/core/Avatar";
-import requireAuth from "./auth/requireAuth";
+import StarredMeals from "./UserHub/StarredMeals";
 
 const useStyles = makeStyles((theme) => ({
   appBarParent: {
@@ -29,14 +29,13 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     height: "25vh",
+    paddingTop: "5vh",
   }),
   avatar: {
-    width: theme.spacing(11),
-    height: theme.spacing(11),
+    width: theme.spacing(8),
+    height: theme.spacing(8),
     alignSelf: "center",
     position: "relative",
-    right: "330px",
-    top: "40px",
   },
 
   menu: {
@@ -71,6 +70,7 @@ const UserHub = ({ history, useData, friendFlag, styleProps, match }) => {
     <Button
       onClick={() => handleSendRequest(isFriend)}
       variant="contained"
+      size="small"
       color="secondary"
     >
       Remove from friends
@@ -80,6 +80,7 @@ const UserHub = ({ history, useData, friendFlag, styleProps, match }) => {
       onClick={() => handleSendRequest(isFriend)}
       variant="contained"
       color="secondary"
+      size="small"
     >
       Send friend request
     </Button>
@@ -109,13 +110,8 @@ const UserHub = ({ history, useData, friendFlag, styleProps, match }) => {
   return (
     <Box>
       <Paper className={classes.root}>
-        <Avatar
-          alt={userName}
-          style={{}}
-          src={avatar}
-          className={classes.avatar}
-        />
-        <Typography style={{ alignSelf: "center" }} variant="h2">
+        <Avatar alt={userName} src={avatar} className={classes.avatar} />
+        <Typography style={{ alignSelf: "center" }} variant="h3">
           {`${userName}'s basket`}
         </Typography>
         <Box position="relative" left="60%" right="40%" bottom="5%">
@@ -127,22 +123,19 @@ const UserHub = ({ history, useData, friendFlag, styleProps, match }) => {
           </Button>
         </Box>
         <Box className={classes.menu}>
-            <Button
-              onClick={() => setRendered("starred")}
-              variant="text"
-            >{`Favorite meals (${basket.length})`}</Button>
-            <Button
-              onClick={() => setRendered("compositions")}
-              variant="text"
-            >
-              {`Compositions (${compositions.length})`}
-            </Button>
-            <Button
-              onClick={() => setRendered("friends")}
-              variant="text"
-            >{`Friends (${friends.length})`}</Button>
+          <Button
+            onClick={() => setRendered("starred")}
+            variant="text"
+          >{`Favorite meals (${basket.length})`}</Button>
+          <Button onClick={() => setRendered("compositions")} variant="text">
+            {`Compositions (${compositions.length})`}
+          </Button>
+          <Button
+            onClick={() => setRendered("friends")}
+            variant="text"
+          >{`Friends (${friends.length})`}</Button>
 
-          <Box position="relative" left="1000px">
+          <Box position="relative" left="40vw">
             {friendFlag ? renderButton : null}
           </Box>
         </Box>

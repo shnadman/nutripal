@@ -1,10 +1,9 @@
-import React from "react";
-import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import React from "react";
 
 export default function SwitchLabels({ branded, setBranded }) {
-  const handleChange = (event) => {
+  const handleChange = () => {
     setBranded(!branded);
   };
 

@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import basket from "../api/basket";
 
-import _ from "lodash";
-
 basket.interceptors.request.use(function (config) {
   const token = localStorage.getItem("x-auth-token");
   config.headers["x-auth-token"] = token ? token : "";

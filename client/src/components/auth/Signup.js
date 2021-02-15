@@ -1,27 +1,22 @@
-import React, { useState } from "react";
-import { Field, reduxForm } from "redux-form";
-import _ from "lodash";
-import { useDispatch } from "react-redux";
+import Avatar from "@material-ui/core/Avatar";
+import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import Avatar from "@material-ui/core/Avatar";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import _ from "lodash";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { Field, reduxForm } from "redux-form";
+import { signup } from "../../features/auth";
 
 import { renderTextField } from "../utils/ReduxFormUtils";
 import validate from "../utils/validation";
-import { signup } from "../../features/auth";
 import useStyles from "./styles/authStyles";
 
 const Signup = (props) => {
-  const [showPassword, setShowPassword] = useState({ showPassword: false });
   const dispatch = useDispatch();
-
-  const handleClickShowPassword = () => {
-    setShowPassword({ showPassword: !showPassword });
-  };
 
   const classes = useStyles();
 

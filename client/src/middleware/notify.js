@@ -1,5 +1,4 @@
-import React from "react";
-import { closeSnackbar, enqueueSnackbar } from "../actions/snackbarActions";
+import { enqueueSnackbar } from "../actions/snackbarActions";
 
 const makeNotification = (message, variant) => ({
   message,

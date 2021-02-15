@@ -1,12 +1,12 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import auth from "./features/auth";
-import macros from "./features/macros";
-import basket from "./features/basket";
-import app from "./reducers/snackReducer";
-import friendsBasket from "./features/friendsBasket";
-import notifications from "./features/notifications";
 import { reducer as formReducer } from "redux-form";
+import auth from "./features/auth";
+import basket from "./features/basket";
+import friendsBasket from "./features/friendsBasket";
+import macros from "./features/macros";
+import notifications from "./features/notifications";
 import notify from "./middleware/notify";
+import app from "./reducers/snackReducer";
 
 const reducer = {
   auth,

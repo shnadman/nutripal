@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
 import Badge from "@material-ui/core/Badge";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import Box from "@material-ui/core/Box";
-import macrosApi from "../../api/macros";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import macrosApi from "../../api/macros";
 
 export default ({ id }) => {
   const [liked, setLiked] = useState(false);
@@ -24,7 +23,7 @@ export default ({ id }) => {
       }
     }
     fetchData();
-  }, []);
+  }, [id, userId]);
 
   const handleClickLike = async (event) => {
     event.preventDefault();
@@ -37,11 +36,11 @@ export default ({ id }) => {
       style={{
         borderRadius: 12,
         width: "40px",
-        height: "50px",
+        height: "40px",
         position: "relative",
         zIndex: "2",
         bottom: "-17px",
-        left: "120px",
+        left: "100px",
         display: "flex",
         justifyContent: "center",
       }}

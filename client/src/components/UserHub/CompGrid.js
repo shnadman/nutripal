@@ -1,24 +1,22 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import { useDispatch, useSelector } from "react-redux";
-
-import _ from "lodash";
-import Button from "@material-ui/core/Button";
-import Color from "color";
-import DeleteComposition from "../MacrosTableAggregate/DeleteComposition";
+import Box from "@material-ui/core/Box";
 import Card from "@material-ui/core/Card";
-import Container from "@material-ui/core/Container";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
-import PieChart from "../CardComponents/PieChart";
-import Box from "@material-ui/core/Box";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import DeletePopper from "./DeletePopper";
 import DeleteIcon from "@material-ui/icons/Delete";
+import Color from "color";
+
+import _ from "lodash";
+import React from "react";
+import { useDispatch } from "react-redux";
 import background from "../../static/back6.jpg";
+import PieChart from "../CardComponents/PieChart";
+import DeleteComposition from "../MacrosTableAggregate/DeleteComposition";
+import DeletePopper from "./DeletePopper";
 
 const useGridStyles = makeStyles(({ breakpoints }) => ({
   root: {
@@ -45,7 +43,7 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
     justifyContent: "center",
     alignContent: "space-between",
   },
-  card: ({ color }) => {
+  card: () => {
     return {
       // backgroundImage: `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${background})`,
       // backgroundPosition: "center bottom",
@@ -59,7 +57,7 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
       borderRadius: 16,
     };
   },
-  content: ({ color }) => {
+  content: () => {
     return {
       paddingTop: "10px",
       display: "flex",
@@ -67,7 +65,7 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
     };
   },
 
-  header: ({ color }) => {
+  header: () => {
     return {
       padding: "0.5rem 1rem 1rem",
     };
@@ -118,7 +116,7 @@ export default ({ data, renderSelectedComposition, isSelected }) => {
     );
   };
   const classes = useGridStyles({ color: "#50476b" });
-  const dispatch = useDispatch();
+  useDispatch();
 
   if (!data || _.isEmpty(data) || _.isUndefined(data)) {
     return null;

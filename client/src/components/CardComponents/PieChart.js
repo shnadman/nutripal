@@ -1,9 +1,9 @@
-import { PieChart } from "react-minimal-pie-chart";
 import React, { useState } from "react";
+import { PieChart } from "react-minimal-pie-chart";
 
 export default ({ ratio }) => {
   const [protein, carbs, fat] = ratio;
-  if(ratio ===[0,0,0]) return null
+  if (ratio === [0, 0, 0]) return null;
   const init = [
     { title: "Protein", value: protein, color: "#2740e3" },
     { title: "Carbs", value: carbs, color: "#e90f08" },

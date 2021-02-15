@@ -1,27 +1,26 @@
-import React, { useEffect } from "react";
+import Box from "@material-ui/core/Box";
 import Card from "@material-ui/core/Card";
-import Typography from "@material-ui/core/Typography";
 import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Color from "color";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import CardActions from "@material-ui/core/CardActions";
-import PieChart from "./PieChart";
-import Box from "@material-ui/core/Box";
 import Collapse from "@material-ui/core/Collapse";
-import _ from "lodash";
-import Comment from "./Comment";
 import Divider from "@material-ui/core/Divider";
-import TextFieldWithButton from "../utils/TextFieldWithButton";
-import AddCommentIcon from "@material-ui/icons/AddComment";
-import { postComment } from "../../features/macros";
-import { useDispatch, useSelector } from "react-redux";
-import getCategoryImg from "./staticImgs";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import Tooltip from "@material-ui/core/Tooltip";
-import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import AddCommentIcon from "@material-ui/icons/AddComment";
+import Color from "color";
+import _ from "lodash";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { postComment } from "../../features/macros";
+import TextFieldWithButton from "../utils/TextFieldWithButton";
+import Comment from "./Comment";
+import PieChart from "./PieChart";
+import getCategoryImg from "./staticImgs";
 
-const useStyles = makeStyles((color) => ({
+const useStyles = makeStyles(() => ({
   actionArea: {
     borderRadius: 20,
   },
@@ -86,6 +85,7 @@ const useStyles = makeStyles((color) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
+    overflowY: "scroll",
   },
   addComment: {
     marginTop: "50px",
@@ -100,7 +100,7 @@ const useStyles = makeStyles((color) => ({
   divider: { marginTop: "20px" },
 }));
 
-export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
+export default ({ data, curriedCardAction, dynamicSelecting }) => {
   const classes = useStyles({ color: "#585252" });
   const dispatch = useDispatch();
   const [expanded, setExpanded] = React.useState(false);
@@ -175,7 +175,7 @@ export default ({ image, data, curriedCardAction, dynamicSelecting }) => {
               <Typography className={classes.subtitle}>Fat: {fat}g</Typography>
             </Box>
             <Box className={classes.pie}>
-              {calories!==0 && <PieChart ratio={ratio}/>}
+              {calories !== 0 && <PieChart ratio={ratio} />}
             </Box>
           </Box>
         </CardContent>

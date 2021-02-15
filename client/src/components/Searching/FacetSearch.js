@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import Container from "@material-ui/core/Container";
-import { searchMacros } from "../../features/macros";
-import { useDispatch } from "react-redux";
-import { useForm, Controller } from "react-hook-form";
+import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Slider from "@material-ui/core/Slider";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import withStyles from "@material-ui/core/styles/withStyles";
+import Typography from "@material-ui/core/Typography";
+import React from "react";
+import { Controller, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { searchMacros } from "../../features/macros";
 
 const iOSBoxShadow =
   "0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)";
@@ -51,7 +50,7 @@ const StyledSlider = withStyles({
   },
 })(Slider);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: "flex",
     justifyContent: "space-between",
@@ -82,7 +81,7 @@ export default ({
   ];
   const classes = useStyles();
   const dispatch = useDispatch();
-  const { handleSubmit, register, control } = useForm();
+  const { handleSubmit, control } = useForm();
 
   //const extractParams = (sliderVals) => ({...})
 

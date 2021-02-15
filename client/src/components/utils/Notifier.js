@@ -1,6 +1,6 @@
+import { useSnackbar } from "notistack";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useSnackbar } from "notistack";
 import { removeSnackbar } from "../../actions/snackbarActions";
 
 let displayed = [];

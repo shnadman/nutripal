@@ -1,16 +1,14 @@
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
-import CardGrid from "./CardGrid";
-import { RemoveAction, StarAction } from "./CardComponents/CardActions";
-import MacrosAggTable from "./MacrosTableAggregate/FullTable";
-import React, { cloneElement, useState } from "react";
-import { useSelected } from "./utils/hooks";
-import { animated, useSpring } from "react-spring";
-import { clearResults } from "../features/macros";
-import {useDispatch, useSelector} from "react-redux";
-import "./UserHub/gridStyles.css";
-import "./tableStyles.css";
+import React from "react";
+import { useSelector } from "react-redux";
 import RingLoader from "react-spinners/RingLoader";
+import { animated, useSpring } from "react-spring";
+import { StarAction } from "./CardComponents/CardActions";
+import CardGrid from "./CardGrid";
+import MacrosAggTable from "./MacrosTableAggregate/FullTable";
+import "./tableStyles.css";
+import "./UserHub/gridStyles.css";
 
 export default ({
   data,
@@ -20,17 +18,14 @@ export default ({
   params,
   dynamicSelecting,
 }) => {
-  const dispatch = useDispatch();
-  const { selected, anySelected, clearSelected } = dynamicSelecting;
+  const { selected, anySelected } = dynamicSelecting;
   const { isLoading } = useSelector((state) => state.macros);
 
-
-const kaa = "#5eef97"
   const renderLoadingSpinner = (
-      <div style={{position:"relative",left:"50vw"}}>
-        <RingLoader  color="#5eef97" size={120} loading={true} />
-      </div>)
-
+    <div style={{ position: "relative", left: "50vw" }}>
+      <RingLoader color="#5eef97" size={120} loading={true} />
+    </div>
+  );
 
   const springPropsGrid = useSpring({
     config: { mass: 12, tension: 600, friction: 350, clamp: true },
@@ -46,13 +41,8 @@ const kaa = "#5eef97"
     transform: anySelected ? "translateX(0px)" : "translateX(-750px)",
   });
 
-  const handleClearResults = () => {
-    dispatch(clearResults());
-    clearSelected();
-  };
-
   const renderGrid = (
-    <animated.div class="container" style={springPropsGrid}>
+    <animated.div className="container" style={springPropsGrid}>
       <CardGrid
         data={data}
         dynamicSelecting={dynamicSelecting}

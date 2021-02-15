@@ -1,18 +1,16 @@
-import React, { useEffect } from "react";
-import requireAuth from "../auth/requireAuth";
+import Button from "@material-ui/core/Button";
 
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import _ from "lodash";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { modifyBasket } from "../../features/basket";
+import background from "../../static/back2.jpg";
 import MacrosLayout from "../MacrosLayout";
 
 import CreateComposition from "../MacrosTableAggregate/CreateComposition";
-import { useSelected, useStarredMeals } from "../utils/hooks";
 import ModifyComposition from "../MacrosTableAggregate/ModifyComposition";
-import { modifyBasket } from "../../features/basket";
-import { useDispatch } from "react-redux";
-import background from "../../static/back2.jpg";
+import { useSelected } from "../utils/hooks";
 
 const useStyles = makeStyles(() => ({
   root: {

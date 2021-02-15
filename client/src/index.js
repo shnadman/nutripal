@@ -1,9 +1,9 @@
-import "./config/index";
+import { SnackbarProvider } from "notistack";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import App from "./components/App";
-import { SnackbarProvider } from "notistack";
+import "./config/index";
 import store from "./store";
 
 // require("dotenv").config();

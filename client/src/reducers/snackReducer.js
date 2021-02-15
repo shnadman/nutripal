@@ -1,6 +1,6 @@
 import {
-  ENQUEUE_SNACKBAR,
   CLOSE_SNACKBAR,
+  ENQUEUE_SNACKBAR,
   REMOVE_SNACKBAR,
 } from "../actions/snackbarActions";
 

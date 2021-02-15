@@ -1,32 +1,25 @@
-import { makeStyles } from "@material-ui/core/styles";
-import React from "react";
+import Checkbox from "@material-ui/core/Checkbox";
 import Paper from "@material-ui/core/Paper";
-import TableContainer from "@material-ui/core/TableContainer";
+import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
-import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import Checkbox from "@material-ui/core/Checkbox";
+import TableContainer from "@material-ui/core/TableContainer";
 import TablePagination from "@material-ui/core/TablePagination";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
+import TableRow from "@material-ui/core/TableRow";
+import React from "react";
+import "../tableStyles.css";
+
+import { getComparator, stableSort } from "./SortAndCompareUtils";
 import EnhancedTableHead from "./Tablehead";
 import EnhancedTableToolbar from "./Toolbar";
 import TotalAggregate from "./TotalAggregate";
-import "../tableStyles.css";
-
-import {
-  stableSort,
-  descendingComparator,
-  getComparator,
-} from "./SortAndCompareUtils";
-import _ from "lodash";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 30,
     width: "85%",
-    fontSize:"0.8rem",
+    fontSize: "0.8rem",
   },
   paper: {
     borderRadius: "inherit",
@@ -47,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     backgroundColor: "transparent",
     minWidth: 200,
-
   },
   visuallyHidden: {
     border: 0,
@@ -61,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
     width: 1,
   },
   tableRow: {
-
     "&.Mui-selected, &.Mui-selected:hover": {
       backgroundColor: theme,
     },
@@ -87,7 +78,7 @@ export default function EnhancedTable({
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
   const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
+  const [dense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (event, property) => {
@@ -104,11 +95,6 @@ export default function EnhancedTable({
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
-  const handleChangeDense = (event) => {
-    setDense(event.target.checked);
-  };
-
 
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -163,7 +149,7 @@ export default function EnhancedTable({
                         scope="row"
                         size="small"
                         padding="none"
-                        style={{fontSize:"1rem", width:"480px"}}
+                        style={{ fontSize: "1rem", width: "480px" }}
                       >
                         {row.name}
                       </TableCell>

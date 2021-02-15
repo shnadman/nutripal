@@ -1,12 +1,9 @@
-import React from "react";
 import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import DeleteIcon from "@material-ui/icons/Delete";
-import TextFieldWithButton from "../utils/TextFieldWithButton";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteComposition } from "../../features/basket";
-import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
 
 export default ({ _id, closePopper }) => {
   const dispatch = useDispatch();

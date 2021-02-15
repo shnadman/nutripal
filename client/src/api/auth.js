@@ -1,6 +1,7 @@
 import axios from "axios";
 
+const prod = "https://nutrition-server.herokuapp.com";
 export default axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: prod,
   timeout: 2000,
 });

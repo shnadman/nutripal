@@ -1,14 +1,13 @@
-import React from "react";
-import Box from "@material-ui/core/Box";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import AddBoxIcon from "@material-ui/icons/AddBox";
-import TextFieldWithButton from "../utils/TextFieldWithButton";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { addComposition } from "../../features/basket";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import makeStyles from "@material-ui/core/styles/makeStyles";
+import TextFieldWithButton from "../utils/TextFieldWithButton";
 
 const useStyles = makeStyles({
   item: {

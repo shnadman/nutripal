@@ -1,14 +1,11 @@
-import React from "react";
 import Grid from "@material-ui/core/Grid";
-import MacrosCard from "./CardComponents/MacrosCard";
 import { makeStyles } from "@material-ui/core/styles";
-import { useDispatch, useSelector } from "react-redux";
-import ThreeDCard from "./CardComponents/ThreeDCard";
-import RingLoader from "react-spinners/RingLoader";
-import Grow from "@material-ui/core/Grow";
 
 import _ from "lodash";
-import { searchMacros } from "../features/macros";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import MacrosCard from "./CardComponents/MacrosCard";
+import ThreeDCard from "./CardComponents/ThreeDCard";
 
 const useGridStyles = makeStyles(({ breakpoints }) => ({
   root: {
@@ -19,32 +16,20 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
   },
 }));
 
-export default ({
-  data,
-  params,
-  pagination,
-  curriedCardAction,
-  dynamicSelecting,
-}) => {
+export default ({ data, curriedCardAction, dynamicSelecting }) => {
   const gridStyles = useGridStyles();
-  const dispatch = useDispatch();
-    const { isLoading } = useSelector((state) => state.macros);
+  useDispatch();
+  const { isLoading } = useSelector((state) => state.macros);
 
+  const noResults = !data || _.isEmpty(data) || _.isUndefined(data);
 
+  if (noResults || isLoading) {
+    return null;
+  }
 
-    const noResults = (!data || _.isEmpty(data) || _.isUndefined(data))
-
-
-
-    if (noResults || isLoading )   {
-        return null;
-    }
-
-
-
-    const renderedGrid = _.map(data, (row) => {
+  const renderedGrid = _.map(data, (row) => {
     return (
-      <Grid container key={row._id} xs="12" md="6" lg="4" item>
+      <Grid container key={row._id} xs={12} md={6} lg={4} item>
         <ThreeDCard
           component={
             <MacrosCard

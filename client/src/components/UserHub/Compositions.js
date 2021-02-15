@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
-import requireAuth from "../auth/requireAuth";
-import { getCompositions } from "../../features/basket";
-import { useSelector, useDispatch } from "react-redux";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import Typography from "@material-ui/core/Typography";
 import _ from "lodash";
-
-import CompGrid from "./CompGrid";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getCompositions } from "../../features/basket";
+import background from "../../static/back3.jpg";
+import requireAuth from "../auth/requireAuth";
 import MacrosLayout from "../MacrosLayout";
-import Container from "@material-ui/core/Container";
 import ModifyComposition from "../MacrosTableAggregate/ModifyComposition";
 import { useSelected } from "../utils/hooks";
-import UserHub from "../Crapy";
-import background from "../../static/back3.jpg";
+
+import CompGrid from "./CompGrid";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -40,7 +37,7 @@ const Feature = ({ compositions }) => {
 
   useEffect(() => {
     dispatch(getCompositions());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={classes.bg}>

@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from "react";
-import UserPanel from "./UserPanel";
-import Box from "@material-ui/core/Box";
-import { useDispatch, useSelector } from "react-redux";
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
-import CardContent from "@material-ui/core/CardContent";
+import Box from "@material-ui/core/Box";
+import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import _ from "lodash";
-import { useSelected, useUsersSearch } from "../utils/hooks";
-import { getFriendsHub } from "../../features/friendsBasket";
-import { getHub } from "../../features/basket";
-import TextFieldWithButton from "../utils/TextFieldWithButton";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import Grid from "@material-ui/core/Grid";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import Typography from "@material-ui/core/Typography";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
+import _ from "lodash";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getHub } from "../../features/basket";
+import { getFriendsHub } from "../../features/friendsBasket";
 import background from "../../static/back7.jpg";
+import { useUsersSearch } from "../utils/hooks";
+import TextFieldWithButton from "../utils/TextFieldWithButton";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -52,24 +51,23 @@ const useStyles = makeStyles((theme) => ({
   searchResult: { overflowY: "scroll", height: "90vh" },
 }));
 
-export default ({ history, friends, friendRequestProps }) => {
+export default ({ history, friends }) => {
   const { userId } = useSelector((state) => state.auth);
   const classes = useStyles();
   const userFriends = useSelector((state) =>
     state.basket.friends.map((friend) => friend._id)
   );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getHub());
-  }, []);
+  }, [dispatch]);
 
   const { searchForUsers, users } = useUsersSearch();
 
   const handleSubmit = async ({ userName }) => {
     await searchForUsers(userName);
   };
-
-  const dispatch = useDispatch();
 
   const handleSelectFriend = ({ _id }) => {
     debugger;
@@ -98,10 +96,12 @@ export default ({ history, friends, friendRequestProps }) => {
               >
                 <Box>
                   <Typography className={classes.subtitle}>
-                    {`Favorite meals (${friend.starredMeals.length})`}
+                    {friend.starredMeals &&
+                      `Favorite meals (${friend.starredMeals.length})`}
                   </Typography>
                   <Typography className={classes.subtitle}>
-                    {`Compositions (${friend.compositions.length})`}
+                    {friend.compositions &&
+                      `Compositions (${friend.compositions.length})`}
                   </Typography>
                 </Box>
                 <Box position="relative" bottom="40px">

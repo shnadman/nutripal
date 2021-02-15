@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
-import _ from "lodash";
-
-import { useSelected } from "../utils/hooks";
-import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
-import { lighten, makeStyles } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
+import { makeStyles } from "@material-ui/core/styles";
+import _ from "lodash";
+import React, { useEffect } from "react";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   totals: {
     marginRight: "60px",
   },
@@ -26,6 +24,7 @@ export default ({ selected, aggTotals, totals }) => {
 
   useEffect(() => {
     aggTotals();
+    // eslint-disable-next-line
   }, [selected]);
 
   return (

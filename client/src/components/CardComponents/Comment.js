@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
+import IconButton from "@material-ui/core/IconButton";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { formatDistance } from "date-fns";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import macrosApi from "../../api/macros";
 import LikeBadge from "./LikeBadge";
-import { likeComment } from "../../features/macros";
-import DeleteIcon from "@material-ui/icons/Delete";
-import { useDispatch, useSelector } from "react-redux";
-import IconButton from "@material-ui/core/IconButton";
-import { formatDistance } from "date-fns";
 
 macrosApi.interceptors.request.use(function (config) {
   const token = localStorage.getItem("x-auth-token");
@@ -58,9 +57,7 @@ export default ({ comment }) => {
   const { content, writer, _id, createdAt } = comment;
   const classes = useStyles();
   const userId = useSelector((state) => state.auth.userId);
-  const [showDelete, setShowDelete] = useState(comment.writer._id === userId);
-
-  const onClickDelte = async () => {};
+  const [showDelete] = useState(comment.writer._id === userId);
 
   const renderDelete = () => {
     return (

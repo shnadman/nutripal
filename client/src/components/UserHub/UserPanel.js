@@ -1,16 +1,14 @@
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
-import { Link as RouterLink } from "react-router-dom";
+import Paper from "@material-ui/core/Paper";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import Typography from "@material-ui/core/Typography";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link as RouterLink } from "react-router-dom";
 import { getHub } from "../../features/basket";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import Paper from "@material-ui/core/Paper";
-import _ from "lodash";
 
-const useStyles = makeStyles((color) => ({
+const useStyles = makeStyles(() => ({
   appBarParent: {
     flexGrow: 1,
     marginTop: 30,
@@ -35,68 +33,3 @@ const useStyles = makeStyles((color) => ({
     color: "#fff",
   },
 }));
-
-export default () => {
-  const { basket, userName, compositions, friends } = useSelector(
-    (state) => state.basket
-  );
-  const dispatch = useDispatch();
-  const classes = useStyles();
-
-  useEffect(() => {
-    dispatch(getHub());
-  }, []);
-
-  return (
-    <Paper className={classes.root}>
-      <Typography style={{ alignSelf: "center" }} variant="h2">
-        {`${userName}'s basket`}
-      </Typography>
-      <Grid
-        style={{ marginLeft: "20px" }}
-        container
-        justify="flex-start"
-        alignItems="center"
-        direction="row"
-        spacing={8}
-      >
-        <Grid item>
-          <Link
-            component={RouterLink}
-            to={{
-              pathname: "/api/users/me/meals",
-            }}
-          >
-            <Typography className={classes.text}>
-              {`Favorite meals (${basket.length})`}
-            </Typography>
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link
-            component={RouterLink}
-            to={{
-              pathname: "/api/users/me/compositions",
-            }}
-          >
-            <Typography variant="subtitle2" className={classes.text}>
-              {`Compositions (${compositions.length})`}
-            </Typography>
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link
-            component={RouterLink}
-            to={{
-              pathname: "/api/users/me/friends",
-            }}
-          >
-            <Typography variant="h6" className={classes.text}>
-              {`Friends (${friends.length})`}
-            </Typography>
-          </Link>
-        </Grid>
-      </Grid>
-    </Paper>
-  );
-};

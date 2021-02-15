@@ -1,21 +1,14 @@
-import React, { useEffect } from "react";
-import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import Modal from "./utils/Modal";
-import Signout from "./auth/Signout";
-import SearchBar from "./Searching/SearchBar";
-import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
-import ProfilePopupMenu from "./utils/ProfilePopupMenu";
-import { getNotifications } from "../features/notifications";
-import { useDispatch, useSelector } from "react-redux";
-import Badge from "@material-ui/core/Badge";
-import NotificationsNoneRoundedIcon from "@material-ui/icons/NotificationsNoneRounded";
+import Button from "@material-ui/core/Button";
+import { fade, makeStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import React from "react";
+import { Link } from "react-router-dom";
+import SearchBar from "./Searching/SearchBar";
+import Modal from "./utils/Modal";
 import NotificationsPopper from "./utils/NotificationsPopper";
+import ProfilePopupMenu from "./utils/ProfilePopupMenu";
 
 const useStyles = makeStyles((theme) => ({
   grow: {

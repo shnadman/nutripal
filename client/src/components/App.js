@@ -1,21 +1,18 @@
-import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
-import Homepage from "./Homepage";
-import history from "../history";
-import Signup from "./auth/Signup";
-import Notifier from "./utils/Notifier";
-import Modal from "./utils/Modal";
-import { ThemeProvider } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
+import React from "react";
+import { Route, Router, Switch } from "react-router-dom";
+import history from "../history";
 import Appbar from "./Appbar";
-import LandingPage from "./LandingPage";
-import FriendsHub from "./FriendsHub";
-import UserHub from "./UserHub";
-import { useSelfData, useFriendsData } from "./utils/hooks";
-
-import Copyright from "./Copyright";
+import Signup from "./auth/Signup";
 import EditProfile from "./EditProfile";
+import Homepage from "./Homepage";
+import LandingPage from "./LandingPage";
+import UserHub from "./UserHub";
+import { useFriendsData, useSelfData } from "./utils/hooks";
+import Modal from "./utils/Modal";
+import Notifier from "./utils/Notifier";
 
 const darkTheme = createMuiTheme({
   palette: {

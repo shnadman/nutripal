@@ -1,13 +1,13 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import FormControl from "@material-ui/core/FormControl";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import IconButton from "@material-ui/core/IconButton";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import { makeStyles } from "@material-ui/core/styles";
 import ArrowDownwardRoundedIcon from "@material-ui/icons/ArrowDownwardRounded";
 import ArrowUpwardRoundedIcon from "@material-ui/icons/ArrowUpwardRounded";
-import IconButton from "@material-ui/core/IconButton";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -29,11 +29,24 @@ export default function SimpleSelect({
 
   const handleChange = (event) => {
     setSortBy(event.target.value);
-    debugger;
   };
 
-  return (
+  const renderAsc = (
     <div>
+      <ArrowUpwardRoundedIcon />
+      <FormHelperText>Lowest first</FormHelperText>
+    </div>
+  );
+
+  const renderDsc = (
+    <div>
+      <ArrowDownwardRoundedIcon />
+      <FormHelperText>Highest first</FormHelperText>
+    </div>
+  );
+
+  return (
+    <div style={{ display: "flex" }}>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-simple-select-helper-label">Sort</InputLabel>
         <Select
@@ -52,7 +65,7 @@ export default function SimpleSelect({
         <FormHelperText>Sorted by 'Calories' by default</FormHelperText>
       </FormControl>
       <IconButton onClick={() => setAscending(!ascending)}>
-        {ascending ? <ArrowUpwardRoundedIcon /> : <ArrowDownwardRoundedIcon />}
+        {ascending ? renderAsc : renderDsc}
       </IconButton>
     </div>
   );

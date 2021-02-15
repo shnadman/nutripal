@@ -9,6 +9,7 @@ const slice = createSlice({
   initialState,
   reducers: {
     clearResults: (state) => {
+      // noinspection JSUnusedAssignment
       state = [];
     },
     macrosSuccess: (state, action) => {
@@ -20,7 +21,6 @@ const slice = createSlice({
     },
   },
 });
-export default slice.reducer;
 
 // Actions
 export const { macrosSuccess, macrosError, clearResults } = slice.actions;

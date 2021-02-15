@@ -1,26 +1,23 @@
-import React, { useEffect, useRef, useState } from "react";
 import Box from "@material-ui/core/Box";
-import FacetSearch from "./Searching/FacetSearch";
-import { useSelector, useDispatch } from "react-redux";
-import { clearResults, searchMacros } from "../features/macros";
 import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
+import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import { useAdvancedSearch, useSelected } from "./utils/hooks";
+import Typography from "@material-ui/core/Typography";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { clearResults } from "../features/macros";
+import background from "../static/back1.jpg";
+import MacrosLayout from "./MacrosLayout";
 import CreateComposition from "./MacrosTableAggregate/CreateComposition";
 import ModifyComposition from "./MacrosTableAggregate/ModifyComposition";
-import ControlledPagination from "./utils/ControlledPagination";
-import MacrosLayout from "./MacrosLayout";
-import SortBy from "./Searching/SortBy";
-import BrandToggle from "./Searching/BrandToggle";
 import CategoryFilter from "./Searching/CategoryFilter";
-import { getNotifications } from "../features/notifications";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import background from "../static/back1.jpg";
-import Copyright from "./Copyright";
-import Divider from "@material-ui/core/Divider";
+import FacetSearch from "./Searching/FacetSearch";
+import SortBy from "./Searching/SortBy";
+import ControlledPagination from "./utils/ControlledPagination";
+import { useAdvancedSearch, useSelected } from "./utils/hooks";
 
-const useGridStyles = makeStyles((color) => ({
+const useGridStyles = makeStyles(() => ({
   sideMenu: {
     display: "flex",
     flexDirection: "column",
@@ -28,7 +25,7 @@ const useGridStyles = makeStyles((color) => ({
   },
   bg: {
     backgroundImage: `linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.45)), url(${background})`,
-    backgroundSize:"cover",
+    backgroundSize: "cover",
     zIndex: -2,
   },
   searchGroup: {
@@ -55,7 +52,6 @@ export default () => {
     ascending,
     setAscending,
     branded,
-    setBranded,
     category,
     setCategory,
   } = useAdvancedSearch();

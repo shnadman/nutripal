@@ -1,21 +1,15 @@
-import ShareIcon from "@material-ui/icons/Share";
-import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
-import React from "react";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import ShareIcon from "@material-ui/icons/Share";
+import React from "react";
 
 import {
   EmailIcon,
-  FacebookIcon,
-  LinkedinIcon,
-  WhatsappIcon,
-} from "react-share";
-
-import {
   EmailShareButton,
+  FacebookIcon,
   FacebookShareButton,
-  LinkedinShareButton,
+  WhatsappIcon,
   WhatsappShareButton,
 } from "react-share";
 

@@ -1,14 +1,13 @@
+import _ from "lodash";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import usersApi from "../../api/users";
 import {
   getCompositions,
   getHub,
   modifyBasket,
   modifyDiscardList,
 } from "../../features/basket";
-import _ from "lodash";
-import usersApi from "../../api/users";
-import { getFriendsHub } from "../../features/friendsBasket";
 import { getNotifications } from "../../features/notifications";
 
 export const useToggleOnSearch = (starred, id) => {
@@ -124,16 +123,6 @@ export const useModal = () => {
   return { open, handleClose, handleClickOpen };
 };
 
-export const useCommentExpander = (comments) => {
-  const [expanded, setExpanded] = React.useState(false);
-  const dispatch = useDispatch();
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-  return { expanded, handleExpandClick };
-};
-
 export const useCompositions = () => {
   const dispatch = useDispatch();
   const { compositions } = useSelector((state) => state.basket);
@@ -142,7 +131,7 @@ export const useCompositions = () => {
 
   useEffect(() => {
     dispatch(getCompositions());
-  }, []);
+  }, [dispatch]);
 
   return { compositions, setChosenComposition, isSelected };
 };
@@ -176,27 +165,6 @@ export const useUsersSearch = () => {
   return { searchForUsers, users };
 };
 
-export const useStarredMeals = () => {
-  const { basket } = useSelector((state) => state.basket);
-  const dynamicSelecting = useSelected(basket);
-  const { selected, clearSelected } = dynamicSelecting;
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    setTimeout(() => dispatch(getHub()), 20);
-  }, []);
-
-  const discard = () => {
-    //const mealIds = selected.map(meal=>meal._id);
-    _.forEach(selected, (meal) => {
-      dispatch(modifyBasket(meal._id, true));
-    });
-    clearSelected();
-  };
-
-  return { discard, basket, dynamicSelecting, selected, clearSelected };
-};
-
 export const useFriendStarredMeals = () => {
   const { friendsBasket } = useSelector((state) => state.friendsBasket);
   const basket = friendsBasket;
@@ -219,19 +187,6 @@ export const useFriendStarredMeals = () => {
   return { discard, basket, dynamicSelecting, selected, clearSelected };
 };
 
-// export const useFriendData = () => {
-//   const { basket, userName, compositions, friends } = useSelector(
-//     (state) => state.friendsBasket
-//   );
-//
-//   useEffect(() => {
-//     dispatch(getHub());
-//     dispatch(getNotifications());
-//   }, []);
-//
-//   return { basket, userName, compositions, friends };
-// };
-
 export const useSelfData = () => {
   const { basket, userName, compositions, friends, avatar } = useSelector(
     (state) => state.basket
@@ -242,7 +197,7 @@ export const useSelfData = () => {
   useEffect(() => {
     dispatch(getHub());
     dispatch(getNotifications());
-  }, []);
+  }, [dispatch]);
 
   return { basket, userName, compositions, friends, avatar };
 };
@@ -254,5 +209,5 @@ export const useFriendsData = () => {
 
   useEffect(() => {}, []);
 
-  return { basket, userName, compositions, friends };
+  return { basket, userName, compositions, friends, avatar };
 };

@@ -1,6 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { useSpring, animated } from "react-spring";
+import { animated, useSpring } from "react-spring";
 
 const calc = (x, y) => [
   -(y - window.innerHeight / 2) / 20,

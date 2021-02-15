@@ -1,16 +1,13 @@
-import React, { useState } from "react";
 import IconButton from "@material-ui/core/IconButton";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import BackspaceRoundedIcon from "@material-ui/icons/BackspaceRounded";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import { useToggleOnSearch, useToggleOnDiscard } from "../utils/hooks";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import ShareButton from "./ShareButton";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import React from "react";
+import { useToggleOnSearch } from "../utils/hooks";
 import CommentsToggler from "./CommentsToggler";
-import { useSelector } from "react-redux";
+import ShareButton from "./ShareButton";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   icon: {
     color: "#ddcccc",
     alignSelf: "center",
@@ -66,27 +63,6 @@ export const StarAction = ({
         handleExpandClick={handleExpandClick}
         commentsCount={commentsCount}
       />
-    </>
-  );
-};
-
-export const RemoveAction = ({ id, starred }) => {
-  const classes = useStyles();
-  const { on, toggle } = useToggleOnDiscard(false, id);
-
-  return (
-    <>
-      <IconButton
-        onMouseDown={(event) => event.stopPropagation()}
-        onClick={toggle}
-      >
-        <BackspaceRoundedIcon className={on ? classes.remove : classes.icon} />
-      </IconButton>
-      <Box alignSelf="center">
-        <Typography variant="h5" color="secondary">
-          Discard
-        </Typography>
-      </Box>
     </>
   );
 };

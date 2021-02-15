@@ -1,10 +1,10 @@
-import React from "react";
+import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import Login from "../auth/Login";
-import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import React from "react";
 import { useSelector } from "react-redux";
+import Login from "../auth/Login";
 import { useModal } from "./hooks";
 
 export default () => {

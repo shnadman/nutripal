@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import macrosApi from "../api/macros";
-import _ from "lodash";
-
 
 macrosApi.interceptors.request.use(function (config) {
   const token = localStorage.getItem("x-auth-token");
@@ -11,7 +9,7 @@ macrosApi.interceptors.request.use(function (config) {
 
 const initialState = {
   searchResults: {},
-  isLoading:false
+  isLoading: false,
 };
 
 // Slice
@@ -19,8 +17,8 @@ const slice = createSlice({
   name: "macros",
   initialState,
   reducers: {
-    changeLoadingState:(state,action)=>{
-      state.isLoading=action.payload
+    changeLoadingState: (state, action) => {
+      state.isLoading = action.payload;
     },
     deleteCommentSuccess: (state, action) => {
       state.searchResults.data
@@ -55,23 +53,23 @@ export const {
   macrosError,
   clearResults,
   commentsSuccess,
-  changeLoadingState
+  changeLoadingState,
 } = slice.actions;
 
 export const searchMacros = (params) => async (dispatch) => {
   try {
-    dispatch(changeLoadingState(true))
+    dispatch(changeLoadingState(true));
     const res = await macrosApi.get("/", {
       params,
     });
     dispatch(macrosSuccess(res));
     dispatch(changeLoadingState(false));
   } catch (e) {
-    if(!e.response){
-      dispatch(macrosError("Timed out"))
+    if (!e.response) {
+      dispatch(macrosError("Timed out"));
       dispatch(changeLoadingState(false));
     } else {
-      dispatch(macrosError(e.response.data))
+      dispatch(macrosError(e.response.data));
       dispatch(changeLoadingState(false));
     }
   }
@@ -83,16 +81,6 @@ export const postComment = (comment, _id) => async (dispatch) => {
     const res = await macrosApi.post("/comments", body);
 
     dispatch(commentsSuccess({ _id, res }));
-  } catch (e) {
-    console.log(e.message);
-  }
-};
-
-export const deleteComment = (macroId, commentId) => async (dispatch) => {
-  try {
-    const res = await macrosApi.delete(`/comments/${commentId}`);
-
-    dispatch(commentsSuccess({ macroId, commentId }));
   } catch (e) {
     console.log(e.message);
   }

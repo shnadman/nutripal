@@ -1,11 +1,7 @@
 import { lighten, makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
-import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
-import Tooltip from "@material-ui/core/Tooltip";
-import IconButton from "@material-ui/core/IconButton";
-import DeleteIcon from "@material-ui/icons/Delete";
-import FilterListIcon from "@material-ui/icons/FilterList";
+import clsx from "clsx";
 import React from "react";
 
 const useToolbarStyles = makeStyles((theme) => ({

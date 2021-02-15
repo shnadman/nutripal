@@ -1,18 +1,15 @@
-import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
-import Box from "@material-ui/core/Box";
-import Avatar from "@material-ui/core/Avatar";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { Field } from "redux-form";
-import { renderTextField } from "./utils/ReduxFormUtils";
-import Button from "@material-ui/core/Button";
-import { connect, useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
-import { getHub, editProfile } from "../features/basket";
+import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { editProfile, getHub } from "../features/basket";
 import background from "../static/back6.jpg";
 
 const useStyles = makeStyles((theme) => ({
@@ -78,7 +75,7 @@ const EditProfile = () => {
 
   useEffect(() => {
     dispatch(getHub());
-  }, []);
+  }, [dispatch]);
 
   const onSubmit = (form) => {
     dispatch(editProfile(form));

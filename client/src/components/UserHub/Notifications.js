@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from "react";
-import UserPanel from "./UserPanel";
-import Box from "@material-ui/core/Box";
-import { useDispatch, useSelector } from "react-redux";
-import { getFriends } from "../../features/basket";
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
-import CardContent from "@material-ui/core/CardContent";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import Color from "color";
-import { useSelected } from "../utils/hooks";
-import { getFriendsHub } from "../../features/friendsBasket";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Grid from "@material-ui/core/Grid";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import Typography from "@material-ui/core/Typography";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
-import Button from "@material-ui/core/Button";
-import { respondFriendRequest } from "../../features/basket";
+import Color from "color";
 import { formatDistance } from "date-fns";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { respondFriendRequest } from "../../features/basket";
+import { useSelected } from "../utils/hooks";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -49,9 +44,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default ({ history, closePopper }) => {
+export default () => {
   const classes = useStyles();
-  const dynamicSelecting = useSelected([]);
+  useSelected([]);
 
   const { notifications } = useSelector((state) => state.notifications);
   const dispatch = useDispatch();

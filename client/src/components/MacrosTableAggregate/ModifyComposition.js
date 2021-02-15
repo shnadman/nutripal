@@ -1,23 +1,19 @@
-import React, { useState } from "react";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import CreateIcon from "@material-ui/icons/Create";
-import TextFieldWithButton from "../utils/TextFieldWithButton";
-import { useDispatch, useSelector } from "react-redux";
-import { modifyComposition } from "../../features/basket";
 import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
-import { useCompositions } from "../utils/hooks";
-import AddIcon from "@material-ui/icons/Add";
-import _ from "lodash";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import DeleteComposition from "./DeleteComposition";
-import Chip from "@material-ui/core/Chip";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Avatar from "@material-ui/core/Avatar";
+import Box from "@material-ui/core/Box";
+import Chip from "@material-ui/core/Chip";
+import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import AddIcon from "@material-ui/icons/Add";
 import Color from "color";
+import _ from "lodash";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { modifyComposition } from "../../features/basket";
+import { useCompositions } from "../utils/hooks";
 
 const useStyles = makeStyles(({ breakpoints }) => ({
   root: {
@@ -50,7 +46,7 @@ const useStyles = makeStyles(({ breakpoints }) => ({
 
 export default ({ selected }) => {
   const classes = useStyles();
-  const { compositions, setChosenComposition, isSelected } = useCompositions();
+  const { compositions, isSelected } = useCompositions();
   const dispatch = useDispatch();
   const handleModify = async (compId, name) => {
     let mealIds = selected.map((m) => m._id);
@@ -68,7 +64,7 @@ export default ({ selected }) => {
           justify="flex-start"
           alignItems="baseline"
           container
-          xs="3"
+          xs={3}
           item
         >
           <Chip

@@ -1,8 +1,8 @@
-import React from "react";
 import Button from "@material-ui/core/Button";
-import { logout } from "../../features/auth";
-import { useDispatch, useSelector } from "react-redux";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../features/auth";
 
 const Signout = () => {
   const auth = useSelector((state) => state.auth.authenticated);

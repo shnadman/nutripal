@@ -1,13 +1,9 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import ArrowDownwardRoundedIcon from "@material-ui/icons/ArrowDownwardRounded";
-import ArrowUpwardRoundedIcon from "@material-ui/icons/ArrowUpwardRounded";
-import IconButton from "@material-ui/core/IconButton";
+import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -24,8 +20,6 @@ export default ({ setCategory, category }) => {
 
   const handleChange = (event) => {
     setCategory(event.target.value);
-    const tosti = category;
-    debugger;
   };
 
   return (

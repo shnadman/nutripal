@@ -1,16 +1,14 @@
-import React, { useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Popper from "@material-ui/core/Popper";
-import Fade from "@material-ui/core/Fade";
-import Button from "@material-ui/core/Button";
 import Badge from "@material-ui/core/Badge";
+import Fade from "@material-ui/core/Fade";
 import IconButton from "@material-ui/core/IconButton";
-import DeleteComposition from "../MacrosTableAggregate/DeleteComposition";
+import Popper from "@material-ui/core/Popper";
+import { makeStyles } from "@material-ui/core/styles";
 import NotificationsNoneRoundedIcon from "@material-ui/icons/NotificationsNoneRounded";
-import Box from "@material-ui/core/Box";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getNotifications } from "../../features/notifications";
 import Notifications from "../UserHub/Notifications";
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     border: "1px solid",
@@ -25,7 +23,7 @@ export default () => {
 
   useEffect(() => {
     dispatch(getNotifications());
-  }, []);
+  }, [dispatch]);
 
   const classes = useStyles();
 
@@ -35,7 +33,7 @@ export default () => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
-  const closePopper = (event) => {
+  const closePopper = () => {
     setAnchorEl(null);
   };
 

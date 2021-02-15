@@ -1,7 +1,6 @@
-import React from "react";
 import Badge from "@material-ui/core/Badge";
-import Avatar from "@material-ui/core/Avatar";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import React from "react";
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -32,7 +31,7 @@ const StyledBadge = withStyles((theme) => ({
   },
 }))(Badge);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: "flex",
   },
@@ -50,7 +49,7 @@ export default function BadgeAvatars() {
           horizontal: "right",
         }}
         variant="dot"
-      ></StyledBadge>
+      />
     </div>
   );
 }

@@ -1,17 +1,15 @@
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
-import { Link as RouterLink } from "react-router-dom";
+import Paper from "@material-ui/core/Paper";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import Typography from "@material-ui/core/Typography";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link as RouterLink } from "react-router-dom";
 import { getHub } from "../features/basket";
 import { getNotifications } from "../features/notifications";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import Paper from "@material-ui/core/Paper";
-import _ from "lodash";
 
-const useStyles = makeStyles((color) => ({
+const useStyles = makeStyles(() => ({
   appBarParent: {
     flexGrow: 1,
     marginTop: 30,

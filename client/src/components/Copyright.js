@@ -1,7 +1,7 @@
-import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import React from "react";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     minHeight: "100px",
     backgroundColor: "#1f1d19",

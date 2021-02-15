@@ -1,10 +1,10 @@
-import React from "react";
 import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import React from "react";
 
-const useStyles = makeStyles((color) => ({
+const useStyles = makeStyles(() => ({
   appBarParent: {
     flexGrow: 1,
     marginTop: 30,
@@ -76,7 +76,7 @@ export default () => {
       <Paper className={classes.second}>
         <Box alignSelf="center">
           <Typography variant="h2" className={classes.typography}>
-           See what your're friends are into!
+            See what your're friends are into!
           </Typography>
         </Box>
       </Paper>
