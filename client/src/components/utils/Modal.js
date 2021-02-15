@@ -17,7 +17,7 @@ export default () => {
         variant="contained"
         color="primary"
         onClick={handleClickOpen}
-        style={{ textTransform: "none", fontSize: 17 }}
+        style={{ textTransform: "none", fontSize: 17, color: "#ada3d4" }}
       >
         Login
       </Button>

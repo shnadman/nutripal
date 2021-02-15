@@ -35,7 +35,7 @@ export default ({ placeholder }) => {
       <Paper>
         <TextFieldWithButton
           onSubmit={onSubmit}
-          icon={<SearchRoundedIcon />}
+          icon={<SearchRoundedIcon color="primary" />}
           placeholder={placeholder}
           buttonText="Submit"
           name="term"

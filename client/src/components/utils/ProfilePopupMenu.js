@@ -27,7 +27,7 @@ export default function MenuPopupState({ history }) {
           <Button
             variant="contained"
             color="primary"
-            style={{ textTransform: "none", fontSize: 17 }}
+            style={{ textTransform: "none", fontSize: 17, color: "#ada3d4" }}
             {...bindTrigger(popupState)}
           >
             Profile

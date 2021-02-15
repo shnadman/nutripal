@@ -18,10 +18,12 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
     variant: "secondary",
+    color: "#ada3d4",
   },
   title: {
     fontSize: 20,
     display: "none",
+    color: "#ada3d4",
     textTransform: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
@@ -64,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
       width: "20ch",
     },
   },
-  btns: { textTransform: "none", fontSize: 17 },
+  btns: { textTransform: "none", fontSize: 17, color: "#ada3d4" },
   sectionDesktop: {
     display: "flex",
     position: "relative",
