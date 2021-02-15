@@ -51,7 +51,7 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
       backDropFilter: "blur(2px)",
       backgroundColor: "rgba(255,255,255,0.1)",
       border: "0.7px solid white",
-      height: "400px",
+      height: "300px",
       display: "flex",
       flexDirection: "column",
       borderRadius: 16,

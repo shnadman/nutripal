@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -25,6 +26,7 @@ const useStyles = makeStyles(() => ({
     paddingTop: "80px",
     minHeight: "70vh",
   },
+  header: { position: "relative", left: "40vw", paddingBottom: "40px" },
 }));
 
 export default ({ basket }) => {
@@ -41,17 +43,42 @@ export default ({ basket }) => {
     clearSelected();
   };
 
+  // {_.isEmpty(data) ? (
+  //     <Typography className={classes.header}>
+  //       No compositions created... yet
+  //     </Typography>
+  // ) : (
+  //     <div style={{ position: "relative", top: "100px" }}>
+  //       <MacrosLayout
+  //           data={chosenComposition.mealIds}
+  //           compositionUpdateAction={<ModifyComposition />}
+  //           dynamicSelecting={dynamicSelecting}
+  //       />
+  //     </div>
+  // )}
+
   return (
     <div className={classes.bg}>
-      <MacrosLayout
-        compositionCreateAction={<CreateComposition selected={selected} />}
-        compositionUpdateAction={<ModifyComposition selected={selected} />}
-        data={basket}
-        dynamicSelecting={dynamicSelecting}
-      />
-      <Button onClick={discard} variant="contained" color="secondary">
-        Discard selected
-      </Button>
+      <Typography className={classes.header} variant="h3">
+        Favorite meals
+      </Typography>
+      {_.isEmpty(basket) ? (
+        <Typography className={classes.header}>
+          No favorite meals... yet
+        </Typography>
+      ) : (
+        <>
+          <MacrosLayout
+            compositionCreateAction={<CreateComposition selected={selected} />}
+            compositionUpdateAction={<ModifyComposition selected={selected} />}
+            data={basket}
+            dynamicSelecting={dynamicSelecting}
+          />
+          <Button onClick={discard} variant="contained" color="secondary">
+            Discard selected
+          </Button>
+        </>
+      )}
     </div>
   );
 };

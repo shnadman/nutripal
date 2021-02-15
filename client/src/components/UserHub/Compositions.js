@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import _ from "lodash";
 import React, { useEffect, useState } from "react";
@@ -24,6 +25,7 @@ const useStyles = makeStyles(() => ({
     paddingTop: "80px",
     minHeight: "70vh",
   },
+  header: { position: "relative", left: "40vw", paddingBottom: "40px" },
 }));
 
 const Feature = ({ compositions }) => {
@@ -41,12 +43,22 @@ const Feature = ({ compositions }) => {
 
   return (
     <div className={classes.bg}>
-      <CompGrid
-        className={classes.root}
-        renderSelectedComposition={setChosenComposition}
-        isSelected={isSelected}
-        data={compositions}
-      />
+      <Typography className={classes.header} variant="h3">
+        Compositions
+      </Typography>
+
+      {_.isEmpty(compositions) ? (
+        <Typography className={classes.header}>
+          No compositions created... yet
+        </Typography>
+      ) : (
+        <CompGrid
+          className={classes.root}
+          renderSelectedComposition={setChosenComposition}
+          isSelected={isSelected}
+          data={compositions}
+        />
+      )}
       {_.isEmpty(chosenComposition) ? null : (
         <div style={{ position: "relative", top: "100px" }}>
           <MacrosLayout

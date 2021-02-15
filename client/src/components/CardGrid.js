@@ -1,4 +1,5 @@
 import Grid from "@material-ui/core/Grid";
+import Grow from "@material-ui/core/Grow";
 import { makeStyles } from "@material-ui/core/styles";
 
 import _ from "lodash";
@@ -29,21 +30,23 @@ export default ({ data, curriedCardAction, dynamicSelecting }) => {
 
   const renderedGrid = _.map(data, (row) => {
     return (
-      <Grid container key={row._id} xs={12} md={6} lg={4} item>
-        <ThreeDCard
-          component={
-            <MacrosCard
-              raised
-              data={row}
-              dynamicSelecting={dynamicSelecting}
-              image={
-                "https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_181/f_auto,q_auto,w_1100/v1554932288/shape/mentalfloss/12531-istock-637790866.jpg"
-              }
-              curriedCardAction={curriedCardAction(row._id, row.starred)}
-            />
-          }
-        />
-      </Grid>
+      <Grow in={!noResults}>
+        <Grid container key={row._id} xs={12} md={6} lg={4} item>
+          <ThreeDCard
+            component={
+              <MacrosCard
+                raised
+                data={row}
+                dynamicSelecting={dynamicSelecting}
+                image={
+                  "https://images2.minutemediacdn.com/image/upload/c_crop,h_1126,w_2000,x_0,y_181/f_auto,q_auto,w_1100/v1554932288/shape/mentalfloss/12531-istock-637790866.jpg"
+                }
+                curriedCardAction={curriedCardAction(row._id, row.starred)}
+              />
+            }
+          />
+        </Grid>
+      </Grow>
     );
   });
 

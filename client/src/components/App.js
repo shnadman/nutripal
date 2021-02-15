@@ -21,8 +21,8 @@ const darkTheme = createMuiTheme({
     secondary: { main: "#ADA3D4" },
   },
   typography: {
-    fontSize: 20,
-    fontFamily: "Helvetica",
+    fontSize: 14,
+    fontFamily: ["Helvetica", "Noto Sans KR"],
   },
 });
 
@@ -45,7 +45,6 @@ const App = () => {
       <div>
         <Router history={history}>
           <div>
-            <Notifier />
             <div style={{ zIndex: 3, position: "sticky", top: 0 }}>
               <Appbar history={history} />
             </div>
@@ -84,6 +83,7 @@ const App = () => {
           </div>
         </Router>
       </div>
+      <Notifier />
     </ThemeProvider>
   );
 };

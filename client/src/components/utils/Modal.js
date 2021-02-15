@@ -1,7 +1,6 @@
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { useSelector } from "react-redux";
 import Login from "../auth/Login";
@@ -15,12 +14,12 @@ export default () => {
     <Box>
       <Button
         disabled={auth ? true : false}
-        variant="text"
+        variant="contained"
         color="primary"
         onClick={handleClickOpen}
-        style={{ textTransform: "none" }}
+        style={{ textTransform: "none", fontSize: 17 }}
       >
-        <Typography>Login</Typography>
+        Login
       </Button>
       <Dialog
         open={open}

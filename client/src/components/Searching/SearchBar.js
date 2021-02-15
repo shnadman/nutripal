@@ -31,7 +31,7 @@ export default ({ placeholder }) => {
   };
 
   return (
-    <Container className={classes.helperText} maxWidth="sm">
+    <Container className={classes.helperText} style={{ maxWidth: "350px" }}>
       <Paper>
         <TextFieldWithButton
           onSubmit={onSubmit}

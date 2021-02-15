@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default ({ onSubmit, icon, placeholder, name }) => {
+export default ({ onSubmit, icon, placeholder, name, disabled }) => {
   const classes = useStyles();
   const { handleSubmit, register } = useForm();
   return (
@@ -30,7 +30,11 @@ export default ({ onSubmit, icon, placeholder, name }) => {
         name={name}
         InputProps={{
           endAdornment: (
-            <IconButton type="submit" className={classes.button}>
+            <IconButton
+              disabled={disabled}
+              type="submit"
+              className={classes.button}
+            >
               <InputAdornment position="end" children={icon} />
             </IconButton>
           ),

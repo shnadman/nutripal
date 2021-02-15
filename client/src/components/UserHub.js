@@ -5,7 +5,6 @@ import Paper from "@material-ui/core/Paper";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import _ from "lodash";
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFriend, sendFriendRequest } from "../features/basket";
@@ -30,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     height: "25vh",
     paddingTop: "5vh",
+    borderBottom: "1px groove #fff",
   }),
   avatar: {
     width: theme.spacing(8),
@@ -115,12 +115,16 @@ const UserHub = ({ history, useData, friendFlag, styleProps, match }) => {
           {`${userName}'s basket`}
         </Typography>
         <Box position="relative" left="60%" right="40%" bottom="5%">
-          <Button
-            onClick={() => history.push("/api/users/me/edit")}
-            variant="outlined"
-          >
-            Edit profile
-          </Button>
+          {friendFlag ? (
+            renderButton
+          ) : (
+            <Button
+              onClick={() => history.push("/api/users/me/edit")}
+              variant="outlined"
+            >
+              Edit profile
+            </Button>
+          )}
         </Box>
         <Box className={classes.menu}>
           <Button
@@ -134,10 +138,6 @@ const UserHub = ({ history, useData, friendFlag, styleProps, match }) => {
             onClick={() => setRendered("friends")}
             variant="text"
           >{`Friends (${friends.length})`}</Button>
-
-          <Box position="relative" left="40vw">
-            {friendFlag ? renderButton : null}
-          </Box>
         </Box>
       </Paper>
       {renderFeature()}

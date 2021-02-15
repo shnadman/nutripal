@@ -3,7 +3,7 @@ import { enqueueSnackbar } from "../actions/snackbarActions";
 const makeNotification = (message, variant) => ({
   message,
   options: {
-    autoHideDuration: 2000,
+    autoHideDuration: 2500,
     key: `key_${Math.random()}`,
     variant,
     // action: (id) => <Button onClick={() => closeSnackbar(id)}></Button>, //couldnt get closeSnackbar to work
@@ -20,7 +20,7 @@ export default ({ dispatch }) => (next) => (action) => {
       action.payload
         ? dispatch(
             enqueueSnackbar(
-              makeNotification("Logged in successfully :)", "success")
+              makeNotification("Logged in successfully", "success")
             )
           )
         : dispatch(
@@ -70,6 +70,14 @@ export default ({ dispatch }) => (next) => (action) => {
       break;
     case "basket/modifyCompositionError":
       dispatch(enqueueSnackbar(makeNotification(action.payload, "success")));
+      next(action);
+      break;
+    case "basket/sendFriendRequestSuccess":
+      dispatch(enqueueSnackbar(makeNotification(action.payload, "success")));
+      next(action);
+      break;
+    case "basket/sendFriendRequestError":
+      dispatch(enqueueSnackbar(makeNotification(action.payload, "info")));
       next(action);
       break;
     case "basket/deleteCompositionSuccess":

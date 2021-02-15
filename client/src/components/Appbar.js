@@ -4,9 +4,12 @@ import Button from "@material-ui/core/Button";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { clearResults } from "../features/macros";
 import SearchBar from "./Searching/SearchBar";
-import Modal from "./utils/Modal";
+import { useSelected } from "./utils/hooks";
+import Login from "./utils/Modal";
 import NotificationsPopper from "./utils/NotificationsPopper";
 import ProfilePopupMenu from "./utils/ProfilePopupMenu";
 
@@ -20,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
     variant: "secondary",
   },
   title: {
+    fontSize: 20,
     display: "none",
+    textTransform: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
@@ -62,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
       width: "20ch",
     },
   },
-  btns: { textTransform: "none" },
+  btns: { textTransform: "none", fontSize: 17 },
   sectionDesktop: {
     display: "flex",
     position: "relative",
@@ -88,13 +93,15 @@ export default function PrimarySearchAppBar({ history }) {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
-          <Link to="/home" className={classes.title}>
-            <Button size="large">NutriPal</Button>
+          <Link to="/home">
+            <Button className={classes.title} size="large">
+              NutriPal
+            </Button>
           </Link>
           <SearchBar placeholder={"Search by name..."} />
           <div className={classes.grow} />
           <Box className={classes.sectionDesktop}>
-            <Modal />
+            <Login />
             <Link to="/signup">
               <Button
                 className={classes.btns}

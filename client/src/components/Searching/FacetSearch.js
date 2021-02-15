@@ -71,12 +71,35 @@ export default ({
       label: "50",
     },
     {
-      value: 100,
-      label: "100",
+      value: 150,
+      label: "150",
     },
     {
       value: 250,
       label: "250",
+    },
+    {
+      value: 500,
+      label: "500",
+    },
+  ];
+
+  const calMarks = [
+    {
+      value: 1000,
+      label: "1000",
+    },
+    {
+      value: 2500,
+      label: "2500",
+    },
+    {
+      value: 5000,
+      label: "5000",
+    },
+    {
+      value: 7000,
+      label: "7000",
     },
   ];
   const classes = useStyles();
@@ -125,6 +148,7 @@ export default ({
                 valueLabelDisplay="auto"
                 max={7000}
                 step={50}
+                marks={calMarks}
               />
             </Box>
           )}
@@ -199,6 +223,7 @@ export default ({
         type="submit"
         color="secondary"
         variant="outlined"
+        size="large"
       >
         Search
       </Button>

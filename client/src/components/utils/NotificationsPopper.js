@@ -46,7 +46,7 @@ export default () => {
         badgeContent={notifications ? notifications.length : 0}
         color="secondary"
       >
-        <IconButton onClick={handleClick}>
+        <IconButton variant="contained" onClick={handleClick}>
           <Popper id={id} open={open} anchorEl={anchorEl} transition>
             {({ TransitionProps }) => (
               <Fade {...TransitionProps} timeout={350}>

@@ -13,7 +13,7 @@ import AddCommentIcon from "@material-ui/icons/AddComment";
 import Color from "color";
 import _ from "lodash";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postComment } from "../../features/macros";
 import TextFieldWithButton from "../utils/TextFieldWithButton";
 import Comment from "./Comment";
@@ -120,6 +120,7 @@ export default ({ data, curriedCardAction, dynamicSelecting }) => {
     servingSize,
     servingSizeUnit,
   } = data;
+  const auth = useSelector((store) => store.auth.authenticated);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -197,6 +198,7 @@ export default ({ data, curriedCardAction, dynamicSelecting }) => {
               icon={<AddCommentIcon />}
               placeholder={"Comment"}
               name={"comment"}
+              disabled={!auth}
             />
           </CardContent>
         </Collapse>

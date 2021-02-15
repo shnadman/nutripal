@@ -48,10 +48,11 @@ const userSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Macros",
-      unique: true,
+      // unique: true,
+      // sparse: true,
     },
   ],
-  compositions: { type: [compositionSchema], unique: true },
+  compositions: { type: [compositionSchema] },
   friends: [
     {
       type: mongoose.Schema.Types.ObjectId,

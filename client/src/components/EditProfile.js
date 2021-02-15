@@ -136,7 +136,7 @@ const EditProfile = () => {
                 />
               </Box>
               <div
-                style={{ position: "relative", left: "480px", bottom: "-10px" }}
+                style={{ position: "relative", left: "420px", bottom: "-80px" }}
               >
                 <Button
                   size="large"

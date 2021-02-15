@@ -13,7 +13,6 @@ import { getNotifications } from "../../features/notifications";
 export const useToggleOnSearch = (starred, id) => {
   const userId = useSelector((state) => state.auth.userId);
   const starredIds = starred.map((e) => e._id);
-
   const [on, setOn] = useState(_.includes(starredIds, userId));
   const dispatch = useDispatch();
 
@@ -126,6 +125,7 @@ export const useModal = () => {
 export const useCompositions = () => {
   const dispatch = useDispatch();
   const { compositions } = useSelector((state) => state.basket);
+  const auth = useSelector((state) => state.auth);
   const [chosenComposition, setChosenComposition] = useState([]);
   let isSelected = (id) => chosenComposition._id === id;
 

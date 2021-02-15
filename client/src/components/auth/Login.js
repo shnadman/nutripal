@@ -29,7 +29,7 @@ const Login = (props) => {
   const { handleSubmit, pristine, reset, submitting, invalid } = props;
   return (
     <Container maxWidth="xs">
-      <Box className={classes.paper}>
+      <Box className={classes.paperLogin}>
         <Box alignSelf="center">
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />

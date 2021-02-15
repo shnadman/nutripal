@@ -2,7 +2,8 @@ import IconButton from "@material-ui/core/IconButton";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { useToggleOnSearch } from "../utils/hooks";
 import CommentsToggler from "./CommentsToggler";
 import ShareButton from "./ShareButton";
@@ -14,7 +15,7 @@ const useStyles = makeStyles(() => ({
     marginLeft: "12px",
   },
   starred: {
-    color: "#e53131",
+    color: "#ff5f5f",
     marginLeft: "12px",
   },
   remove: {
@@ -46,14 +47,21 @@ export const StarAction = ({
 }) => {
   const classes = useStyles();
   const { on, toggle } = useToggleOnSearch(starred, id);
+  const auth = useSelector((store) => store.auth.authenticated);
+
+  const [currLikes, setCurrLikes] = useState(starred.length);
 
   return (
     <>
       <IconButton
         onMouseDown={(event) => event.stopPropagation()}
-        onClick={toggle}
+        onClick={(event) => {
+          toggle(event);
+          setCurrLikes((curr) => (on ? curr - 1 : curr + 1));
+        }}
+        disabled={!auth}
       >
-        <Typography className={classes.text}>{starred.length}</Typography>
+        <Typography className={classes.text}>{currLikes}</Typography>
         <FavoriteIcon className={on ? classes.starred : classes.icon} />
       </IconButton>
       <ShareButton style={{ marginRight: "15px" }} />

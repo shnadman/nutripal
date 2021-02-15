@@ -2,7 +2,7 @@ const advancedResults = (model, populate) => async (req, res, next) => {
   let query;
 
   // Fields to exclude
-  let removeFields = ["select", "sort", "page", "limit","totalPages"];
+  let removeFields = ["select", "sort", "page", "limit", "totalPages"];
 
   //Start of specific app BL queries - every filed we push will not be used for filtering
 
@@ -38,7 +38,6 @@ const advancedResults = (model, populate) => async (req, res, next) => {
     query = model.find(JSON.parse(queryStr)).lean();
   }
 
-  console.log(query)
   // Select Fields
   if (req.query.select) {
     const fields = req.query.select.split(",").join(" ");
@@ -58,10 +57,10 @@ const advancedResults = (model, populate) => async (req, res, next) => {
   const limit = parseInt(req.query.limit, 10) || 25;
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
-  let totalPages=null;
+  let totalPages = null;
   let total = null;
 
-  if(!req.query.totalPages) {
+  if (!req.query.totalPages) {
     total = await model.countDocuments();
     const tempQueryResults = await query;
     totalPages = Math.ceil(tempQueryResults.length / limit);
@@ -78,7 +77,9 @@ const advancedResults = (model, populate) => async (req, res, next) => {
 
   // Pagination result
 
-  const pagination = totalPages ? { totalPages } :{totalPages: req.query.totalPages}
+  const pagination = totalPages
+    ? { totalPages }
+    : { totalPages: req.query.totalPages };
 
   if (endIndex < total) {
     pagination.next = {

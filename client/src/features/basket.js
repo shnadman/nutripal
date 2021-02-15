@@ -42,6 +42,9 @@ const slice = createSlice({
     addCompositionError: (state, action) => {
       console.error(action.payload);
     },
+    getCompositionError: (state, action) => {
+      console.error(action.payload);
+    },
     getUserHubSuccess: (state, action) => {
       state.basket = action.payload.data.starredMeals;
       state.compositions = action.payload.data.compositions;
@@ -104,6 +107,7 @@ export const {
   respondFriendRequestError,
   editProfileSuccess,
   editProfileError,
+  getCompositionError,
 } = slice.actions;
 
 export const modifyBasket = (mealId, remove) => async (dispatch) => {
@@ -143,7 +147,7 @@ export const getCompositions = () => async (dispatch) => {
     const res = await basket.get("/compositions");
     dispatch(getCompositionSuccess(res));
   } catch (e) {
-    dispatch(addCompositionError(e.response.data));
+    dispatch(getCompositionError(e.response.data));
   }
 };
 

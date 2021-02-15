@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Signout from "../auth/Signout";
 
 export default function MenuPopupState({ history }) {
-  useSelector((state) => state.auth.authenticated);
-  useDispatch();
+  const auth = useSelector((state) => state.auth.authenticated);
+  const dispatch = useDispatch();
 
   const handleClickProfile = (popupState) => {
     history.push("/api/users/me");
@@ -28,7 +28,7 @@ export default function MenuPopupState({ history }) {
           <Button
             variant="contained"
             color="primary"
-            style={{ textTransform: "none" }}
+            style={{ textTransform: "none", fontSize: 17 }}
             {...bindTrigger(popupState)}
           >
             Profile
@@ -38,10 +38,13 @@ export default function MenuPopupState({ history }) {
             <MenuItem onClick={() => handleClickProfile(popupState)}>
               Your basket
             </MenuItem>
-            <MenuItem onClick={() => handleClickEdit(popupState)}>
+            <MenuItem
+              disabled={!auth}
+              onClick={() => handleClickEdit(popupState)}
+            >
               Edit profile
             </MenuItem>
-            <MenuItem onClick={popupState.close}>
+            <MenuItem disabled={!auth} onClick={popupState.close}>
               <Signout />
             </MenuItem>
           </Menu>
