@@ -46,7 +46,7 @@ export default function SimpleSelect({
   );
 
   return (
-    <div style={{ display: "flex" }}>
+    <div id="sort" style={{ display: "flex" }}>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-simple-select-helper-label">Sort</InputLabel>
         <Select

@@ -30,8 +30,8 @@ export default ({ data, curriedCardAction, dynamicSelecting }) => {
 
   const renderedGrid = _.map(data, (row) => {
     return (
-      <Grow in={!noResults}>
-        <Grid container key={row._id} xs={12} md={6} lg={4} item>
+      <Grow key={row._id} in={!noResults}>
+        <Grid container xs={12} md={6} lg={4} item>
           <ThreeDCard
             component={
               <MacrosCard

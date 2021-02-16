@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
 export default () => {
   const classes = useStyles();
   useSelected([]);
-
   const { notifications } = useSelector((state) => state.notifications);
   const dispatch = useDispatch();
   // useEffect(() => {
@@ -111,7 +110,7 @@ export default () => {
       <Box display="flex">
         <Grid container spacing={2} direction="column">
           <Typography variant="h5">Notifications</Typography>
-          {renderNotifications}
+          {notifications && renderNotifications}
         </Grid>
       </Box>
     </div>

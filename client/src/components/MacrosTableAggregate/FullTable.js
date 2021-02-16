@@ -100,7 +100,7 @@ export default function EnhancedTable({
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
-    <div className={classes.root}>
+    <div id="selected" className={classes.root}>
       <Paper className={classes.paper}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer>
@@ -190,8 +190,10 @@ export default function EnhancedTable({
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </Paper>
-      {compositionCreateAction}
-      {compositionUpdateAction}
+      <div id="compositions">
+        {compositionCreateAction}
+        {compositionUpdateAction}
+      </div>
     </div>
   );
 }

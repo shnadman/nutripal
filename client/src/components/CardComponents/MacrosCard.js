@@ -139,7 +139,7 @@ export default ({ data, curriedCardAction, dynamicSelecting }) => {
     <CardActionArea
       className={isSelected(data) ? classes.selected : classes.actionArea}
     >
-      <Card className={classes.card}>
+      <Card className={`${classes.card} macrocard`}>
         <Box position={"relative"}>
           <Tooltip placement="top-start" title={brand}>
             <CardMedia image={brandLogo} className={classes.logo} />

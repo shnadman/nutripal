@@ -3,7 +3,7 @@ import React from "react";
 
 const useStyles = makeStyles(() => ({
   root: {
-    minHeight: "100px",
+    minHeight: "50px",
     backgroundColor: "#1f1d19",
     display: "flex",
     justifyContent: "center",

@@ -70,7 +70,6 @@ export default ({ history, friends }) => {
   };
 
   const handleSelectFriend = ({ _id }) => {
-    debugger;
     if (userId === _id) {
       history.push(`/api/users/me`);
     } else {
@@ -89,7 +88,9 @@ export default ({ history, friends }) => {
             <CardActionArea onClick={() => handleSelectFriend(friend)}>
               <CardHeader
                 subheader={`${mutualFriends} mutual friends`}
-                title={friend.name}
+                title={
+                  userId === friend._id ? `${friend.name} - You` : friend.name
+                }
               />
               <CardContent
                 style={{ display: "flex", justifyContent: "space-around" }}

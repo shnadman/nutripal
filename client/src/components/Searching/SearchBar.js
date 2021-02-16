@@ -32,7 +32,7 @@ export default ({ placeholder }) => {
 
   return (
     <Container className={classes.helperText} style={{ maxWidth: "350px" }}>
-      <Paper>
+      <Paper id="searchname">
         <TextFieldWithButton
           onSubmit={onSubmit}
           icon={<SearchRoundedIcon color="primary" />}

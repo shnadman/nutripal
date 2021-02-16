@@ -27,6 +27,8 @@ const categoryImgs = {
 
 export default (category) => {
   switch (category) {
+    case "Desserts":
+      return categoryImgs.desserts;
     case "Baked Goods":
       return categoryImgs.bakedGoods;
     case "Soup":

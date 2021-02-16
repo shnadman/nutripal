@@ -9,6 +9,7 @@ import CardGrid from "./CardGrid";
 import MacrosAggTable from "./MacrosTableAggregate/FullTable";
 import "./tableStyles.css";
 import "./UserHub/gridStyles.css";
+import MacrosTour from "./Tours/MacrosTour";
 
 export default ({
   data,
@@ -22,7 +23,7 @@ export default ({
   const { isLoading } = useSelector((state) => state.macros);
 
   const renderLoadingSpinner = (
-    <div style={{ position: "relative", left: "50vw" }}>
+    <div style={{ position: "relative", left: "47vw" }}>
       <RingLoader color="#5eef97" size={120} loading={true} />
     </div>
   );
@@ -32,7 +33,7 @@ export default ({
     overflowY: "scroll",
     height: "90vh",
     transform: anySelected
-      ? "translate3d(20px,0px,0px)"
+      ? "translate3d(-20px,0px,0px)"
       : "translate3d(-350px,0px,0px)",
   });
 
@@ -67,7 +68,7 @@ export default ({
 
   const renderTable = (
     <animated.div style={springPropsTable}>
-      <Box paddingTop="30px" width="112%">
+      <Box id="selected" paddingTop="30px" width="112%">
         <MacrosAggTable
           rows={selected}
           dynamicSelecting={dynamicSelecting}
@@ -81,8 +82,11 @@ export default ({
   return (
     <Box display="flex">
       {isLoading ? renderLoadingSpinner : renderTable}
+      {anySelected ? <MacrosTour /> : null}
       <div>
-        <Container maxWidth="lg">{renderGrid}</Container>
+        <Container style={{ position: "relative", left: "4vw" }} maxWidth="lg">
+          {renderGrid}
+        </Container>
       </div>
     </Box>
   );

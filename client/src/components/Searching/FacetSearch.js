@@ -55,7 +55,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "space-between",
     marginTop: "30px",
-    padding: "5px 5vw",
+    padding: "5px 6vw 5px 2vw",
   },
 }));
 
@@ -132,7 +132,7 @@ export default ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={classes.root}>
+      <div id="facet" className={classes.root}>
         <Controller
           name="calories"
           control={control}

@@ -6,9 +6,10 @@ import { Route, Router, Switch } from "react-router-dom";
 import history from "../history";
 import Appbar from "./Appbar";
 import Signup from "./auth/Signup";
+import Copyright from "./Copyright";
 import EditProfile from "./EditProfile";
 import Homepage from "./Homepage";
-import LandingPage from "./LandingPage";
+import Tour from "./Tours/Tour";
 import UserHub from "./UserHub";
 import { useFriendsData, useSelfData } from "./utils/hooks";
 import Modal from "./utils/Modal";
@@ -45,12 +46,12 @@ const App = () => {
       <div>
         <Router history={history}>
           <div>
+            <Tour />
             <div style={{ zIndex: 3, position: "sticky", top: 0 }}>
               <Appbar history={history} />
             </div>
             <Switch>
-              <Route path="/" exact component={LandingPage} />
-              <Route path="/home" exact component={Homepage} />
+              <Route path="/" exact component={Homepage} />
               <Route path="/signup" exact component={Signup} />
               <Route path="/login" exact component={Modal} />
               <Route path="/api/users/me/edit" exact component={EditProfile} />
@@ -79,7 +80,7 @@ const App = () => {
                 )}
               />
             </Switch>
-            {/*<Copyright />*/}
+            <Copyright />
           </div>
         </Router>
       </div>

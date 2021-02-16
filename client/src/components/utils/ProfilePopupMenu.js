@@ -25,6 +25,7 @@ export default function MenuPopupState({ history }) {
       {(popupState) => (
         <React.Fragment>
           <Button
+            id="profile"
             variant="contained"
             color="primary"
             style={{ textTransform: "none", fontSize: 17, color: "#ada3d4" }}

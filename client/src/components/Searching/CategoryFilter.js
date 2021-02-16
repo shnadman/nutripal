@@ -37,14 +37,18 @@ export default ({ setCategory, category }) => {
           </MenuItem>
           <MenuItem value={"Baked Goods"}>Baked Goods</MenuItem>
           <MenuItem value={"Soup"}>Soup</MenuItem>
-          <MenuItem value={"AppetizersSides"}>AppetizersSides</MenuItem>
+          <MenuItem value={"AppetizersSides"}>Appetizers & Sides</MenuItem>
           <MenuItem value={"Pizza"}>Pizza</MenuItem>
           <MenuItem value={"Salads"}>Salads</MenuItem>
           <MenuItem value={"Burgers"}>Burgers</MenuItem>
           <MenuItem value={"Sandwiches"}>Sandwiches</MenuItem>
           <MenuItem value={"Entrees"}>Entrees</MenuItem>
-          <MenuItem value={"ToppingsIngredients"}>ToppingsIngredients</MenuItem>
+          <MenuItem value={"ToppingsIngredients"}>
+            Toppings & Ingredients
+          </MenuItem>
+          <MenuItem value={"Desserts"}>Desserts</MenuItem>
           <MenuItem value={"Beverages"}>Beverages</MenuItem>
+          <MenuItem value={"Fried Potatoes"}>Fried Potatoes</MenuItem>
         </Select>
       </FormControl>
     </div>

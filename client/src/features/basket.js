@@ -203,7 +203,9 @@ export const sendFriendRequest = (id) => async (dispatch) => {
     const res = await basket.put(`/friends/${id}`);
     dispatch(sendFriendRequestSuccess(res));
   } catch (e) {
-    dispatch(sendFriendRequestError(e.response.data));
+    e.response
+      ? dispatch(sendFriendRequestError(e.response.data))
+      : dispatch(sendFriendRequestError("Something failed"));
   }
 };
 export const editProfile = (form) => async (dispatch) => {

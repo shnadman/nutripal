@@ -59,6 +59,8 @@ export default () => {
   const classes = useGridStyles("#fff");
   const dispatch = useDispatch();
   const dynamicSelecting = useSelected(data);
+  const { isLoading } = useSelector((state) => state.macros);
+
   const { selected, clearSelected } = dynamicSelecting;
 
   const handleClearResults = () => {
@@ -81,9 +83,11 @@ export default () => {
             flexDirection="column"
             justifyContent="space-between"
             maxWidth="300px"
+            position="relative"
+            left="2vw"
           >
             <Typography>Advanced filters</Typography>
-            <Paper className={classes.paper} variant="outlined">
+            <Paper id="filters" className={classes.paper} variant="outlined">
               <SortBy
                 sortBy={sortBy}
                 setSortBy={setSortBy}
@@ -96,17 +100,30 @@ export default () => {
           </Box>
 
           {totalPages ? (
-            <Box
-              paddingBottom="50px"
-              marginRight="40vw"
-              marginTop="50px"
-              flexSrink="1"
-            >
-              <ControlledPagination count={totalPages} />
-            </Box>
+            <>
+              <Box
+                id="results"
+                paddingBottom="50px"
+                position="absolute"
+                left="42vw"
+                marginTop="50px"
+                display="flex"
+                justifyContent="space-around"
+                flexDirection="column"
+              >
+                <ControlledPagination count={totalPages} />
+                {!isLoading && (
+                  <Typography
+                    style={{ position: "relative", left: "15px", top: "15px" }}
+                    variant="subtitle2"
+                  >
+                    Click on the meal cards to reveal the aggregate table
+                  </Typography>
+                )}
+              </Box>
+            </>
           ) : null}
         </Box>
-
         <MacrosLayout
           compositionCreateAction={<CreateComposition selected={selected} />}
           compositionUpdateAction={<ModifyComposition selected={selected} />}

@@ -92,17 +92,19 @@ export default function PrimarySearchAppBar({ history }) {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
-          <Link to="/home">
-            <Button className={classes.title} size="large">
+          <Link to="/">
+            <Button id="nutripal" className={classes.title} size="large">
               NutriPal
             </Button>
           </Link>
           <SearchBar placeholder={"Search by name..."} />
+          <Box position="relative" left="22%" id="starttour" />
           <div className={classes.grow} />
           <Box className={classes.sectionDesktop}>
             <Login />
             <Link to="/signup">
               <Button
+                id="signup"
                 className={classes.btns}
                 variant="contained"
                 color="primary"
@@ -111,7 +113,7 @@ export default function PrimarySearchAppBar({ history }) {
               </Button>
             </Link>
             <NotificationsPopper />
-            <ProfilePopupMenu history={history} />
+            <ProfilePopupMenu id="profile" history={history} />
           </Box>
         </Toolbar>
       </AppBar>
