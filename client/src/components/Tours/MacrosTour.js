@@ -52,7 +52,7 @@ const MacrosTour = () => {
   const [tourState, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   useEffect(() => {
-    if (!localStorage.getItem("macTour")) {
+    if (!sessionStorage.getItem("macTour")) {
       dispatch({ type: "START" });
     }
   }, []);
@@ -65,7 +65,7 @@ const MacrosTour = () => {
       (status === STATUS.SKIPPED && tourState.run) ||
       status === STATUS.FINISHED
     ) {
-      localStorage.setItem("macTour", "done");
+      sessionStorage.setItem("macTour", "done");
       dispatch({ type: "STOP" });
     } else if (type === EVENTS.STEP_AFTER || type === EVENTS.TARGET_NOT_FOUND) {
       dispatch({

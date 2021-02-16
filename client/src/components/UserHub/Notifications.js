@@ -49,7 +49,6 @@ export default () => {
   const classes = useStyles();
   useSelected([]);
   const { notifications } = useSelector((state) => state.notifications);
-  const auth = useSelector((state) => state.auth.authenticated);
 
   const dispatch = useDispatch();
   // useEffect(() => {
