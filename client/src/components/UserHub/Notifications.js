@@ -15,6 +15,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { respondFriendRequest } from "../../features/basket";
 import { useSelected } from "../utils/hooks";
+import _ from "lodash";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -48,6 +49,8 @@ export default () => {
   const classes = useStyles();
   useSelected([]);
   const { notifications } = useSelector((state) => state.notifications);
+  const auth = useSelector((state) => state.auth.authenticated);
+
   const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(getFriends());
@@ -59,58 +62,63 @@ export default () => {
   const handleDelete = (id) => {
     dispatch(respondFriendRequest(id, "reject"));
   };
-  const renderNotifications = notifications.map((notification) => {
-    return (
-      <Grid key={notification._id} xs item container alignItems="flex-start">
-        <Card raised className={classes.card}>
-          <CardContent>
-            <Box display="flex" wrap="wrap">
-              <Avatar
-                alt={notification.msg}
-                src="/static/images/avatar/1.jpg"
-              />
-              <Typography>{notification.msg}</Typography>
-            </Box>
-            <Box>{`${2} mutual friends`}</Box>
-            <Box paddingTop="10px">
-              {
-                <Typography className={classes.timestamp}>
-                  {formatDistance(new Date(notification.createdAt), Date.now())}
-                </Typography>
-              }
-            </Box>
-          </CardContent>
-          <CardActions>
-            <Button
-              onClick={() => handleConfirm(notification._id)}
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-              startIcon={<CheckCircleOutlineIcon />}
-            >
-              Confirm
-            </Button>
-            <Button
-              onClick={() => handleDelete(notification._id)}
-              variant="contained"
-              color="disabled"
-              className={classes.button}
-              startIcon={<HighlightOffIcon />}
-            >
-              Delete
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
-    );
-  });
+  const renderNotifications =
+    !_.isEmpty(notifications) &&
+    notifications.map((notification) => {
+      return (
+        <Grid key={notification._id} xs item container alignItems="flex-start">
+          <Card raised className={classes.card}>
+            <CardContent>
+              <Box display="flex" wrap="wrap">
+                <Avatar
+                  alt={notification.msg}
+                  src="/static/images/avatar/1.jpg"
+                />
+                <Typography>{notification.msg}</Typography>
+              </Box>
+              <Box>{`${2} mutual friends`}</Box>
+              <Box paddingTop="10px">
+                {
+                  <Typography className={classes.timestamp}>
+                    {formatDistance(
+                      new Date(notification.createdAt),
+                      Date.now()
+                    )}
+                  </Typography>
+                }
+              </Box>
+            </CardContent>
+            <CardActions>
+              <Button
+                onClick={() => handleConfirm(notification._id)}
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+                startIcon={<CheckCircleOutlineIcon />}
+              >
+                Confirm
+              </Button>
+              <Button
+                onClick={() => handleDelete(notification._id)}
+                variant="contained"
+                color="disabled"
+                className={classes.button}
+                startIcon={<HighlightOffIcon />}
+              >
+                Delete
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      );
+    });
 
   return (
     <div>
       <Box display="flex">
         <Grid container spacing={2} direction="column">
           <Typography variant="h5">Notifications</Typography>
-          {notifications && renderNotifications}
+          {renderNotifications}
         </Grid>
       </Box>
     </div>

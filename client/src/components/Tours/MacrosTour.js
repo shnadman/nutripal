@@ -17,7 +17,7 @@ const TOUR_STEPS = [
 ];
 
 const INITIAL_STATE = {
-  key: "onetime",
+  key: new Date(),
   run: false,
   continuous: true,
   loading: false,
@@ -48,16 +48,13 @@ const reducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-const Tour = () => {
+const MacrosTour = () => {
   const [tourState, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   useEffect(() => {
     if (!localStorage.getItem("macTour")) {
       dispatch({ type: "START" });
     }
-    return () => {
-      localStorage.setItem("macTour", "done");
-    };
   }, []);
 
   const callback = (data) => {
@@ -68,6 +65,7 @@ const Tour = () => {
       (status === STATUS.SKIPPED && tourState.run) ||
       status === STATUS.FINISHED
     ) {
+      localStorage.setItem("macTour", "done");
       dispatch({ type: "STOP" });
     } else if (type === EVENTS.STEP_AFTER || type === EVENTS.TARGET_NOT_FOUND) {
       dispatch({
@@ -98,4 +96,4 @@ const Tour = () => {
   );
 };
 
-export default Tour;
+export default MacrosTour;
