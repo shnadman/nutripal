@@ -5,7 +5,8 @@ const TOUR_STEPS = [
   {
     target: "#starttour",
     content:
-      "Thank god it's impossible to resist clicking a blinking red button. Welcome to NutriPal! Iv'e arranged a quick tour to get you going.",
+      "You just couldn't resist clicking that blinking red button, huh?\n" +
+      "Welcome to NutriPal! Iv'e arranged a quick tour to get you going.",
   },
   {
     target: "#nutripal",
