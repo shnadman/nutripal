@@ -3,7 +3,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import EditIcon from "@material-ui/icons/Edit";
 import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
