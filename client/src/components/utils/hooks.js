@@ -125,12 +125,13 @@ export const useModal = () => {
 export const useCompositions = () => {
   const dispatch = useDispatch();
   const { compositions } = useSelector((state) => state.basket);
+  const auth = useSelector((state) => state.auth.authenticated);
   const [chosenComposition, setChosenComposition] = useState([]);
   let isSelected = (id) => chosenComposition._id === id;
 
   useEffect(() => {
-    dispatch(getCompositions());
-  }, [dispatch]);
+    auth && dispatch(getCompositions());
+  }, [dispatch, auth]);
 
   return { compositions, setChosenComposition, isSelected };
 };

@@ -19,11 +19,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default () => {
   const { notifications } = useSelector((state) => state.notifications);
+  const auth = useSelector((state) => state.auth.authenticated);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getNotifications());
-  }, [dispatch]);
+    auth && dispatch(getNotifications());
+  }, [dispatch, auth]);
 
   const classes = useStyles();
 

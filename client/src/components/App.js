@@ -14,6 +14,7 @@ import UserHub from "./UserHub";
 import { useFriendsData, useSelfData } from "./utils/hooks";
 import Modal from "./utils/Modal";
 import Notifier from "./utils/Notifier";
+import { Typography, useMediaQuery } from "@material-ui/core";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -40,7 +41,9 @@ const stylePropsFriend = {
 };
 
 const App = () => {
-  return (
+  const matches = useMediaQuery("(min-width:860px)");
+
+  return matches ? (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div>
@@ -85,6 +88,31 @@ const App = () => {
         </Router>
       </div>
       <Notifier />
+    </ThemeProvider>
+  ) : (
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          position: "relative",
+          top: "23vh",
+        }}
+      >
+        <Typography display="block" variant="subtitle2">
+          This website was designed to utilize screen space for an engaging
+          desktop experience in mind, and right now is not responsive on devices
+          with screen width lesser than 860px. Nevertheless, I'm working on a
+          responsive version which will be hopefully uploaded in the following
+          weeks! You're welcome to check it out on your desktop, I'm sure it'll
+          be worth it. In the meantime, you can check out my portfolio which is
+          100% responsive :)
+        </Typography>
+        <a href="https://portfolio-shnadman.vercel.app/">Portfolio</a>
+      </div>
     </ThemeProvider>
   );
 };
