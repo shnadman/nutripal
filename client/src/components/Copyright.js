@@ -5,6 +5,7 @@ const useStyles = makeStyles(() => ({
   root: {
     minHeight: "50px",
     backgroundColor: "#1f1d19",
+    borderTop: "1.5px solid #ada3d4",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
