@@ -11,7 +11,7 @@ import TextFieldWithButton from "../utils/TextFieldWithButton";
 
 const useStyles = makeStyles({
   item: {
-    backgroundColor: "rgba(255,255,255,0.03)",
+    backgroundColor: "rgb(101,39,125,0.3)",
     border: "0.7px solid white",
     borderRadius: 14,
   },
@@ -28,7 +28,7 @@ export default ({ selected }) => {
   return (
     <Accordion className={classes.item}>
       <AccordionSummary>
-        <Typography>Create composition</Typography>
+        <Typography variant="subtitle1">CREATE COMPOSITION</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <TextFieldWithButton

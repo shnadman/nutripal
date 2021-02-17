@@ -1,4 +1,6 @@
 import Button from "@material-ui/core/Button";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import MenuItem from "@material-ui/core/MenuItem";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,13 +16,12 @@ const Signout = () => {
   };
 
   return (
-    <Button
-      onClick={handleLogout}
-      startIcon={<ExitToAppIcon />}
-      disabled={!auth}
-    >
+    <MenuItem onClick={handleLogout} disabled={!auth}>
+      <ListItemIcon>
+        <ExitToAppIcon />
+      </ListItemIcon>
       Sign out
-    </Button>
+    </MenuItem>
   );
 };
 

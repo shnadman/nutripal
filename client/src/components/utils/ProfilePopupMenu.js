@@ -1,7 +1,11 @@
 import Button from "@material-ui/core/Button";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import AccountCircle from "@material-ui/icons/AccountCircle";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import EditIcon from "@material-ui/icons/Edit";
 import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -36,17 +40,22 @@ export default function MenuPopupState({ history }) {
           </Button>
           <Menu {...bindMenu(popupState)}>
             <MenuItem onClick={() => handleClickProfile(popupState)}>
+              <ListItemIcon>
+                <ShoppingBasketIcon />
+              </ListItemIcon>
               Your basket
             </MenuItem>
             <MenuItem
               disabled={!auth}
               onClick={() => handleClickEdit(popupState)}
             >
+              <ListItemIcon>
+                <EditIcon />
+              </ListItemIcon>
               Edit profile
             </MenuItem>
-            <MenuItem disabled={!auth} onClick={popupState.close}>
-              <Signout />
-            </MenuItem>
+
+            <Signout />
           </Menu>
         </React.Fragment>
       )}

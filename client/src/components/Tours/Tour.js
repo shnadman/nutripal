@@ -121,7 +121,6 @@ const Tour = () => {
         {...tourState}
         callback={callback}
         showSkipButton={true}
-        debug
         styles={{
           tooltipContainer: {
             textAlign: "left",

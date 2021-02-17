@@ -40,6 +40,7 @@ const useGridStyles = makeStyles(() => ({
     border: "1.5px solid",
     borderRadius: 12,
   },
+  clearBtn: { margin: "18px" },
 }));
 
 export default () => {
@@ -133,8 +134,10 @@ export default () => {
       </Box>
       {!data ? null : (
         <Button
+          className={classes.clearBtn}
           color="secondary"
           variant="contained"
+          size="large"
           onClick={handleClearResults}
         >
           Clear Results

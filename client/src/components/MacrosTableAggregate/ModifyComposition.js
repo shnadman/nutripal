@@ -27,7 +27,7 @@ const useStyles = makeStyles(({ breakpoints }) => ({
   },
 
   item: {
-    backgroundColor: "rgba(255,255,255,0.03)",
+    backgroundColor: "rgb(27,106,190,0.3)",
     border: "0.7px solid white",
     borderRadius: 14,
   },
@@ -82,7 +82,7 @@ export default ({ selected }) => {
   return (
     <Accordion className={classes.item}>
       <AccordionSummary>
-        <Typography>Add to existing composition</Typography>
+        <Typography variant="subtitle1">ADD TO EXISTING COMPOSITION</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Box display="flex" wrap="wrap" maxWidth="30px">
