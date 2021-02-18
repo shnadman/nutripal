@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
@@ -5,6 +6,7 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import React from "react";
 import { Link } from "react-router-dom";
+import BurgerMenu from "./BurgerMenu";
 import SearchBar from "./Searching/SearchBar";
 import Login from "./utils/Modal";
 import NotificationsPopper from "./utils/NotificationsPopper";
@@ -21,11 +23,14 @@ const useStyles = makeStyles((theme) => ({
     color: "#ada3d4",
   },
   title: {
-    fontSize: 20,
+    [theme.breakpoints.down("md")]: {
+      fontSize: 15,
+    },
+    fontSize: 18,
     display: "none",
     color: "#ada3d4",
     textTransform: "none",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("xs")]: {
       display: "block",
     },
   },
@@ -87,6 +92,32 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar({ history }) {
   const classes = useStyles();
+  const matches = useMediaQuery("(max-width:860px)");
+
+  const desktopSection = (
+    <Box className={classes.sectionDesktop}>
+      <Login />
+      <Link to="/signup">
+        <Button
+          id="signup"
+          className={classes.btns}
+          variant="contained"
+          color="primary"
+        >
+          Sign up
+        </Button>
+      </Link>
+      <NotificationsPopper />
+      <ProfilePopupMenu id="profile" history={history} />
+    </Box>
+  );
+
+  const mobileSection = (
+    <Box className={classes.sectionMobile}>
+      <NotificationsPopper />
+      <BurgerMenu history={history} />
+    </Box>
+  );
 
   return (
     <div className={classes.grow}>
@@ -100,21 +131,7 @@ export default function PrimarySearchAppBar({ history }) {
           <SearchBar placeholder={"Search by name..."} />
           <Box position="relative" left="22%" id="starttour" />
           <div className={classes.grow} />
-          <Box className={classes.sectionDesktop}>
-            <Login />
-            <Link to="/signup">
-              <Button
-                id="signup"
-                className={classes.btns}
-                variant="contained"
-                color="primary"
-              >
-                Sign up
-              </Button>
-            </Link>
-            <NotificationsPopper />
-            <ProfilePopupMenu id="profile" history={history} />
-          </Box>
+          {matches ? mobileSection : desktopSection}
         </Toolbar>
       </AppBar>
     </div>

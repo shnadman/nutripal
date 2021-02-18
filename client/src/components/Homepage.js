@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
@@ -61,6 +62,7 @@ export default () => {
   const dispatch = useDispatch();
   const dynamicSelecting = useSelected(data);
   const { isLoading } = useSelector((state) => state.macros);
+  const isMobile = useMediaQuery("(max-width:860px)");
 
   const { selected, clearSelected } = dynamicSelecting;
 
@@ -78,6 +80,7 @@ export default () => {
           branded={branded}
           category={category}
         />
+
         <Box display="flex" justifyContent="space-between">
           <Box
             display="flex"
@@ -85,7 +88,8 @@ export default () => {
             justifyContent="space-between"
             maxWidth="300px"
             position="relative"
-            left="2vw"
+            top={isMobile ? "5vw" : "0"}
+            left={isMobile ? "15vw" : "2vw"}
           >
             <Typography>Advanced filters</Typography>
             <Paper id="filters" className={classes.paper} variant="outlined">
@@ -106,8 +110,8 @@ export default () => {
                 id="results"
                 paddingBottom="50px"
                 position="absolute"
-                left="42vw"
-                marginTop="50px"
+                left={isMobile ? "40vw" : "42vw"}
+                marginTop={isMobile ? "200px" : "50px"}
                 display="flex"
                 justifyContent="space-around"
                 flexDirection="column"
@@ -125,12 +129,14 @@ export default () => {
             </>
           ) : null}
         </Box>
-        <MacrosLayout
-          compositionCreateAction={<CreateComposition selected={selected} />}
-          compositionUpdateAction={<ModifyComposition selected={selected} />}
-          data={data}
-          dynamicSelecting={dynamicSelecting}
-        />
+        <Box position="relative" marginTop={isMobile ? "18vh" : "0vh"}>
+          <MacrosLayout
+            compositionCreateAction={<CreateComposition selected={selected} />}
+            compositionUpdateAction={<ModifyComposition selected={selected} />}
+            data={data}
+            dynamicSelecting={dynamicSelecting}
+          />
+        </Box>
       </Box>
       {!data ? null : (
         <Button

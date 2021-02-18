@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Slider from "@material-ui/core/Slider";
@@ -18,7 +19,6 @@ const StyledSlider = withStyles({
     height: 8,
     width: "135%",
   },
-
   thumb: {
     height: 20,
     width: 20,
@@ -50,9 +50,14 @@ const StyledSlider = withStyles({
   },
 })(Slider);
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      padding: "5px 28vw 5px 5vw",
+      display: "block",
+    },
+
     justifyContent: "space-between",
     marginTop: "30px",
     padding: "5px 6vw 5px 2vw",
@@ -105,6 +110,7 @@ export default ({
   const classes = useStyles();
   const dispatch = useDispatch();
   const { handleSubmit, control } = useForm();
+  const isMobile = useMediaQuery("(max-width:860px)");
 
   //const extractParams = (sliderVals) => ({...})
 
@@ -138,7 +144,7 @@ export default ({
           control={control}
           defaultValue={[0, 7000]}
           render={(props) => (
-            <Box marginLeft="20px" flexGrow="0.1">
+            <Box marginLeft={isMobile ? "0px" : "20px"} flexGrow="0.1">
               <Typography>Calories (kcal)</Typography>
               <StyledSlider
                 {...props}

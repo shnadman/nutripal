@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -20,11 +21,14 @@ import Comment from "./Comment";
 import PieChart from "./PieChart";
 import getCategoryImg from "./staticImgs";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   actionArea: {
     borderRadius: 20,
   },
   selected: ({ color }) => ({
+    [theme.breakpoints.down("md")]: {
+      minWidth: "inherit",
+    },
     minWidth: 200,
     borderRadius: 20,
     transition: "0.2s",
@@ -37,6 +41,9 @@ const useStyles = makeStyles(() => ({
   }),
 
   card: ({ color }) => ({
+    [theme.breakpoints.down("md")]: {
+      minWidth: 100,
+    },
     minWidth: 200,
     display: "flex",
     flexDirection: "column",
@@ -57,6 +64,7 @@ const useStyles = makeStyles(() => ({
   },
   title: {
     fontFamily: " sofia-pro, Helvetica,",
+
     fontSize: "1.2rem",
     color: "#ffffff",
   },
@@ -121,6 +129,7 @@ export default ({ data, curriedCardAction, dynamicSelecting }) => {
     servingSizeUnit,
   } = data;
   const auth = useSelector((store) => store.auth.authenticated);
+  const isMobile = useMediaQuery("(max-width:860px)");
 
   const handleExpandClick = () => {
     setExpanded(!expanded);

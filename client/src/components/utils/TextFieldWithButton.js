@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,7 +10,11 @@ const useStyles = makeStyles((theme) => ({
   button: {
     color: theme.palette.secondary,
     variant: "contained",
+    [theme.breakpoints.down("md")]: {
+      padding: "1px",
+    },
   },
+
   helperText: {
     color: "primary",
     variant: "h5",
@@ -19,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default ({ onSubmit, icon, placeholder, name, disabled }) => {
   const classes = useStyles();
+  const isMobile = useMediaQuery("(max-width:860px)");
+
   const { handleSubmit, register } = useForm();
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

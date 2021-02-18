@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import React from "react";
@@ -21,6 +22,7 @@ export default ({
 }) => {
   const { selected, anySelected } = dynamicSelecting;
   const { isLoading } = useSelector((state) => state.macros);
+  const isMobile = useMediaQuery("(max-width:860px)");
 
   const renderLoadingSpinner = (
     <div style={{ position: "relative", left: "47vw" }}>
@@ -32,7 +34,11 @@ export default ({
     config: { mass: 12, tension: 600, friction: 350, clamp: true },
     overflowY: "scroll",
     height: "90vh",
-    transform: anySelected
+    transform: isMobile
+      ? anySelected
+        ? "translate3d(-65px,0px,0px)"
+        : "translate3d(-65px,0px,0px)"
+      : anySelected
       ? "translate3d(-20px,0px,0px)"
       : "translate3d(-350px,0px,0px)",
   });
@@ -66,9 +72,9 @@ export default ({
     </animated.div>
   );
 
-  const renderTable = (
+  const renderTable = !isMobile && (
     <animated.div style={springPropsTable}>
-      <Box id="selected" paddingTop="30px" width="112%">
+      <Box id="selected" paddingTop="30px" width={isMobile ? "50vw" : "112%"}>
         <MacrosAggTable
           rows={selected}
           dynamicSelecting={dynamicSelecting}
@@ -84,7 +90,14 @@ export default ({
       {isLoading ? renderLoadingSpinner : renderTable}
       {anySelected ? <MacrosTour /> : null}
       <div>
-        <Container style={{ position: "relative", left: "4vw" }} maxWidth="lg">
+        <Container
+          style={
+            isMobile
+              ? { position: "relative", left: "25vw" }
+              : { position: "relative", left: "4vw" }
+          }
+          maxWidth="lg"
+        >
           {renderGrid}
         </Container>
       </div>

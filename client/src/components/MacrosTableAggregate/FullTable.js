@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@material-ui/core";
 import Checkbox from "@material-ui/core/Checkbox";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
@@ -19,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 30,
     width: "85%",
-    fontSize: "0.8rem",
+    fontSize: "0.3rem",
+    lineHeight: 1,
   },
   paper: {
     borderRadius: "inherit",
@@ -73,12 +75,12 @@ export default function EnhancedTable({
     aggTotals,
     totals,
   } = dynamicSelecting;
-
+  const isMobile = useMediaQuery("(max-width:860px)");
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
   const [page, setPage] = React.useState(0);
-  const [dense] = React.useState(false);
+  const [dense] = React.useState(isMobile);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (event, property) => {
@@ -108,6 +110,7 @@ export default function EnhancedTable({
             className={classes.table}
             aria-labelledby="tableTitle"
             size={dense ? "small" : "medium"}
+            padding={isMobile ? "none" : "default"}
             aria-label="enhanced table"
           >
             <EnhancedTableHead
