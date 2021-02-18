@@ -1,4 +1,3 @@
-import { useMediaQuery } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -129,7 +128,6 @@ export default ({ data, curriedCardAction, dynamicSelecting }) => {
     servingSizeUnit,
   } = data;
   const auth = useSelector((store) => store.auth.authenticated);
-  const isMobile = useMediaQuery("(max-width:860px)");
 
   const handleExpandClick = () => {
     setExpanded(!expanded);

@@ -1,8 +1,6 @@
-import Box from "@material-ui/core/Box";
 import Dialog from "@material-ui/core/Dialog";
 import MenuIcon from "@material-ui/icons/Menu";
 import { IconButton } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -14,7 +12,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Login from "./auth/Login";
 import Signout from "./auth/Signout";
-import NotificationsNoneRoundedIcon from "@material-ui/icons/NotificationsNoneRounded";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { useModal } from "./utils/hooks";
 

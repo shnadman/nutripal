@@ -122,7 +122,9 @@ export default () => {
                     style={{ position: "relative", left: "15px", top: "15px" }}
                     variant="subtitle2"
                   >
-                    Click on the meal cards to reveal the aggregate table
+                    {isMobile
+                      ? ""
+                      : "Click on the meal cards to reveal the aggregate table"}
                   </Typography>
                 )}
               </Box>

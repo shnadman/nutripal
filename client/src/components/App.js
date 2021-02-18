@@ -14,7 +14,6 @@ import UserHub from "./UserHub";
 import { useFriendsData, useSelfData } from "./utils/hooks";
 import Modal from "./utils/Modal";
 import Notifier from "./utils/Notifier";
-import { Typography, useMediaQuery } from "@material-ui/core";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -41,8 +40,6 @@ const stylePropsFriend = {
 };
 
 const App = () => {
-  const isMobile = useMediaQuery("(max-width:860px)");
-
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
