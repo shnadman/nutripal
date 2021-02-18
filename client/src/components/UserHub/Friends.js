@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
 import Card from "@material-ui/core/Card";
@@ -48,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(11),
     height: theme.spacing(11),
   },
+
   searchResult: { overflowY: "scroll", height: "90vh" },
 }));
 
@@ -58,6 +60,7 @@ export default ({ history, friends }) => {
     state.basket.friends.map((friend) => friend._id)
   );
   const dispatch = useDispatch();
+  const isMobile = useMediaQuery("(max-width:860px)");
 
   useEffect(() => {
     dispatch(getHub());
@@ -122,11 +125,13 @@ export default ({ history, friends }) => {
   return (
     <div className={classes.bg}>
       <Box display="flex" justifyContent="space-around">
-        <Box>
-          <Grid container spacing={3} direction="column" alignItems="basline">
-            {renderFriendsList(friends)}
-          </Grid>
-        </Box>
+        {!isMobile && (
+          <Box>
+            <Grid container spacing={3} direction="column" alignItems="basline">
+              {renderFriendsList(friends)}
+            </Grid>
+          </Box>
+        )}
         <Box>
           <Typography variant="h2" style={{ marginBottom: "40px" }}>
             Or look for new friends

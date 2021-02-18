@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     height: "25vh",
+    [theme.breakpoints.down("md")]: {
+      height: "30vh",
+    },
     paddingTop: "5vh",
     borderBottom: "1px groove #fff",
   }),
@@ -44,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     marginLeft: "20px",
     justifyContent: "flex-start",
+    [theme.breakpoints.down("md")]: {
+      marginTop: 30,
+    },
   },
 
   text: {

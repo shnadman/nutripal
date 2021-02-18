@@ -12,7 +12,7 @@ import { useSelected } from "../utils/hooks";
 
 import CompGrid from "./CompGrid";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: "100px",
   },
@@ -25,7 +25,14 @@ const useStyles = makeStyles(() => ({
     paddingTop: "80px",
     minHeight: "70vh",
   },
-  header: { position: "relative", left: "40vw", paddingBottom: "40px" },
+  header: {
+    position: "relative",
+    left: "40vw",
+    paddingBottom: "40px",
+    [theme.breakpoints.down("md")]: {
+      left: "13vw",
+    },
+  },
 }));
 
 const Feature = ({ compositions }) => {

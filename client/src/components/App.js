@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -40,13 +41,15 @@ const stylePropsFriend = {
 };
 
 const App = () => {
+  const isMobile = useMediaQuery("(max-width:860px)");
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div>
         <Router history={history}>
           <div>
-            <Tour />
+            {!isMobile && <Tour />}
             <div style={{ zIndex: 3, position: "sticky", top: 0 }}>
               <Appbar history={history} />
             </div>

@@ -106,6 +106,7 @@ const EditProfile = () => {
               <Box className={classes.passwordField}>
                 <Typography>Password</Typography>
                 <TextField
+                  style={{ maxWidth: "60vw" }}
                   type="password"
                   variant="outlined"
                   label="Old Password"
@@ -114,7 +115,7 @@ const EditProfile = () => {
                 />
                 <TextField
                   type="password"
-                  style={{ marginTop: "20px" }}
+                  style={{ marginTop: "20px", maxWidth: "60vw" }}
                   variant="outlined"
                   label="New password"
                   inputRef={register}
