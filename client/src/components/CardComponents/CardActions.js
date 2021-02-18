@@ -47,8 +47,6 @@ export const StarAction = ({
 }) => {
   const classes = useStyles();
   const { on, toggle } = useToggleOnSearch(starred, id);
-  const auth = useSelector((store) => store.auth.authenticated);
-
   const [currLikes, setCurrLikes] = useState(starred.length);
 
   return (
@@ -59,7 +57,6 @@ export const StarAction = ({
           toggle(event);
           setCurrLikes((curr) => (on ? curr - 1 : curr + 1));
         }}
-        disabled={!auth}
       >
         <Typography className={classes.text}>{currLikes}</Typography>
         <FavoriteIcon className={on ? classes.starred : classes.icon} />

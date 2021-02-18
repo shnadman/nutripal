@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import BurgerMenu from "./BurgerMenu";
 import SearchBar from "./Searching/SearchBar";
@@ -93,10 +94,11 @@ const useStyles = makeStyles((theme) => ({
 export default function PrimarySearchAppBar({ history }) {
   const classes = useStyles();
   const matches = useMediaQuery("(max-width:860px)");
+  const auth = useSelector((state) => state.auth.authenticated);
 
   const desktopSection = (
     <Box className={classes.sectionDesktop}>
-      <Login />
+      {!auth && <Login />}
       <Link to="/signup">
         <Button
           id="signup"
