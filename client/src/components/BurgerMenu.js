@@ -13,11 +13,18 @@ import { useSelector } from "react-redux";
 import Login from "./auth/Login";
 import Signout from "./auth/Signout";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import { useModal } from "./utils/hooks";
 
 export default function MenuPopupState({ history }) {
   const auth = useSelector((state) => state.auth.authenticated);
-  const { open, handleClose, handleClickOpen } = useModal();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleClickProfile = (popupState) => {
     history.push("/api/users/me");
@@ -58,13 +65,14 @@ export default function MenuPopupState({ history }) {
                 <VpnKeyIcon />
               </ListItemIcon>
               Login
-              <Dialog
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="form-dialog-title"
-                children={<Login onClose={handleClose} />}
-              />
             </MenuItem>
+            <Dialog
+              open={open}
+              onBackdropClick={handleClose}
+              onClose={handleClose}
+              aria-labelledby="form-dialog-title"
+              children={<Login onClose={handleClose} />}
+            />
             <MenuItem onClick={() => handleClickProfile(popupState)}>
               <ListItemIcon>
                 <ShoppingBasketIcon />

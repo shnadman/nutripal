@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
@@ -65,6 +66,7 @@ const UserHub = ({ history, useData, friendFlag, styleProps, match }) => {
   const [rendered, setRendered] = useState("starred");
   const dispatch = useDispatch();
   const classes = useStyles(styleProps);
+  const isMobile = useMediaQuery("(max-width:860px)");
 
   const handleSendRequest = (isFriend) => {
     isFriend
@@ -120,7 +122,12 @@ const UserHub = ({ history, useData, friendFlag, styleProps, match }) => {
         <Typography style={{ alignSelf: "center" }} variant="h3">
           {`${userName}'s basket`}
         </Typography>
-        <Box position="relative" left="60%" right="40%" bottom="5%">
+        <Box
+          position="relative"
+          left={isMobile ? "30%" : "60%"}
+          right="40%"
+          bottom="5%"
+        >
           {friendFlag ? (
             renderButton
           ) : (

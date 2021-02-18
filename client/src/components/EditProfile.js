@@ -63,10 +63,20 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(2),
   },
+  save: {
+    position: "relative",
+    left: "420px",
+    bottom: "-80px",
+    [theme.breakpoints.down("md")]: {
+      left: "40px",
+      bottom: "-15px",
+    },
+  },
 }));
 
 const EditProfile = () => {
   const classes = useStyles();
+
   const dispatch = useDispatch();
   const { userName, avatar } = useSelector((state) => state.basket);
   const { handleSubmit, register } = useForm({
@@ -136,9 +146,7 @@ const EditProfile = () => {
                   name="avatar"
                 />
               </Box>
-              <div
-                style={{ position: "relative", left: "420px", bottom: "-80px" }}
-              >
+              <div className={classes.save}>
                 <Button
                   size="large"
                   type="submit"
