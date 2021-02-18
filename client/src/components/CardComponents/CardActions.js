@@ -3,7 +3,6 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { useToggleOnSearch } from "../utils/hooks";
 import CommentsToggler from "./CommentsToggler";
 import ShareButton from "./ShareButton";
