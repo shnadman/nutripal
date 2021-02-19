@@ -35,7 +35,7 @@ const TOUR_STEPS = [
   {
     target: "#sort",
     content:
-      "Sort the results by the selected nutrition type, from highest to lowest and vice versa.",
+      "Sort the results by the selected nutrition type, from highest to lowest and vice versa. On your first visit to the page I took the liberty to sort results down by carbs for example.",
   },
   {
     target: "#profile",

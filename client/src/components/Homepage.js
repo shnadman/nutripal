@@ -5,9 +5,9 @@ import Divider from "@material-ui/core/Divider";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearResults } from "../features/macros";
+import { clearResults, searchMacros } from "../features/macros";
 import background from "../static/back1.jpg";
 import MacrosLayout from "./MacrosLayout";
 import CreateComposition from "./MacrosTableAggregate/CreateComposition";
@@ -65,6 +65,26 @@ export default () => {
   const isMobile = useMediaQuery("(max-width:860px)");
 
   const { selected, clearSelected } = dynamicSelecting;
+
+  useEffect(() => {
+    if (!localStorage.getItem("firstTimer")) {
+      const welcomeParams = {
+        sort: "-carbs",
+        brand: "true",
+        category: "",
+        "calories[lte]": 7000,
+        "calories[gte]": 0,
+        "protein[lte]": 500,
+        "protein[gte]": 0,
+        "carbs[lte]": 500,
+        "carbs[gte]": 0,
+        "fat[lte]": 500,
+        "fat[gte]": 0,
+      };
+      dispatch(searchMacros(welcomeParams));
+      localStorage.setItem("firstTimer", "true");
+    }
+  }, [dispatch]);
 
   const handleClearResults = () => {
     dispatch(clearResults());

@@ -41,7 +41,7 @@ export default () => {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          <EmailShareButton url={"http://localhost:3001/home"}>
+          <EmailShareButton url={"Can't-really-share@noshare.com"}>
             <EmailIcon size={32} round={true} />
           </EmailShareButton>
         </MenuItem>

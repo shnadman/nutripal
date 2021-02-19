@@ -138,7 +138,7 @@ export const useCompositions = () => {
 
 export const useAdvancedSearch = () => {
   const [sortBy, setSortBy] = React.useState("calories");
-  const [ascending, setAscending] = React.useState(true);
+  const [ascending, setAscending] = React.useState(false);
   const [branded, setBranded] = React.useState(true);
   const [category, setCategory] = React.useState("");
 

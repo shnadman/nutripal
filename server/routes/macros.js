@@ -29,9 +29,6 @@ router
   .delete(authenticate, deleteComment)
   .put(authenticate, updateComment);
 
-router
-  .route("/comments/:id/like")
-  .put(authenticate, likeComment)
-  .get(authenticate, getLikes);
+router.route("/comments/:id/like").put(authenticate, likeComment).get(getLikes);
 
 module.exports = router;

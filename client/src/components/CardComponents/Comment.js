@@ -23,6 +23,7 @@ const useStyles = makeStyles(() => ({
     margin: "10px",
     flexGrow: "1",
     position: "relative",
+    padding: "5px",
   },
   writer: {
     fontWeight: "bold",
